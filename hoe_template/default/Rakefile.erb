@@ -1,0 +1,30 @@
+#!/usr/bin/env ruby
+
+require "rubygems"
+require "hoe"
+
+<%=
+  found = Gem.find_files("hoe/*.rb").map { |f| File.basename(f, ".rb").to_sym }
+  extra = found - Hoe.plugins - [:rake,:rubygems,:git,:travis]
+  extra.map { |name| "# Hoe.plugin #{name.inspect}" }.sort.uniq.join("\n")
+%>
+
+Hoe.plugin :rubygems
+Hoe.plugin :travis
+Hoe.plugin :git
+Hoe.plugin :test
+
+Hoe.spec "<%= project %>" do
+  rspec_options = ["--color"]
+
+  developer("Michael Wagner", "mitch.wagna@gmail.com")
+  # self.group_name = "<%= project %>x" # if part of an organization/group
+ 
+  # Declare dependencies. Possible types are the following:
+  # [:runtime, :dev, :development, :developer]
+  # dependency('name','version',:type)
+  dependency('rspec','~> 2.12.0',:development)
+  license "MIT" # this should match the license in the README
+end
+
+# vim: syntax=ruby
