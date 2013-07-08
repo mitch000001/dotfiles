@@ -20,6 +20,7 @@ alias l='ls -la'
 alias lh='l -h'
 alias ...='cd ../..'
 alias irb='irb -I `pwd` -r irb/completion'
+alias b='bundle exec'
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 export PATH=/usr/local/bin:$PATH
