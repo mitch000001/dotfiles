@@ -6,6 +6,10 @@ call pathogen#helptags()
 call pathogen#infect()
 syntax on
 filetype plugin indent on
+set autoread            " automatic update of files changed by other processes
+set clipboard=unnamed   " enable clipboard cut&paste
+" set nobackup            " don't make backup files
+set encoding=utf-8      " for unicode glyphs
 set showcmd
 set number
 set hidden
@@ -20,9 +24,6 @@ set scrolloff=3
 set smartindent
 set laststatus=2          " Always show last status
 set mouse=a             " Enable mouse support
-
-set autoread            " automatic update of files changed by other processes
-set clipboard=unnamed   " enable clipboard cut&paste
 
 set ts=4
 set sw=4
