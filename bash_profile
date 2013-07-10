@@ -4,7 +4,7 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 PS1='\u@\h:\W '
 PS1=$PS1"\$(__git_ps1 '(%s)')$"
 
-source ~/.adb.bash
+#source ~/.adb.bash
 
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion

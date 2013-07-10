@@ -1,6 +1,7 @@
 set nocp
 " pathogen bundles
 filetype off
+runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#helptags()
 call pathogen#infect()
 syntax on
