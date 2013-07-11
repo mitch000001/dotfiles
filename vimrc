@@ -1,14 +1,14 @@
 set nocp
 " pathogen bundles
 " setup all plugins
-"let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
-"if !filereadable(vundle_readme)
-"    echo "Installing plugins..."
-"    echo ""
+let dot_vim_readme=expand('~/.vim/README.md')
+if !filereadable(dot_vim_readme)
+    echo "Installing plugins..."
+    echo ""
 "    silent !mkdir -p ~/.vim/bundle
-"    silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
-"    let iCanHazVundle=0
-"endif
+    silent !git clone git@github.com:mitch000001/dotvim ~/.vim
+    silent !cd ~/.vim && git submodule update --init 
+endif
 filetype off
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#helptags()
