@@ -10,6 +10,7 @@ set nocp
 "    let iCanHazVundle=0
 "endif
 filetype off
+runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#helptags()
 call pathogen#infect()
 syntax on
@@ -58,6 +59,16 @@ set wildmode=list:longest
 au FileType ruby setl sw=2 sts=2 et autoindent
 au FileType python setl sw=2 sts=2 et autoindent
 autocmd Filetype gitcommit setlocal spell textwidth=72
+
+let NERDTreeChDirMode=2
+
+let g:ctrlp_working_path_mode = 'r'
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)|vendor/bundle|public/javascripts/compiled|node_modules|venv$',
+  \ 'file': '\v\.(exe|so|dll|pyc)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
+let g:ctrlp_clear_cache_on_exit = 1
 
 function! NumberToggle()
   if(&relativenumber == 1)
