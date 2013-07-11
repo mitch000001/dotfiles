@@ -6,8 +6,7 @@ if !filereadable(dot_vim_readme)
     echo "Installing plugins..."
     echo ""
 "    silent !mkdir -p ~/.vim/bundle
-    silent !git clone git@github.com:mitch000001/dotvim ~/.vim
-    silent !cd ~/.vim && git submodule update --init 
+    silent !git clone git@github.com:mitch000001/dotvim ~/.vim --recursive
 endif
 filetype off
 runtime bundle/vim-pathogen/autoload/pathogen.vim
