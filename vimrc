@@ -1,5 +1,14 @@
 set nocp
 " pathogen bundles
+" setup all plugins
+"let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
+"if !filereadable(vundle_readme)
+"    echo "Installing plugins..."
+"    echo ""
+"    silent !mkdir -p ~/.vim/bundle
+"    silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
+"    let iCanHazVundle=0
+"endif
 filetype off
 call pathogen#helptags()
 call pathogen#infect()
@@ -33,6 +42,14 @@ set encoding=utf-8
 
 " % matches on if/else, html tags, etc.
 runtime macros/matchit.vim
+
+" enable fancy powerline
+" let g:Powerline_symbols = 'fancy'
+if has("gui_running")
+    " gui stuff
+else
+"    let g:Powerline_symbols = 'unicode'
+endif
 
 " Bash-like filename completion
 set wildmenu
