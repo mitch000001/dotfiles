@@ -7,19 +7,22 @@ if !filereadable(dot_vim_readme)
     echo ""
     silent !git clone git@github.com:mitch000001/dotvim ~/.vim --recursive
 endif
+" TODO update git repo if nescessary
 filetype off
 runtime bundle/vim-pathogen/autoload/pathogen.vim
-call pathogen#helptags()
 call pathogen#infect()
+call pathogen#helptags()
 syntax on
 filetype plugin indent on
+
 set autoread            " automatic update of files changed by other processes
 set clipboard=unnamed   " enable clipboard cut&paste
 " set nobackup            " don't make backup files
 set encoding=utf-8      " for unicode glyphs
 set showcmd
 set number
-set hidden
+set hidden              " hide buffers in background when switching 
+                        " the active buffer to another file
 set history=1000
 set title
 set ruler
@@ -29,30 +32,31 @@ set cursorline
 " The offset when scrolling, i.e. the lines to show from cursor to bottom
 set scrolloff=3
 set smartindent
-set laststatus=2          " Always show last status
+set laststatus=2        " Always show last status
 set mouse=a             " Enable mouse support
 
-set ts=4
-set sw=4
-set sts=4
+set ts=2
+set sw=2
+set sts=2
 set et
+set list                "show whitespace characters
 
-set encoding=utf-8
+" Bash-like filename completion
+set wildmenu
+set wildmode=list:longest
+
+colorscheme desert
 
 " % matches on if/else, html tags, etc.
 runtime macros/matchit.vim
 
 " enable fancy powerline
-" let g:Powerline_symbols = 'fancy'
 if has("gui_running")
+    " let g:Powerline_symbols = 'fancy'
     " gui stuff
 else
-"    let g:Powerline_symbols = 'unicode'
+    " let g:Powerline_symbols = 'unicode'
 endif
-
-" Bash-like filename completion
-set wildmenu
-set wildmode=list:longest
 
 au FileType ruby setl sw=2 sts=2 et autoindent
 au FileType Ruby setl sw=2 sts=2 et autoindent
