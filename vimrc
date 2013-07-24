@@ -55,6 +55,7 @@ set wildmenu
 set wildmode=list:longest
 
 au FileType ruby setl sw=2 sts=2 et autoindent
+au FileType Ruby setl sw=2 sts=2 et autoindent
 au FileType python setl sw=2 sts=2 et autoindent
 autocmd Filetype gitcommit setlocal spell textwidth=72
 
