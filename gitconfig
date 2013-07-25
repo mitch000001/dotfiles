@@ -9,6 +9,7 @@
 	ci = commit
 	w = whatchanged
         lg = log --graph --pretty=format:'%Cred%h%reset -C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative 
+    pr = pull -r    
 [core]
 	excludesfile = ~/.gitignore
 	editor = vim
