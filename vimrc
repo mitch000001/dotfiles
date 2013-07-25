@@ -2,6 +2,9 @@ set nocp
 " pathogen bundles
 " setup all plugins
 let dot_vim_readme=expand('~/.vim/README.md')
+let last_update = ''
+" last_update = silent! !date +%Y-%m-%d
+echo last_update
 if !filereadable(dot_vim_readme)
     echo "Installing plugins..."
     echo ""
@@ -32,9 +35,11 @@ set smartindent
 set laststatus=2          " Always show last status
 set mouse=a             " Enable mouse support
 
-set ts=4
-set sw=4
-set sts=4
+set backspace=2
+
+set ts=2
+set sw=2
+set sts=2
 set et
 
 set encoding=utf-8
@@ -56,6 +61,7 @@ set wildmode=list:longest
 
 au FileType ruby setl sw=2 sts=2 et autoindent
 au FileType python setl sw=2 sts=2 et autoindent
+au FileType coffee setl sw=2 sts=2 et autoindent
 autocmd Filetype gitcommit setlocal spell textwidth=72
 
 let NERDTreeChDirMode=2
