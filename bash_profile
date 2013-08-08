@@ -26,6 +26,7 @@ alias gs='git st'
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/share/npm/bin:$PATH
 
 
 ### Added by the Heroku Toolbelt
