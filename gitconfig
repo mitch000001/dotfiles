@@ -1,6 +1,7 @@
 [user]
 	name = Michael Wagner
 	email = mitch.wagna@gmail.com
+
 [alias]
 	st = status
 	br = branch
@@ -8,55 +9,66 @@
 	co = checkout
 	ci = commit
 	w = whatchanged
-        lg = log --graph --pretty=format:'%Cred%h%reset -C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative 
-    pr = pull -r    
+  lg = log --graph --pretty=format:'%Cred%h%reset -C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+  pr = pull -r
+
 [core]
 	excludesfile = ~/.gitignore
 	editor = vim
 	autocrlf = input
-[color]
-	ui = auto
+
 [ssh]
 	port = 22
+
 [color]
-        diff = auto
-        status = auto
-        branch = auto
-        interactive = auto
-        ui = true
-        pager = true
+  diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
+  ui = true
+  pager = true
 
 [color "branch"]
-        current = yellow reverse
-        local = yellow
-        remote = green
+  current = yellow reverse
+  local = yellow
+  remote = green
 
 [color "diff"]
-        meta = yellow bold
-        frag = magenta bold
-        old = red bold
-        new = green bold
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
 
 [color "status"]
-        added = yellow
-        changed = green
-        untracked = cyan
+  added = yellow
+  changed = green
+  untracked = cyan
+
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
+
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 #[merge]
 #	tool = diffmerge
+
 [mergetool "diffmerge"]
 	cmd = diffmerge --merge --result=$MERGED $LOCAL $BASE $REMOTE
 	trustExitCode = true
+
 [credential]
 	helper = osxkeychain
+
 [push]
-	default = simple
+	default = upstream
+
 [help]
 	autocorrect = 1
+
 [commit]
 	template = ~/.gitcommit.template
+
+[branch]
+  autosetuprebase = always
