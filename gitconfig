@@ -72,3 +72,6 @@
 
 [branch]
   autosetuprebase = always
+
+[diff]
+    external = git_diff_wrapper
