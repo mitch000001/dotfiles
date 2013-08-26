@@ -31,6 +31,7 @@ set title
 set ruler
 set hlsearch
 set incsearch
+set ignorecase          " ignore case when searching
 set cursorline
 " The offset when scrolling, i.e. the lines to show from cursor to bottom
 set scrolloff=3
