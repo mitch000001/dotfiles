@@ -1,16 +1,13 @@
 set nocp
 " pathogen bundles
 " setup all plugins
-let dot_vim_readme=expand('~/.vim/README.md')
-let last_update = ''
-" last_update = silent! !date +%Y-%m-%d
-echo last_update
-if !filereadable(dot_vim_readme)
+let dot_vim_update=expand('~/.vim/update')
+if !filereadable(dot_vim_update)
     echo "Installing plugins..."
     echo ""
     silent !git clone git@github.com:mitch000001/dotvim ~/.vim --recursive
 endif
-" TODO update git repo if nescessary
+silent !~/.vim/update
 filetype off
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
