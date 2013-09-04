@@ -40,10 +40,6 @@ module ShellWrapper
     entries.size
   end
 
-  def 
-
-  end
-
   def colored_entry entry
     return entry.cyan if File.directory?(entry)
     entry
@@ -52,3 +48,4 @@ module ShellWrapper
 end
 
 include ShellWrapper
+

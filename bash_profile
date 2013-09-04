@@ -51,6 +51,10 @@ alias gus='g rs HEAD'
 alias gtodo='git grep -e "# TODO:" -e "# XXX:"'
 alias gnuke='git reset --hard && git clean -f'
 
+# Completion for the git aliases:
+__git_complete gco _git_checkout
+__git_complete g __git_main
+
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 export PATH=/usr/local/bin:$PATH
@@ -59,3 +63,4 @@ export PATH=/usr/local/share/npm/bin:$PATH
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+export PATH=/usr/local/sbin:/usr/local/heroku/bin:/usr/local/share/npm/bin:/usr/local/bin:/Users/mitch/.rbenv/shims:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/MacGPG2/bin
