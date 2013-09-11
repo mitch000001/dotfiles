@@ -61,12 +61,15 @@ else
     " let g:Powerline_symbols = 'unicode'
 endif
 
+" remove trailing whitespace
+au BufWritePre * :%s/\s\+$//e
+
 au FileType ruby setl sw=2 sts=2 et autoindent
 au FileType Ruby setl sw=2 sts=2 et autoindent
 au FileType python setl sw=2 sts=2 et autoindent
 au FileType coffee setl sw=2 sts=2 et autoindent
 au FileType haml setl sw=2 sts=2 et autoindent
-autocmd Filetype gitcommit setlocal spell textwidth=72
+au Filetype gitcommit setlocal spell textwidth=72
 
 let NERDTreeChDirMode=2
 
