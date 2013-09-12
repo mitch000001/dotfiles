@@ -52,7 +52,7 @@ alias gtodo='git grep -e "# TODO:" -e "# XXX:"'
 alias gnuke='git reset --hard && git clean -f'
 
 # Completion for the git aliases:
-__git_complete gco _git_checkout
+__git_complete_revlist gco _git_checkout
 __git_complete g __git_main
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi

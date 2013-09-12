@@ -7,7 +7,7 @@
   br = branch
   di = diff
   co = checkout
-  ci = commit
+  ci = commit -v
   w = whatchanged
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
   pr = pull -r
@@ -47,11 +47,11 @@
 
 [difftool "vimdiff"]
   cmd = vimdiff \"$LOCAL\" \"$REMOTE\"
-  path = 
+  path =
 
 [difftool "sourcetree"]
   cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-  path = 
+  path =
 
 [mergetool "sourcetree"]
   cmd = vimdiff \"$LOCAL\" \"$MERGED\" \"$REMOTE\"
