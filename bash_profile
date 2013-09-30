@@ -21,6 +21,10 @@ alias lh='l -h'
 alias ...='cd ../..'
 alias irb='irb -I `pwd` -r irb/completion'
 alias b='bundle exec'
+
+alias source_profile='source ~/.bash_profile'
+
+# git aliases
 alias gs='git st'
 alias g='git'
 alias ga='g add'
