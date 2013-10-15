@@ -21,7 +21,7 @@ set clipboard=unnamed   " enable clipboard cut&paste
 set encoding=utf-8      " for unicode glyphs
 set showcmd
 set number
-set hidden              " hide buffers in background when switching 
+set hidden              " hide buffers in background when switching
                         " the active buffer to another file
 set history=1000
 set title
@@ -49,6 +49,12 @@ set wildmenu
 set wildmode=list:longest
 
 colorscheme desert
+
+" Mappings
+" Set '/' in visual mode to search for the current selection
+" The \V tells the regex engine that only '\' has a special meaning
+vmap / y/\V<C-R>"<CR>
+vmap ? y?\V<C-R>"<CR>
 
 " % matches on if/else, html tags, etc.
 runtime macros/matchit.vim
