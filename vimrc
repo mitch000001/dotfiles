@@ -42,7 +42,7 @@ set sw=2
 set sts=2
 set et
 set list                "show whitespace characters
-set listchars=tab:▸\ ,trail:·,nbsp:·,eol:$
+set listchars=tab:▸\ ,trail:·,nbsp:·,eol:¬
 
 " Bash-like filename completion
 set wildmenu
