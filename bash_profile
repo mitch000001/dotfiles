@@ -20,10 +20,11 @@ PS1=$PS1"\$(__git_ps1 '(%s)')$"
 ### Path definitions ###
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/share/npm/bin:$PATH
+export PATH=~/bin:$PATH
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
-export PATH=/usr/local/sbin:/usr/local/heroku/bin:/usr/local/share/npm/bin:/usr/local/bin:/Users/mitch/.rbenv/shims:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/MacGPG2/bin
+export PATH=/usr/local/heroku/bin:$PATH
 
 #source ~/.adb.bash
 
