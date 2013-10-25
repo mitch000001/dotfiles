@@ -4,6 +4,7 @@ for script in $HOME/.bash.d/*.sh; do
     source $script
   fi
 done
+
 # Environment variables
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
@@ -14,8 +15,9 @@ export ANDROID_HOME=$ANDROID_SDK_ROOT
 
 export HISTIGNORE="&"
 
-PS1='\u@\h:\W '
-PS1=$PS1"\$(__git_ps1 '(%s)')$"
+PS1="\[$EGREEN\]\u@\h:\[$EBLUE\]\W\[$NO_COLOR\] "
+PS1=$PS1"\$(__git_ps1 '(%s)') \[$RED\]$"
+PS1=$PS1"\[$NO_COLOR\] "
 
 ### Path definitions ###
 export PATH=/usr/local/bin:$PATH
