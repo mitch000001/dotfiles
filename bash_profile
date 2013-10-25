@@ -20,7 +20,9 @@ PS1=$PS1"\$(__git_ps1 '(%s)') \[$RED\]$"
 PS1=$PS1"\[$NO_COLOR\] "
 
 ### Path definitions ###
+# Homebrew Path additions
 export PATH=/usr/local/bin:$PATH
+export PATH="/usr/local/sbin:$PATH"
 export PATH=/usr/local/share/npm/bin:$PATH
 export PATH=~/bin:$PATH
 
