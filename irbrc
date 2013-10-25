@@ -29,8 +29,8 @@ module ShellWrapper
     max_width = entries.max_by(&:size).length + CONSOLE_THRESHOLD
     console_width = $stdout.winsize[1]
     output_split = console_width / max_width
-    entries.each_slice(output_split) do |entries|
-      files = entries.reduce('') do |memo, file|
+    entries.each_slice(output_split) do |entry_slice|
+      files = entry_slice.reduce('') do |memo, file|
         diff = max_width - file.length
         colored_entry = colored_entry(file)
         memo << colored_entry << (' ' * diff)
