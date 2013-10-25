@@ -126,11 +126,26 @@ autocmd InsertLeave * :set nu rnu
 au FocusLost * :set nu nornu
 au FocusGained * :set nu rnu
 
+function! CurrentFilePath()
+  return resolve(expand("%:p"))
+endfunction
+command! CurrentFilePath call CurrentFilePath()
+function! TabEditCurrentFile()
+  let current_file = CurrentFilePath()
+  tabedit l:current_file
+endfunction
+
 " Borrowed from Gary Bernhardt
 " https://github.com/garybernhardt/dotfiles/blob/master/.vimrc
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Diff tab management: open the current git diff in a tab
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+command! GdiffInTab %|vsplit|Gdiff
+nnoremap <leader>d :GdiffInTab<cr>
+nnoremap <leader>D :tabclose<cr>
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " RUNNING TESTS
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! MapCR()
   nnoremap <cr> :call RunTestFile()<cr>
 endfunction
