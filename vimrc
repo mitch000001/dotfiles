@@ -130,9 +130,9 @@ function! CurrentFilePath()
   return resolve(expand("%:p"))
 endfunction
 command! CurrentFilePath call CurrentFilePath()
+
 function! TabEditCurrentFile()
-  let current_file = CurrentFilePath()
-  tabedit l:current_file
+  tab CurrentFilePath
 endfunction
 
 " Borrowed from Gary Bernhardt
@@ -140,7 +140,7 @@ endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Diff tab management: open the current git diff in a tab
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-command! GdiffInTab %|vsplit|Gdiff
+command! GdiffInTab tabedit %|vsplit|Gdiff
 nnoremap <leader>d :GdiffInTab<cr>
 nnoremap <leader>D :tabclose<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
