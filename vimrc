@@ -70,8 +70,8 @@ colorscheme desert
 "
 " Set '/' in visual mode to search for the current selection
 " The \V tells the regex engine that only '\' has a special meaning
-vmap / y/\V<C-R>"<CR>
-vmap ? y?\V<C-R>"<CR>
+vnoremap / y/\V<C-R>"<CR>
+vnoremap ? y?\V<C-R>"<CR>
 " A more german keyboard friendly mapleader
 let mapleader = ","
 " Rspec.vim mappings
@@ -81,6 +81,7 @@ map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 
 map <Leader>n :NERDTreeToggle<CR>
+map <Leader>u :GundoToggle<CR>
 
 " % matches on if/else, html tags, etc.
 runtime macros/matchit.vim
