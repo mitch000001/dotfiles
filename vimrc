@@ -51,8 +51,7 @@ set sts=2
 set et
 set list                "show whitespace characters
 " Custom displaying of special characters
-set listchars=tab:▸\ ,trail:·,nbsp:·,eol:¬,
-set listchars=extends:»,precedes:« " define characters when 'wrap' is off
+set listchars=tab:▸\ ,trail:·,nbsp:·,eol:¬,extends:»,precedes:« " define characters when 'wrap' is off
 
 " Buffer options
 set switchbuf=useopen " Open files e.g. from quicksearch within last selected window buffer
