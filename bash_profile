@@ -89,5 +89,14 @@ alias gnuke='git reset --hard && git clean -f'
 
 # Completion for the git aliases:
 __git_complete gco _git_checkout
+__git_complete gcob _git_checkout
 __git_complete g __git_main
+__git_complete gpu _git_push
+__git_complete gpp _git_push
+__git_complete gpr _git_pull
+__git_complete glg _git_log
+__git_complete glg5 _git_log
+__git_complete glg15 _git_log
+__git_complete gci _git_commit
+__git_complete gcim _git_commit
 
