@@ -79,8 +79,9 @@ map <Leader>T :call RunCurrentSpecFile()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 
-map <Leader>n :NERDTreeToggle<CR>
-map <Leader>u :GundoToggle<CR>
+nnoremap <Leader>n :NERDTreeToggle<CR>
+nnoremap <Leader>u :GundoToggle<CR>
+nnoremap <leader><Space> :ToggleRemoveTrailingWhitespace<cr>
 
 " % matches on if/else, html tags, etc.
 runtime macros/matchit.vim
@@ -94,7 +95,33 @@ else
 endif
 
 " remove trailing whitespace
-au BufWritePre * :%s/\s\+$//e
+" au BufWritePre * :%s/\s\+$//e
+augroup whitespace
+augroup END
+
+function! ToggleRemoveTrailingWhitespace()
+  if b:Remove_trailing_whitespace
+    augroup whitespace
+      au!
+    augroup END
+    let b:Remove_trailing_whitespace=0
+    echo "Remove trailing whitespace is off"
+  else
+    augroup whitespace
+      au BufWritePre <buffer> :%s/\s\+$//e
+    augroup END
+    let b:Remove_trailing_whitespace=1
+    echo "Remove trailing whitespace is on"
+  endif
+endfunction
+command! ToggleRemoveTrailingWhitespace call ToggleRemoveTrailingWhitespace()
+function! RemoveTrailingWhitespaceEnable()
+  let b:Remove_trailing_whitespace=1
+  au whitespace BufWritePre <buffer> :%s/\s\+$//e
+endfunction
+command! RemoveTrailingWhitespaceEnable call RemoveTrailingWhitespaceEnable()
+
+au BufEnter * :RemoveTrailingWhitespaceEnable
 
 au FileType ruby setl sw=2 sts=2 et autoindent
 au FileType Ruby setl sw=2 sts=2 et autoindent
@@ -143,13 +170,16 @@ endfunction
 command! GdiffInTab tabedit %|vsplit|Gdiff
 nnoremap <leader>d :GdiffInTab<cr>
 nnoremap <leader>D :tabclose<cr>
+
+
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " RUNNING TESTS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! MapCR()
   nnoremap <cr> :call RunTestFile()<cr>
 endfunction
-call MapCR()
+"call MapCR()
 nnoremap <leader>T :call RunNearestTest()<cr>
 nnoremap <leader>a :call RunTests('')<cr>
 nnoremap <leader>c :w\|:!script/features<cr>
