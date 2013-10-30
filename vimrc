@@ -3,8 +3,8 @@ set nocp
 " setup all plugins
 let dot_vim_update=expand('~/.vim/update')
 if !filereadable(dot_vim_update)
-    echo "Installing plugins..."
-    echo ""
+    echom "Installing plugins..."
+    echom ""
     silent !git clone git@github.com:mitch000001/dotvim ~/.vim --recursive
 endif
 silent !~/.vim/update
@@ -105,13 +105,13 @@ function! ToggleRemoveTrailingWhitespace()
       au!
     augroup END
     let b:Remove_trailing_whitespace=0
-    echo "Remove trailing whitespace is off"
+    echom "Remove trailing whitespace is off"
   else
     augroup whitespace
       au BufWritePre <buffer> :%s/\s\+$//e
     augroup END
     let b:Remove_trailing_whitespace=1
-    echo "Remove trailing whitespace is on"
+    echom "Remove trailing whitespace is on"
   endif
 endfunction
 command! ToggleRemoveTrailingWhitespace call ToggleRemoveTrailingWhitespace()
