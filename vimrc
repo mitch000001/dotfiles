@@ -18,6 +18,9 @@ filetype plugin indent on
 set autoread            " automatic update of files changed by other processes
 set clipboard=unnamed   " enable clipboard cut&paste
 " set nobackup            " don't make backup files
+" set the backupdir to a custom folder
+set backupdir=~/.vim_backup/
+set directory=~/.vim_swap/
 set encoding=utf-8      " for unicode glyphs
 set showcmd  " Display incomplete commands
 set showmode " Display the mode you're in."
