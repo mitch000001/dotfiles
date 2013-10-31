@@ -28,6 +28,7 @@ set backupdir=~/.vim_backup/
 let vim_swap_dir=expand('~/.vim_swap')
 if !isdirectory(vim_swap_dir)
   silent !mkdir ~/.vim_swap
+endif
 set directory=~/.vim_swap/
 set encoding=utf-8      " for unicode glyphs
 set showcmd  " Display incomplete commands
