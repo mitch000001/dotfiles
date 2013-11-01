@@ -1,6 +1,10 @@
-set nocp
-" pathogen bundles
-" setup all plugins
+" Delete all previous set autocommands
+" Useful when reloading the rc while editing
+autocmd!
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" PLUGIN INITIALIZATION
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let dot_vim_update=expand('~/.vim/update')
 if !filereadable(dot_vim_update)
     echom "Installing plugins..."
@@ -8,10 +12,16 @@ if !filereadable(dot_vim_update)
     silent !git clone git@github.com:mitch000001/dotvim ~/.vim --recursive
 endif
 silent !~/.vim/update
-filetype off
+
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 call pathogen#helptags()
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" BASIC EDITING CONFIGURATION
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set nocp
+filetype off
 syntax on
 filetype plugin indent on
 
@@ -33,9 +43,15 @@ set directory=~/.vim_swap/
 set encoding=utf-8      " for unicode glyphs
 set showcmd  " Display incomplete commands
 set showmode " Display the mode you're in."
+
+" show line numbers
 set number
-set hidden              " hide buffers in background when switching
-                        " the active buffer to another file
+
+" hide buffers in background when switching
+" the active buffer to another file
+set hidden
+
+" remember more commands and search history
 set history=10000
 set title
 set ruler
@@ -61,7 +77,7 @@ set ts=2
 set sw=2
 set sts=2
 set et
-set list                "show whitespace characters
+set list                " show whitespace characters
 " Custom displaying of special characters
 set listchars=tab:▸\ ,trail:·,nbsp:·,eol:¬,extends:»,precedes:« " define characters when 'wrap' is off
 
@@ -71,6 +87,18 @@ set switchbuf=useopen " Open files e.g. from quicksearch within last selected wi
 " Bash-like filename completion
 set wildmenu
 set wildmode=longest,list
+let g:max_line_width = 80
+
+" Toggle ColorColumn
+function! ToggleColorColumn()
+  if &colorcolumn != ""
+    let &l:colorcolumn=""
+  else
+    let &l:colorcolumn=g:max_line_width
+  endif
+endfunction
+
+command! ToggleColorColumn :call ToggleColorColumn()
 
 " Colors
 colorscheme desert
@@ -92,7 +120,8 @@ map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 
 nnoremap <Leader>n :NERDTreeToggle<CR>
-nnoremap <Leader>u :GundoToggle<CR>
+nnoremap <silent> <Leader>u :GundoToggle<CR>
+nnoremap <silent> <Leader>. :ToggleColorColumn<CR>
 nnoremap <leader><Space> :ToggleRemoveTrailingWhitespace<cr>
 
 " % matches on if/else, html tags, etc.
@@ -134,6 +163,7 @@ endfunction
 command! RemoveTrailingWhitespaceEnable call RemoveTrailingWhitespaceEnable()
 
 au BufEnter * :RemoveTrailingWhitespaceEnable
+au BufEnter * :setlocal colorcolumn=""
 
 au FileType ruby setl sw=2 sts=2 et autoindent
 au FileType Ruby setl sw=2 sts=2 et autoindent
