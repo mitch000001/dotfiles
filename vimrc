@@ -102,6 +102,14 @@ command! ToggleColorColumn :call ToggleColorColumn()
 
 " Colors
 colorscheme desert
+" set background=dark
+" solarized options
+" let g:solarized_termcolors = 256
+" let g:solarized_visibility = "high"
+" let g:solarized_contrast = "high"
+" colorscheme solarized
+
+let g:rspec_command = "Dispatch bundle exec rspec {spec}"
 
 " --------- "
 "  Mappings "
@@ -123,6 +131,8 @@ nnoremap <Leader>n :NERDTreeToggle<CR>
 nnoremap <silent> <Leader>u :GundoToggle<CR>
 nnoremap <silent> <Leader>. :ToggleColorColumn<CR>
 nnoremap <leader><Space> :ToggleRemoveTrailingWhitespace<cr>
+nnoremap <Leader>f :Ack<space>
+nnoremap <F9> :Dispatch<CR>
 
 " % matches on if/else, html tags, etc.
 runtime macros/matchit.vim
@@ -165,7 +175,7 @@ command! RemoveTrailingWhitespaceEnable call RemoveTrailingWhitespaceEnable()
 au BufEnter * :RemoveTrailingWhitespaceEnable
 au BufEnter * :setlocal colorcolumn=""
 
-au FileType ruby setl sw=2 sts=2 et autoindent
+au FileType ruby setl sw=2 sts=2 et autoindent let b:dispatch = "bundle exec rspec %'""
 au FileType Ruby setl sw=2 sts=2 et autoindent
 au FileType python setl sw=2 sts=2 et autoindent
 au FileType coffee setl sw=2 sts=2 et autoindent
