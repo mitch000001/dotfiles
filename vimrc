@@ -134,6 +134,12 @@ nnoremap <leader><Space> :ToggleRemoveTrailingWhitespace<cr>
 nnoremap <Leader>f :Ack<space>
 nnoremap <F9> :Dispatch<CR>
 
+" Catch all paste commands and wrap in pastemode
+"inoremap <D-V> <C-O>:set paste<CR><D-V><C-O>:set nopaste<CR>
+imap <D-V> :echo "PASTE"
+" inoremap <C-V> <C-O>:set paste<CR><C-V><C-O>:set nopaste<CR>
+inoremap jk <esc>
+
 " % matches on if/else, html tags, etc.
 runtime macros/matchit.vim
 
@@ -211,7 +217,7 @@ endfunction
 command! CurrentFilePath call CurrentFilePath()
 
 function! TabEditCurrentFile()
-  tab CurrentFilePath
+  tabedit +execute 'e ' . CurrentFilePath()
 endfunction
 
 " Borrowed from Gary Bernhardt
