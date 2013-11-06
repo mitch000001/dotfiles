@@ -10,6 +10,7 @@
   ci = commit -v
   w = whatchanged
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+  lga = log -all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
   pr = pull -r
   vimdiff = difftool -y -t vimdiff
 	ctags = !.git/hooks/ctags
