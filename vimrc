@@ -181,7 +181,8 @@ command! RemoveTrailingWhitespaceEnable call RemoveTrailingWhitespaceEnable()
 au BufEnter * :RemoveTrailingWhitespaceEnable
 au BufEnter * :setlocal colorcolumn=""
 
-au FileType ruby setl sw=2 sts=2 et autoindent let b:dispatch = "bundle exec rspec %'""
+au FileType ruby setl sw=2 sts=2 et autoindent
+au FileType ruby let b:dispatch = "bundle exec rspec %"
 au FileType Ruby setl sw=2 sts=2 et autoindent
 au FileType python setl sw=2 sts=2 et autoindent
 au FileType coffee setl sw=2 sts=2 et autoindent
