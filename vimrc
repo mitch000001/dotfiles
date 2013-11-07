@@ -125,13 +125,18 @@ let mapleader = ","
 map <Leader>t :call RunNearestSpec()<CR>
 map <Leader>T :call RunCurrentSpecFile()<CR>
 map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
+map <Leader>S :call RunAllSpecs()<CR>
 
 nnoremap <Leader>n :NERDTreeToggle<CR>
 nnoremap <silent> <Leader>u :GundoToggle<CR>
 nnoremap <silent> <Leader>. :ToggleColorColumn<CR>
 nnoremap <leader><Space> :ToggleRemoveTrailingWhitespace<cr>
-nnoremap <Leader>f :Ack<space>
+nnoremap <Leader>f :Ack!<space>
+nnoremap <Leader>F :Ack<space>
+nnoremap <Leader>a :Ack!<CR>
+nnoremap <Leader>A :Ack<CR>
+nnoremap <Leader>r :Ack!<space>'"'<CR>
+nnoremap <Leader>R :Ack<space>'"'<CR>
 nnoremap <F9> :Dispatch<CR>
 
 " Catch all paste commands and wrap in pastemode
@@ -235,12 +240,6 @@ nnoremap <leader>D :tabclose<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " RUNNING TESTS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! MapCR()
-  nnoremap <cr> :call RunTestFile()<cr>
-endfunction
-"call MapCR()
-nnoremap <leader>T :call RunNearestTest()<cr>
-nnoremap <leader>a :call RunTests('')<cr>
 nnoremap <leader>c :w\|:!script/features<cr>
 nnoremap <leader>w :w\|:!script/features --profile wip<cr>
 
