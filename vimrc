@@ -115,7 +115,7 @@ let g:rspec_command = "Dispatch bundle exec rspec {spec}"
 "  Mappings "
 " --------- "
 "
-" Set '/' in visual mode to search for the current selection
+" Set '/' and '?' in visual mode to search for the current selection
 " The \V tells the regex engine that only '\' has a special meaning
 vnoremap / y/\V<C-R>"<CR>
 vnoremap ? y?\V<C-R>"<CR>
