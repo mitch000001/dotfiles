@@ -102,4 +102,6 @@ __git_complete glg5 _git_log
 __git_complete glg15 _git_log
 __git_complete gci _git_commit
 __git_complete gcim _git_commit
+__git_complete gdf _git_diff
+__git_complete gdfs _git_diff
 

@@ -8,6 +8,8 @@
   di = diff
   co = checkout
   ci = commit -v
+  df = diff
+  dfs = diff -s
   w = whatchanged
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
   lga = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
