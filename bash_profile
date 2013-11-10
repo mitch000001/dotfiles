@@ -105,3 +105,5 @@ __git_complete gcim _git_commit
 __git_complete gdf _git_diff
 __git_complete gdfs _git_diff
 
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*

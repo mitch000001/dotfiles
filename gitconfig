@@ -11,8 +11,8 @@
   df = diff
   dfs = diff -s
   w = whatchanged
-  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
-  lga = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset [%C(yellow)%an%Creset]' --abbrev-commit --date=relative
+  lga = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset [%C(yellow)%an%Creset]' --abbrev-commit --date=relative
   pr = pull -r
   vimdiff = difftool -y -t vimdiff
 	ctags = !.git/hooks/ctags
