@@ -20,7 +20,7 @@ call pathogen#helptags()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " BASIC EDITING CONFIGURATION
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set nocp
+set nocompatible
 filetype off
 syntax on
 filetype plugin indent on
@@ -73,21 +73,25 @@ set mouse=a             " Enable mouse support
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-set ts=2
-set sw=2
-set sts=2
-set et
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab           " expand all tabs to spaces
+let g:max_line_width = 80
 set list                " show whitespace characters
 " Custom displaying of special characters
-set listchars=tab:▸\ ,trail:·,nbsp:·,eol:¬,extends:»,precedes:« " define characters when 'wrap' is off
+" define custom characters for line endings etc
+set listchars=tab:▸\ ,trail:·,nbsp:·,eol:¬
+" define characters to indicate long lines when 'wrap' is off
+set listchars+=extends:»,precedes:«
 
-" Buffer options
-set switchbuf=useopen " Open files e.g. from quicksearch within last selected window buffer
+"" Buffer options
+" Open files e.g. from quicksearch within last selected window buffer
+set switchbuf=useopen
 
-" Bash-like filename completion
+" Bash-like filename completion in command line
 set wildmenu
 set wildmode=longest,list
-let g:max_line_width = 80
 
 " Toggle ColorColumn
 function! ToggleColorColumn()
@@ -100,7 +104,7 @@ endfunction
 
 command! ToggleColorColumn :call ToggleColorColumn()
 
-" Colors
+"" Colors
 colorscheme desert
 " set background=dark
 " solarized options
