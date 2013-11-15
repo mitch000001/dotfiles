@@ -230,6 +230,8 @@ function! TabEditCurrentFile()
   tabedit +execute 'e ' . CurrentFilePath()
 endfunction
 
+command! GenerateBundleRi :silent !generate_bundle_ri
+
 " Borrowed from Gary Bernhardt
 " https://github.com/garybernhardt/dotfiles/blob/master/.vimrc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
