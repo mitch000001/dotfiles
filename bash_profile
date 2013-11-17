@@ -53,6 +53,8 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias irb='irb -I `pwd` -r irb/completion'
 alias b='bundle exec'
+alias bundle='bundle '
+alias install='install --path=vendor/bundle'
 
 alias source_profile='source ~/.bash_profile'
 alias rl='source_profile'
