@@ -190,15 +190,15 @@ command! RemoveTrailingWhitespaceEnable call RemoveTrailingWhitespaceEnable()
 au BufEnter * :RemoveTrailingWhitespaceEnable
 au BufEnter * :setlocal colorcolumn=""
 
-au FileType ruby setl sw=2 sts=2 et autoindent
+au FileType ruby setlocal shiftwidth=2 softtabstop=2 expandtab autoindent
 au FileType ruby let b:dispatch = "bundle exec rspec %"
-au FileType Ruby setl sw=2 sts=2 et autoindent
-au FileType python setl sw=2 sts=2 et autoindent
-au FileType coffee setl sw=2 sts=2 et autoindent
-au FileType haml setl sw=2 sts=2 et autoindent
+au FileType Ruby setlocal shiftwidth=2 softtabstop=2 expandtab autoindent
+au FileType python setlocal shiftwidth=2 softtabstop=2 expandtab autoindent
+au FileType coffee setlocal shiftwidth=2 softtabstop=2 expandtab autoindent
+au FileType haml setlocal shiftwidth=2 softtabstop=2 expandtab autoindent
 au Filetype gitcommit setlocal spell textwidth=72
-au FileType java setlocal shiftwidth=4 softtabstop=4 autoindent
-au FileType xml setlocal shiftwidth=4 softtabstop=4 autoindent
+au FileType java setlocal shiftwidth=4 softtabstop=4 expandtab autoindent
+au FileType xml setlocal shiftwidth=4 softtabstop=4 expandtab autoindent
 au FileType xml let g:xml_syntax_folding = 1
 au FileType xml setlocal foldmethod=syntax
 
