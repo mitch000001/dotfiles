@@ -197,6 +197,10 @@ au FileType python setl sw=2 sts=2 et autoindent
 au FileType coffee setl sw=2 sts=2 et autoindent
 au FileType haml setl sw=2 sts=2 et autoindent
 au Filetype gitcommit setlocal spell textwidth=72
+au FileType java setlocal shiftwidth=4 softtabstop=4 autoindent
+au FileType xml setlocal shiftwidth=4 softtabstop=4 autoindent
+au FileType xml let g:xml_syntax_folding = 1
+au FileType xml setlocal foldmethod=syntax
 
 let NERDTreeChDirMode=2
 
