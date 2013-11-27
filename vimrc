@@ -187,7 +187,6 @@ function! RemoveTrailingWhitespaceEnable()
 endfunction
 command! RemoveTrailingWhitespaceEnable call RemoveTrailingWhitespaceEnable()
 
-<<<<<<< HEAD
 autocmd BufEnter * :RemoveTrailingWhitespaceEnable
 autocmd BufEnter * :setlocal colorcolumn=""
 autocmd BufEnter * :filetype detect
