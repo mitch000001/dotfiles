@@ -161,7 +161,7 @@ else
 endif
 
 " remove trailing whitespace
-" au BufWritePre * :%s/\s\+$//e
+" autocmd BufWritePre * :%s/\s\+$//e
 augroup whitespace
 augroup END
 
@@ -174,7 +174,7 @@ function! ToggleRemoveTrailingWhitespace()
     echom "Remove trailing whitespace is off"
   else
     augroup whitespace
-      au BufWritePre <buffer> :%s/\s\+$//e
+      autocmd BufWritePre <buffer> :%s/\s\+$//e
     augroup END
     let b:Remove_trailing_whitespace=1
     echom "Remove trailing whitespace is on"
@@ -183,24 +183,29 @@ endfunction
 command! ToggleRemoveTrailingWhitespace call ToggleRemoveTrailingWhitespace()
 function! RemoveTrailingWhitespaceEnable()
   let b:Remove_trailing_whitespace=1
-  au whitespace BufWritePre <buffer> :%s/\s\+$//e
+  autocmd whitespace BufWritePre <buffer> :%s/\s\+$//e
 endfunction
 command! RemoveTrailingWhitespaceEnable call RemoveTrailingWhitespaceEnable()
 
-au BufEnter * :RemoveTrailingWhitespaceEnable
-au BufEnter * :setlocal colorcolumn=""
+<<<<<<< HEAD
+autocmd BufEnter * :RemoveTrailingWhitespaceEnable
+autocmd BufEnter * :setlocal colorcolumn=""
+autocmd BufEnter * :filetype detect
 
-au FileType ruby setlocal shiftwidth=2 softtabstop=2 expandtab autoindent
-au FileType ruby let b:dispatch = "bundle exec rspec %"
-au FileType Ruby setlocal shiftwidth=2 softtabstop=2 expandtab autoindent
-au FileType python setlocal shiftwidth=2 softtabstop=2 expandtab autoindent
-au FileType coffee setlocal shiftwidth=2 softtabstop=2 expandtab autoindent
-au FileType haml setlocal shiftwidth=2 softtabstop=2 expandtab autoindent
-au Filetype gitcommit setlocal spell textwidth=72
-au FileType java setlocal shiftwidth=4 softtabstop=4 expandtab autoindent
-au FileType xml setlocal shiftwidth=4 softtabstop=4 expandtab autoindent
-au FileType xml let g:xml_syntax_folding = 1
-au FileType xml setlocal foldmethod=syntax
+autocmd FileType ruby setlocal shiftwidth=2 softtabstop=2 expandtab autoindent
+autocmd FileType ruby let b:dispatch = "bundle exec rspec %"
+autocmd FileType Ruby setlocal shiftwidth=2 softtabstop=2 expandtab autoindent
+autocmd FileType python setlocal shiftwidth=2 softtabstop=2 expandtab autoindent
+autocmd FileType coffee setlocal shiftwidth=2 softtabstop=2 expandtab autoindent
+autocmd FileType haml setlocal shiftwidth=2 softtabstop=2 expandtab autoindent
+autocmd Filetype gitcommit setlocal spell textwidth=72
+autocmd FileType java setlocal shiftwidth=4 softtabstop=4 expandtab autoindent
+autocmd FileType xml setlocal shiftwidth=2 softtabstop=2 expandtab autoindent
+autocmd FileType xml let g:xml_syntax_folding = 1
+autocmd FileType xml setlocal foldmethod=syntax
+autocmd FileType xml setlocal foldlevelstart=2
+
+nnoremap <Leader>= gg=G
 
 let NERDTreeChDirMode=2
 
@@ -214,16 +219,18 @@ let g:ctrlp_clear_cache_on_exit = 1
 
 function! NumberToggle()
   if(&relativenumber == 1)
-    set number
+    set number norelativenumber
   else
-    set relativenumber
+    set number relativenumber
   endif
 endfunc
 
-autocmd InsertEnter * :set nu nornu
-autocmd InsertLeave * :set nu rnu
-au FocusLost * :set nu nornu
-au FocusGained * :set nu rnu
+nnoremap <Leader>0 :silent call NumberToggle()<CR>
+
+autocmd InsertEnter * :set number norelativenumber
+autocmd InsertLeave * :set number relativenumber
+autocmd FocusLost   * :set number norelativenumber
+autocmd FocusGained * :set number relativenumber
 
 function! CurrentFilePath()
   return resolve(expand("%:p"))
