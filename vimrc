@@ -104,6 +104,7 @@ if !isdirectory(s:vim_swap_dir)
 endif
 
 let &directory=s:vim_swap_dir " set the swapdir to a custom folder
+" }}}
 
 set encoding=utf-8      " for unicode glyphs
 set showcmd         " Show (partial) command in status line.
@@ -136,6 +137,7 @@ set cursorline          " highlight current cursorline
 
 " The offset when scrolling, i.e. the lines to show from cursor to bottom
 set scrolloff=3
+set virtualedit=block
 set smartindent
 set laststatus=2        " Always show last status
 set mouse=a             " Enable mouse support
