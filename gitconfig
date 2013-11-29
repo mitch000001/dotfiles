@@ -2,6 +2,9 @@
   name = Michael Wagner
   email = mitch.wagna@gmail.com
 
+[github]
+  user = mitch000001
+
 [alias]
   st = status
   br = branch
@@ -24,6 +27,9 @@
 
 [ssh]
   port = 22
+
+[help]
+  autocorrect = 10
 
 [color]
   diff = auto
@@ -49,6 +55,12 @@
   changed = green
   untracked = cyan
 
+[diff "ruby"]
+        funcname = "^ *\\(\\(def\\) .*\\)"
+
+[diff "image"]
+        textconv = identify
+
 [difftool "vimdiff"]
   cmd = vimdiff \"$LOCAL\" \"$REMOTE\"
   path =
@@ -64,7 +76,8 @@
 [mergetool "sourcetree"]
   cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
   trustExitCode = true
-#[merge]
+[merge]
+  summary = true
 #  tool = diffmerge
 
 [mergetool "diffmerge"]
@@ -89,5 +102,6 @@
 [diff]
   tool = vimdiff
 # external = ~/bin/git_diff_wrapper
+
 [init]
-	templatedir = ~/.git_template
+  templatedir = ~/.git_template
