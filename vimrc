@@ -5,13 +5,13 @@ autocmd!
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PLUGIN INITIALIZATION
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let dot_vim_update=expand('~/.vim/update')
-if !filereadable(dot_vim_update)
+let s:dot_vim_update=expand('~/.vim/update')
+if !filereadable(s:dot_vim_update)
     echom "Installing plugins..."
     echom ""
-    silent !git clone git@github.com:mitch000001/dotvim ~/.vim --recursive
+    silent !git clone --recursive git@github.com:mitch000001/dotvim ~/.vim
 endif
-silent !~/.vim/update
+execute ":silent !" . s:dot_vim_update
 
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
@@ -30,16 +30,18 @@ set clipboard=unnamed   " enable clipboard cut&paste
 " set nobackup            " don't make backup files
 
 " set the backupdir to a custom folder
-let vim_backup_dir=expand('~/.vim_backup')
-if !isdirectory(vim_backup_dir)
-  silent !mkdir ~/.vim_backup
+let s:vim_backup_dir=expand('~/.vim_backup')
+if !isdirectory(s:vim_backup_dir)
+  execute ":silent !mkdir " . s:vim_backup_dir
 endif
-set backupdir=~/.vim_backup/
-let vim_swap_dir=expand('~/.vim_swap')
-if !isdirectory(vim_swap_dir)
-  silent !mkdir ~/.vim_swap
+let &backupdir=s:vim_backup_dir
+
+let s:vim_swap_dir=expand('~/.vim_swap')
+if !isdirectory(s:vim_swap_dir)
+  execute ":silent !mkdir " . s:vim_swap_dir
 endif
-set directory=~/.vim_swap/
+let &directory=s:vim_swap_dir
+
 set encoding=utf-8      " for unicode glyphs
 set showcmd  " Display incomplete commands
 set showmode " Display the mode you're in."
