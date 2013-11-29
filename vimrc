@@ -415,6 +415,7 @@ augroup FiletypeOptions " {{{2
   autocmd FileType ruby call EvaluateRubyFile()
   " Use this with 'K' and you feel the force! © [2]
   autocmd FileType vim setlocal keywordprg=:help nojoinspaces
+  autocmd FileType help setlocal keywordprg=:help nojoinspaces
 augroup END " }}}
 
 augroup LineNumber " {{{2
