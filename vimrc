@@ -339,7 +339,6 @@ nnoremap <Leader>a :Ack!<CR>
 nnoremap <Leader>A :Ack<CR>
 nnoremap <Leader>r :Ack!<space>'"'<CR>
 nnoremap <Leader>R :Ack<space>'"'<CR>
-nnoremap <F9> :Dispatch<CR>
 
 " Produce blank lines easily
 nnoremap <Leader>o o<ESC>0dd
@@ -358,10 +357,15 @@ map <Leader>t :call RunNearestSpec()<CR>
 map <Leader>T :call RunCurrentSpecFile()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>S :call RunAllSpecs()<CR>
-" }}}
+
 " ©[1]
 nnoremap <leader>c :w\|:!script/features<cr>
 nnoremap <leader>w :w\|:!script/features --profile wip<cr>
+" }}}
+
+nnoremap <F9> :Dispatch<CR>
+" Same behaviour in normal mode as a pager
+nnoremap <Space> <C-D>
 " }}}
 
 " INSERT MODE {{{2
