@@ -123,6 +123,9 @@ set pastetoggle=<F2>
 
 " remember more commands and search history
 set history=10000
+" persist state between vim session
+set viminfo=!,'20,<50,s10,h
+'
 set title
 set ruler
 set hlsearch
