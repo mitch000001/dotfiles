@@ -91,7 +91,7 @@ __git_complete gco _git_checkout
 alias gcom='git checkout master'
 alias gcob='git checkout -b'
 __git_complete gcob _git_checkout
-alias gci='git commit'
+alias gci='git commit -v'
 __git_complete gci _git_commit
 alias gcim='git commit -m'
 __git_complete gcim _git_commit
