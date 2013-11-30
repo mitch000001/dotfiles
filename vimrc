@@ -80,6 +80,7 @@ endif
 
 " }}}
 " }}}
+let g:max_line_width = 80
 " }}}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SECTION: OPTIONS {{{1
@@ -89,8 +90,6 @@ let mapleader = ","       " A more german keyboard friendly mapleader
 
 " }}}
 " BACKUP AND SWAP {{{2
-set autoread            " automatic update of files changed by other processes
-set clipboard=unnamed   " enable clipboard cut&paste
 " set nobackup            " don't make backup files
 
 if !isdirectory(s:vim_backup_dir)
@@ -106,6 +105,9 @@ endif
 let &directory=s:vim_swap_dir " set the swapdir to a custom folder
 " }}}
 
+set autoread            " automatic update of files changed by other processes
+set clipboard=unnamed   " enable clipboard cut&paste
+
 set encoding=utf-8      " for unicode glyphs
 set showcmd         " Show (partial) command in status line.
 set showmatch       " Show matching brackets.
@@ -118,14 +120,16 @@ set number
 " the active buffer to another file
 set hidden
 
-" Toggle paste
+" Toggle paste mode
 set pastetoggle=<F2>
 
 " remember more commands and search history
 set history=10000
+
+" © [2]
 " persist state between vim session
 set viminfo=!,'20,<50,s10,h
-'
+
 set title
 set ruler
 set hlsearch
@@ -152,7 +156,6 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab           " expand all tabs to spaces
-let g:max_line_width = 80
 set list                " show whitespace characters
 " Custom displaying of special characters
 " define custom characters for line endings etc
@@ -344,8 +347,8 @@ nnoremap <Leader>r :Ack!<space>'"'<CR>
 nnoremap <Leader>R :Ack<space>'"'<CR>
 
 " Produce blank lines easily
-nnoremap <Leader>o o<ESC>0dd
-nnoremap <Leader>O O<ESC>0dd
+nnoremap <Leader>o o<ESC>0d$
+nnoremap <Leader>O O<ESC>0d$
 
 " Catch all paste commands and wrap in pastemode
 " inoremap <D-V> <C-O>:set paste<CR><D-V><C-O>:set nopaste<CR>
