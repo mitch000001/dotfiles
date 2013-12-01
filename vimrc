@@ -105,13 +105,15 @@ endif
 let &directory=s:vim_swap_dir " set the swapdir to a custom folder
 " }}}
 
-set autoread            " automatic update of files changed by other processes
-set clipboard=unnamed   " enable clipboard cut&paste
+set autoread          " automatic update of files changed by other processes
+set autowrite         " Automatically save before commands like :next and :make
 
-set encoding=utf-8      " for unicode glyphs
-set showcmd         " Show (partial) command in status line.
-set showmatch       " Show matching brackets.
-set showmode " Display the mode you're in."
+set clipboard=unnamed " enable clipboard cut&paste
+
+set encoding=utf-8    " for unicode glyphs
+set showcmd           " Show (partial) command in status line.
+set showmatch         " Show matching brackets.
+set showmode          " Display the mode you're in.
 
 " show line numbers
 set number
@@ -144,6 +146,8 @@ set cursorline          " highlight current cursorline
 
 " The offset when scrolling, i.e. the lines to show from cursor to bottom
 set scrolloff=3
+set sidescrolloff=5
+
 set virtualedit=block
 set smartindent
 set laststatus=2        " Always show last status
@@ -411,6 +415,9 @@ augroup END " }}}
 
 augroup FiletypeOptions " {{{2
   autocmd!
+  " © [2]
+  autocmd FileType sh,zsh,csh,tcsh inoremap <silent> <buffer> <C-X>! #!/bin/<C-R>=&ft<CR>
+  autocmd FileType perl,python,ruby inoremap <silent> <buffer> <C-X>! #!/usr/bin/env<Space><C-R>=&ft<CR>
   autocmd FileType ruby setlocal shiftwidth=2 softtabstop=2 expandtab autoindent
   autocmd FileType ruby let b:dispatch = "bundle exec rspec %"
   autocmd FileType Ruby setlocal shiftwidth=2 softtabstop=2 expandtab autoindent
