@@ -440,6 +440,7 @@ augroup FiletypeOptions " {{{2
   autocmd FileType xml let g:xml_syntax_folding = 1
   autocmd FileType xml setlocal foldmethod=syntax
   autocmd FileType xml setlocal foldlevelstart=2
+  autocmd User Bundler if &makeprg !~ 'bundle' | setl makeprg^=bundle\ exec\  | endif
   autocmd FileType ruby call EvaluateRubyFile()
   " Use this with 'K' and you feel the force! © [2]
   autocmd FileType vim setlocal keywordprg=:help nojoinspaces
