@@ -239,6 +239,13 @@ function! TabEditCurrentFile() " {{{2
   execute "tabedit " . CurrentFilePath()
 endfunction " }}}
 
+function! IndentFile() " {{{2
+  let l:current_line = line('.')
+  let l:current_position = col('.')
+  normal! gg=G
+  call cursor(l:current_line, l:current_position)
+endfunction " }}}
+
 " © [2]
 function! EvaluateRubyFile() " {{{2
   if (expand('%') =~# '_test\.rb$')
@@ -344,7 +351,7 @@ nnoremap <silent> <Leader>u :GundoToggle<CR>
 nnoremap <silent> <Leader>. :ToggleColorColumn<CR>
 nnoremap <silent> <Leader>| :ToggleCursorColumn<CR>
 nnoremap <leader><Space> :ToggleRemoveTrailingWhitespace<cr>
-nnoremap <Leader>= gg=G
+nnoremap <Leader>= :call IndentFile()<CR>
 nnoremap <Leader>0 :silent call NumberToggle()<CR>
 nnoremap <Leader>f :Ack!<space>
 nnoremap <Leader>F :Ack<space>
