@@ -1,11 +1,16 @@
-# Initialize scripts in bash.d
+##############################################################################
+# Initialize scripts in bash.d {{{1
+##############################################################################
 for script in $HOME/.bash.d/*.sh; do
   if [[ -r $script ]]; then
     source $script
   fi
 done
 
-# Environment variables
+# }}}
+##############################################################################
+# Environment variables {{{1
+##############################################################################
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 
@@ -19,28 +24,42 @@ PS1="\[$EGREEN\]\u@\h:\[$EBLUE\]\W\[$NO_COLOR\] "
 PS1=$PS1"\$(__git_ps1 '(%s)') \[$RED\]$"
 PS1=$PS1"\[$NO_COLOR\] "
 
-### Path definitions ###
+# }}}
+##############################################################################
+### Path definitions ### {{{1
 # Homebrew Path additions
 export PATH=/usr/local/bin:$PATH
 export PATH="/usr/local/sbin:$PATH"
 export PATH=/usr/local/share/npm/bin:$PATH
 export PATH=~/bin:$PATH
 
-### Added by the Heroku Toolbelt
+# }}}
+##############################################################################
+### Added by the Heroku Toolbelt {{{1
+##############################################################################
 export PATH="/usr/local/heroku/bin:$PATH"
 export PATH=/usr/local/heroku/bin:$PATH
 
 #source ~/.adb.bash
 
-# Bash completion
+# }}}
+##############################################################################
+# Bash completion {{{1
+##############################################################################
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
 
-# rbenv initialization
+# }}}
+##############################################################################
+# rbenv initialization {{{1
+##############################################################################
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
-### Aliases ###
+# }}}
+##############################################################################
+### Aliases {{{1
+##############################################################################
 
 alias l='ls -la'
 alias lh='l -h'
@@ -117,4 +136,12 @@ alias gca='git ca'
 alias gcl='git cl'
 alias gcp='git cp'
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+# }}}
+##############################################################################
+# RVM initialization {{{1
+##############################################################################
+# Load RVM into a shell session *as a function*
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+# }}}
+##############################################################################
