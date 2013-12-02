@@ -7,10 +7,10 @@
 " PLUGIN REPOSITORY INITIALIZATION {{{2
 let s:dot_vim_update=expand('~/.vim/update')
 if !filereadable(s:dot_vim_update)
-    echom "Installing plugins..."
-    echom ""
-    " Fetching .vim folder repository
-    silent !git clone --recursive git@github.com:mitch000001/dotvim ~/.vim
+  echom "Installing plugins..."
+  echom ""
+  " Fetching .vim folder repository
+  silent !git clone --recursive git@github.com:mitch000001/dotvim ~/.vim
 endif
 " Update plugins using repository script
 execute ":silent !" . s:dot_vim_update
@@ -62,20 +62,20 @@ let NERDTreeChDirMode=2
 let g:ctrlp_working_path_mode = 'rw'
 let g:ctrlp_show_hidden = 1             " Show hidden files when using CTRL-P
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)|vendor/bundle|public/javascripts/compiled|node_modules|venv$',
-  \ 'file': '\v\.(exe|so|dll|pyc)$',
-  \ 'link': 'some_bad_symbolic_links',
-  \ }
+      \ 'dir':  '\v[\/]\.(git|hg|svn)|vendor/bundle|public/javascripts/compiled|node_modules|venv$',
+      \ 'file': '\v\.(exe|so|dll|pyc)$',
+      \ 'link': 'some_bad_symbolic_links',
+      \ }
 let g:ctrlp_clear_cache_on_exit = 1    " Clear cache in exit
 
 " }}}
 " POWERLINE CONFIGURATION {{{3
 " enable fancy powerline
 if has("gui_running")
-    " let g:Powerline_symbols = 'fancy'
-    " gui stuff
+  " let g:Powerline_symbols = 'fancy'
+  " gui stuff
 else
-    " let g:Powerline_symbols = 'unicode'
+  " let g:Powerline_symbols = 'unicode'
 endif
 
 " }}}
