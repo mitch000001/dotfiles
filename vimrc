@@ -249,10 +249,10 @@ endfunction " }}}
 function! EvaluateRubyFile() " {{{2
   if (expand('%') =~# '_test\.rb$')
     compiler rubyunit
-    setlocal makeprg=bundle\ exec\ testrb\ "%:p"
+    setlocal makeprg=testrb\ "%:p"
   elseif (expand('%') =~# '_spec\.rb$')
-    compiler "bundle exec rspec"
-    setlocal makeprg=bundle\ exec\ rspec\ "%:p"
+    compiler rspec
+    setlocal makeprg=rspec\ "%:p"
   else
     compiler ruby
     setlocal makeprg=ruby\ -wc\ \"%:p\"
