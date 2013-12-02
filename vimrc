@@ -177,7 +177,6 @@ set wildmode=longest,list
 
 set foldmethod=marker " Enable folding with custom markers
 
-" TODO: evaluate if in a git repository
 set tags+=.git/tags
 
 "}}}1
