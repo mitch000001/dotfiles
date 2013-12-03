@@ -41,8 +41,8 @@ filetype plugin indent on
 " SECTION: VARIABLES {{{1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " DIRECTORY VARIABLES {{{2
-let s:vim_backup_dir=expand('~/.vim_backup')
-let s:vim_swap_dir=expand('~/.vim_swap')
+let s:vim_backup_dir=expand('$HOME/.vim_backup')
+let s:vim_swap_dir=expand('$HOME/.vim_swap')
 
 " }}}
 " PLUGIN CONFIGURATION {{{2
