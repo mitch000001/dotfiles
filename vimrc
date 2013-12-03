@@ -81,6 +81,7 @@ endif
 " }}}
 " }}}
 let g:max_line_width = 80
+let g:xml_syntax_folding = 1
 " }}}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SECTION: OPTIONS {{{1
@@ -432,7 +433,6 @@ augroup BufEnterCommands " {{{2
   autocmd!
   autocmd BufEnter * :call EnableRemoveTrailingWhitespace()
   autocmd BufEnter * :setlocal colorcolumn=""
-  autocmd BufEnter * :filetype detect
 augroup END " }}}
 
 augroup FiletypeOptions " {{{2
@@ -450,7 +450,6 @@ augroup FiletypeOptions " {{{2
   autocmd FileType java setlocal shiftwidth=4 softtabstop=4 expandtab autoindent
   autocmd FileType java silent! compiler javac | setlocal makeprg=javac\ %
   autocmd FileType xml setlocal shiftwidth=2 softtabstop=2 expandtab autoindent
-  autocmd FileType xml let g:xml_syntax_folding = 1
   autocmd FileType xml setlocal foldmethod=syntax
   autocmd FileType xml setlocal foldlevel=2
   autocmd User Bundler if &makeprg !~ 'bundle' | setl makeprg^=bundle\ exec\  | endif
