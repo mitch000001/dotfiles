@@ -96,6 +96,7 @@ alias gf='git fetch'
 __git_complete gf __git_fetch
 alias ga='git add'
 __git_complete ga _git_add
+alias gap='git add -p'
 alias gaa='git add -A'
 __git_complete gaa _git_add
 alias grm='git rm'
@@ -115,6 +116,8 @@ __git_complete glg5 _git_log
 alias glg15='git lg -15'
 __git_complete glg15 _git_log
 alias gco='git checkout'
+__git_complete gco _git_checkout
+alias g--='git checkout --'
 __git_complete gco _git_checkout
 alias gcom='git checkout master'
 alias gcob='git checkout -b'
