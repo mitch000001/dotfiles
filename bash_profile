@@ -61,24 +61,33 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 ### Aliases {{{1
 ##############################################################################
 
+# ls aliases {{{2
 alias l='ls -la'
 alias lh='l -h'
 # List only dotfiles
 alias l.='l -d .[^.]*'
 alias ls.='ls -d .[^.]*'
 alias l.v='ls -l -d .[^.]*'
+# }}}
 
+# Workflow aliases {{{2
 alias ..='cd ..'
 alias ...='cd ../..'
+#}}}
+
+# Ruby aliases {{{2
 alias irb='irb -I `pwd` -r irb/completion'
 alias b='bundle exec'
 alias bundle='bundle '
 alias install='install --path=vendor/bundle'
+# }}}
 
+# Reloading profile aliases {{{2
 alias source_profile='source ~/.bash_profile'
 alias rl='source_profile'
+# }}}
 
-# git aliases
+# git aliases {{{2
 alias g='git'
 __git_complete g __git_main
 alias gs='git status'
@@ -131,10 +140,13 @@ __git_complete grs _git_reset
 alias gtodo='git grep -e "# TODO:" -e "# XXX:"'
 alias gnuke='git reset --hard && git clean -f'
 
+# Just Copy&Paste, no idea what these do...
+# TODO: Solve or remove
 alias gss='git ss'
 alias gca='git ca'
 alias gcl='git cl'
 alias gcp='git cp'
+# }}}
 
 # }}}
 ##############################################################################
