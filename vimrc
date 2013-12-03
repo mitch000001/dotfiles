@@ -330,6 +330,9 @@ command! NumberToggle :call NumberToggle()
 command! CurrentFilePath :call CurrentFilePath()
 command! GenerateBundleRi :silent !generate_bundle_ri
 
+" Reload vimrc
+command! RL :so $HOME/.vimrc
+
 " Diff tab management: open the current git diff in a tab ©[1]
 command! GdiffInTab execute "tabedit " . CurrentFilePath() . "|vsplit|Gdiff"
 " }}}
