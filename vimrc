@@ -82,6 +82,7 @@ endif
 " }}}
 let g:max_line_width = 80
 let g:xml_syntax_folding = 1
+let g:current_database = ""
 " }}}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SECTION: OPTIONS {{{1
@@ -244,6 +245,19 @@ function! IndentFile() " {{{2
   let l:current_position = col('.')
   normal! gg=G
   call cursor(l:current_line, l:current_position)
+endfunction " }}}
+
+function! CurrentDatabase() " {{{2
+  if (!exists("g:current_database"))
+    let g:current_database = input("Enter database name: ", "", "file")
+    echom "\nDatabase set to " . g:current_database
+    echom "\nYou can override this setting per buffer with variable 'b:current_database'"
+  endif
+  if (exists("b:current_database"))
+    return b:current_database
+  else
+    return g:current_database
+  endif
 endfunction " }}}
 
 " © [2]
@@ -457,6 +471,7 @@ augroup FiletypeOptions " {{{2
   autocmd FileType vim setlocal keywordprg=:help nojoinspaces
   autocmd FileType help setlocal keywordprg=:help nojoinspaces
   autocmd User Bundler if &makeprg !~ 'bundle' | setlocal makeprg^=bundle\ exec\  | endif
+  autocmd FileType sqlite execute "setlocal makeprg=sqlite3\ " . g:current_database
 augroup END " }}}
 
 augroup LineNumber " {{{2
