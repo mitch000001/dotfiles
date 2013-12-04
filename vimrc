@@ -452,11 +452,11 @@ augroup FiletypeOptions " {{{2
   autocmd FileType xml setlocal shiftwidth=2 softtabstop=2 expandtab autoindent
   autocmd FileType xml setlocal foldmethod=syntax
   autocmd FileType xml setlocal foldlevel=2
-  autocmd User Bundler if &makeprg !~ 'bundle' | setl makeprg^=bundle\ exec\  | endif
   autocmd FileType ruby call EvaluateRubyFile()
   " Use this with 'K' and you feel the force! © [2]
   autocmd FileType vim setlocal keywordprg=:help nojoinspaces
   autocmd FileType help setlocal keywordprg=:help nojoinspaces
+  autocmd User Bundler if &makeprg !~ 'bundle' | setlocal makeprg^=bundle\ exec\  | endif
 augroup END " }}}
 
 augroup LineNumber " {{{2
