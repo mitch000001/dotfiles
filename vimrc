@@ -189,6 +189,8 @@ set foldmethod=marker " Enable folding with custom markers
 
 set tags+=.git/tags
 
+set exrc
+
 "}}}1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SECTION: FUNCTIONS {{{1
