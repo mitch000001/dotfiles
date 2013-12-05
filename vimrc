@@ -40,6 +40,9 @@ filetype plugin indent on
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SECTION: VARIABLES {{{1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" GLOBAL CONFIGURATION {{{2
+let g:max_line_width = 80
+" }}}
 " DIRECTORY VARIABLES {{{2
 let s:vim_backup_dir=expand('$HOME/.vim_backup')
 let s:vim_swap_dir=expand('$HOME/.vim_swap')
@@ -80,9 +83,13 @@ endif
 
 " }}}
 " }}}
-let g:max_line_width = 80
-let g:xml_syntax_folding = 1
+" SQL DATABASE QUERY CONFIGURATION {{{2
 let g:current_database = ""
+let g:sql_result_file = "results.csv"
+" }}}
+" FILETYPE VARIABLES {{{2
+let g:xml_syntax_folding = 1
+" }}}
 " }}}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SECTION: OPTIONS {{{1
@@ -259,6 +266,15 @@ function! CurrentDatabase() " {{{2
     return g:current_database
   endif
 endfunction " }}}
+
+function! GetMakePrgVariable(filetype)
+  let make_prg = "make"
+  if a:filetype == "mysql"
+    let make_prg = "mysql\ \-\-user=root\ \-\-host=epic-localvm\ \-\-port=3306\ mars_development\ \<\ %\ \>\ results.csv"
+  endif
+  let make_prg = escape(make_prg, ' -<>\')
+  return make_prg
+endfunction
 
 " © [2]
 function! EvaluateRubyFile() " {{{2
@@ -471,8 +487,9 @@ augroup FiletypeOptions " {{{2
   autocmd FileType vim setlocal keywordprg=:help nojoinspaces
   autocmd FileType help setlocal keywordprg=:help nojoinspaces
   autocmd FileType csv %ArrangeColumn
+  autocmd FileType mysql execute "setlocal makeprg=" . GetMakePrgVariable('mysql')
   autocmd FileType sqlite execute "setlocal makeprg=sqlite3\ " . g:current_database
-  autocmd User Bundler if &makeprg !~ 'bundle' | setlocal makeprg^=bundle\ exec\  | endif
+  autocmd User Bundler if (&makeprg !~ 'bundle' && &ft == 'ruby') | setlocal makeprg^=bundle\ exec\  | endif
 augroup END " }}}
 
 augroup LineNumber " {{{2
