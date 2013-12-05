@@ -273,12 +273,14 @@ function! SetCurrentDatabase() " {{{2
 endfunction " }}}
 
 function! GetMakePrgVariable(filetype) " {{{2
-  let make_prg = "make"
   if (a:filetype == "mysql")
-    let make_prg = "mysql " . g:SQL_program_arguments . " " . g:SQL_database . " < % > " . g:SQL_result_file
+    let make_prg_prefix = "mysql"
   elseif (a:filetype == "sqlite")
-    let make_prg = "sqlite3 ". g:SQL_program_arguments . " " . g:SQL_database . "< % > " . g:SQL_result_file
+    let make_prg_prefix = "sqlite3"
+  else
+    let make_prg_prefix = "make"
   endif
+  let make_prg = make_prg_prefix . " " . g:SQL_program_arguments . " " . g:SQL_database . "< % > " . g:SQL_result_file
   let make_prg = escape(make_prg, ' -<>\')
   return make_prg
 endfunction " }}}
