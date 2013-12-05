@@ -269,8 +269,10 @@ endfunction " }}}
 
 function! GetMakePrgVariable(filetype)
   let make_prg = "make"
-  if a:filetype == "mysql"
-    let make_prg = "mysql\ \-\-user=root\ \-\-host=epic-localvm\ \-\-port=3306\ mars_development\ \<\ %\ \>\ results.csv"
+  if (a:filetype == "mysql")
+    let make_prg = "mysql --user=root --host=epic-localvm --port=3306 " . g:current_database . " < % > " . g:sql_result_file
+  elseif (a:filetype == "sqlite")
+    let make_prg = "sqlite3 " . g:current_database . "< % > " . g:sql_result_file
   endif
   let make_prg = escape(make_prg, ' -<>\')
   return make_prg
