@@ -470,8 +470,9 @@ augroup FiletypeOptions " {{{2
   " Use this with 'K' and you feel the force! © [2]
   autocmd FileType vim setlocal keywordprg=:help nojoinspaces
   autocmd FileType help setlocal keywordprg=:help nojoinspaces
-  autocmd User Bundler if &makeprg !~ 'bundle' | setlocal makeprg^=bundle\ exec\  | endif
+  autocmd FileType csv %ArrangeColumn
   autocmd FileType sqlite execute "setlocal makeprg=sqlite3\ " . g:current_database
+  autocmd User Bundler if &makeprg !~ 'bundle' | setlocal makeprg^=bundle\ exec\  | endif
 augroup END " }}}
 
 augroup LineNumber " {{{2
