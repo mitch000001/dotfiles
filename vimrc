@@ -84,8 +84,9 @@ endif
 " }}}
 " }}}
 " SQL DATABASE QUERY CONFIGURATION {{{2
-let g:current_database = ""
-let g:sql_result_file = "results.csv"
+let g:SQL_database = ""
+let g:SQL_program_arguments = ""
+let g:SQL_result_file = "results.csv"
 " }}}
 " FILETYPE VARIABLES {{{2
 let g:xml_syntax_folding = 1
@@ -254,29 +255,31 @@ function! IndentFile() " {{{2
   call cursor(l:current_line, l:current_position)
 endfunction " }}}
 
-function! CurrentDatabase() " {{{2
-  if (!exists("g:current_database"))
-    let g:current_database = input("Enter database name: ", "", "file")
-    echom "\nDatabase set to " . g:current_database
-    echom "\nYou can override this setting per buffer with variable 'b:current_database'"
-  endif
-  if (exists("b:current_database"))
-    return b:current_database
-  else
-    return g:current_database
-  endif
+function! SetSQLMakePrg() " {{{2
+  let make_prg_prefix = input("Enter SQL makefile: ")
+  let make_prg = escape(make_prg_prefix . "< % > " . g:SQL_result_file, ' -<>\')
+  setlocal makeprg=makeprg
+  echom "MakeProgram set to " . &makeprg
 endfunction " }}}
 
-function! GetMakePrgVariable(filetype)
+function! SetCurrentDatabase() " {{{2
+  if (!exists("g:SQL_database") || g:SQL_database == "")
+    let g:SQL_database = input("Enter database name: ", "", "file")
+    echom "\nDatabase set to " . g:SQL_database
+  endif
+  return g:SQL_database
+endfunction " }}}
+
+function! GetMakePrgVariable(filetype) " {{{2
   let make_prg = "make"
   if (a:filetype == "mysql")
-    let make_prg = "mysql --user=root --host=epic-localvm --port=3306 " . g:current_database . " < % > " . g:sql_result_file
+    let make_prg = "mysql " . g:SQL_program_arguments . " " . g:SQL_database . " < % > " . g:SQL_result_file
   elseif (a:filetype == "sqlite")
-    let make_prg = "sqlite3 " . g:current_database . "< % > " . g:sql_result_file
+    let make_prg = "sqlite3 ". g:SQL_program_arguments . " " . g:SQL_database . "< % > " . g:SQL_result_file
   endif
   let make_prg = escape(make_prg, ' -<>\')
   return make_prg
-endfunction
+endfunction " }}}
 
 " © [2]
 function! EvaluateRubyFile() " {{{2
@@ -362,6 +365,8 @@ command! ToggleCursorColumn :call ToggleCursorColumn()
 command! NumberToggle :call NumberToggle()
 command! CurrentFilePath :call CurrentFilePath()
 command! GenerateBundleRi :silent !generate_bundle_ri
+
+command! SetSQLMakeProgram :call SetSQLMakePrg()
 
 " Reload vimrc
 command! RL :so $HOME/.vimrc
@@ -490,7 +495,7 @@ augroup FiletypeOptions " {{{2
   autocmd FileType help setlocal keywordprg=:help nojoinspaces
   autocmd FileType csv %ArrangeColumn
   autocmd FileType mysql execute "setlocal makeprg=" . GetMakePrgVariable('mysql')
-  autocmd FileType sqlite execute "setlocal makeprg=sqlite3\ " . g:current_database
+  autocmd FileType sqlite execute "setlocal makeprg=" . GetMakePrgVariable('sqlite')
   autocmd User Bundler if (&makeprg !~ 'bundle' && &ft == 'ruby') | setlocal makeprg^=bundle\ exec\  | endif
 augroup END " }}}
 
