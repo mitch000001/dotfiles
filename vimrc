@@ -500,7 +500,11 @@ augroup FiletypeOptions " {{{2
   autocmd FileType csv %ArrangeColumn
   autocmd FileType mysql execute "setlocal makeprg=" . GetMakePrgVariable('mysql')
   autocmd FileType sqlite execute "setlocal makeprg=" . GetMakePrgVariable('sqlite')
+  " © [2]
   autocmd User Bundler if (&makeprg !~ 'bundle' && &ft == 'ruby') | setlocal makeprg^=bundle\ exec\  | endif
+  autocmd FileType * if exists("+omnifunc") && &omnifunc == "" | setlocal omnifunc=syntaxcomplete#Complete | endif
+  autocmd FileType * if exists("+completefunc") && &completefunc == "" | setlocal completefunc=syntaxcomplete#Complete | endif
+endif
 augroup END " }}}
 
 augroup LineNumber " {{{2
