@@ -504,7 +504,6 @@ augroup FiletypeOptions " {{{2
   autocmd User Bundler if (&makeprg !~ 'bundle' && &ft == 'ruby') | setlocal makeprg^=bundle\ exec\  | endif
   autocmd FileType * if exists("+omnifunc") && &omnifunc == "" | setlocal omnifunc=syntaxcomplete#Complete | endif
   autocmd FileType * if exists("+completefunc") && &completefunc == "" | setlocal completefunc=syntaxcomplete#Complete | endif
-endif
 augroup END " }}}
 
 augroup LineNumber " {{{2
