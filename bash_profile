@@ -132,6 +132,10 @@ alias gdf='git df'
 __git_complete gdf _git_diff
 alias gdfs='git dfs'
 __git_complete gdfs _git_diff
+alias gsave='git stash'
+__git_complete gsave _git_stash
+alias gspop='git stash pop'
+__git_complete gspop _git_stash
 alias gpr='git pull --rebase'
 __git_complete gpr _git_pull
 alias gpu='git push'
