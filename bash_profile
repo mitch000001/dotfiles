@@ -136,6 +136,8 @@ alias gsave='git stash'
 __git_complete gsave _git_stash
 alias gspop='git stash pop'
 __git_complete gspop _git_stash
+alias gsl='git stash list'
+__git_complete gsl _git_stash
 alias gpr='git pull --rebase'
 __git_complete gpr _git_pull
 alias gpu='git push'
