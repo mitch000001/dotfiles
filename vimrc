@@ -490,7 +490,7 @@ augroup FiletypeOptions " {{{2
   autocmd FileType coffee setlocal shiftwidth=2 softtabstop=2 expandtab autoindent
   autocmd FileType haml setlocal shiftwidth=2 softtabstop=2 expandtab autoindent
   autocmd Filetype gitcommit setlocal spell textwidth=72 foldmethod=syntax foldlevel=1
-  autocmd FileType java setlocal shiftwidth=4 softtabstop=4 expandtab autoindent
+  autocmd FileType java setlocal shiftwidth=4 softtabstop=4 tabstop=4 expandtab autoindent
   autocmd FileType java silent! compiler javac | setlocal makeprg=javac\ %
   autocmd FileType xml setlocal shiftwidth=2 softtabstop=2 expandtab autoindent
   autocmd FileType xml setlocal foldmethod=syntax
