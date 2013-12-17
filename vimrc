@@ -406,8 +406,8 @@ nnoremap <Leader>r :Ack!<space>'"'<CR>
 nnoremap <Leader>R :Ack<space>'"'<CR>
 
 " Produce blank lines easily
-nnoremap <Leader>o o<ESC>0d$
-nnoremap <Leader>O O<ESC>0d$
+nnoremap <Leader>o o<ESC>0d$k
+nnoremap <Leader>O O<ESC>0d$j
 
 " Catch all paste commands and wrap in pastemode
 " inoremap <D-V> <C-O>:set paste<CR><D-V><C-O>:set nopaste<CR>
