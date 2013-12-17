@@ -444,6 +444,7 @@ map <F4>    :cc<CR>
 map <F5>    :cprev<CR>
 map <F6>    :cclose<CR>
 map <F8>    :wall<Bar>make<CR>
+map <silent> <F10> :let tagsfile = tempname()\|silent exe "!ctags -f ".tagsfile." \"%\""\|let &l:tags .= "," . tagsfile\|unlet tagsfile<CR>
 map <C-F4>  :bdelete<CR>
 " }}}
 
