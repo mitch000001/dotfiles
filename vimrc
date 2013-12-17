@@ -187,6 +187,7 @@ set wildmode=longest,list
 
 set foldmethod=marker " Enable folding with custom markers
 
+" Add tags file from git hooks
 set tags+=.git/tags
 
 set exrc
