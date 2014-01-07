@@ -93,9 +93,7 @@ alias rl='source_profile'
 alias g='git'
 __git_complete g __git_main
 alias gs='git status'
-__git_complete gs __git_status
 alias gst='git status -sb'
-__git_complete gst __git_status
 alias gf='git fetch'
 __git_complete gf __git_fetch
 alias ga='git add'
