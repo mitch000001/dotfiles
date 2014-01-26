@@ -18,6 +18,7 @@ export HOMEBREW=/usr/local/Cellar
 export ANDROID_SDK_ROOT=/usr/local/opt/android-sdk
 export ANDROID_HOME=$ANDROID_SDK_ROOT
 export GOPATH=$HOME/Development/learning/go
+export VM_PATH=$HOME/Documents/Virtual_Machines.localized
 
 export HISTIGNORE="&"
 
