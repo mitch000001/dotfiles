@@ -25,6 +25,7 @@ call pathogen#helptags()
 " BUILDIN MACROS {{{2
 " % matches on if/else, html tags, etc.
 runtime macros/matchit.vim
+runtime ftplugin/man.vim
 
 " }}}
 " }}}
@@ -499,6 +500,7 @@ augroup FiletypeOptions " {{{2
   " Use this with 'K' and you feel the force! © [2]
   autocmd FileType vim setlocal keywordprg=:help nojoinspaces
   autocmd FileType help setlocal keywordprg=:help nojoinspaces
+  autocmd FileType man setlocal nojoinspaces nolist
   autocmd FileType csv %ArrangeColumn
   autocmd FileType mysql execute "setlocal makeprg=" . GetMakePrgVariable('mysql')
   autocmd FileType sqlite execute "setlocal makeprg=" . GetMakePrgVariable('sqlite')
