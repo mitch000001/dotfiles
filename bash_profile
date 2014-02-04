@@ -82,7 +82,7 @@ alias ...='cd ../..'
 alias irb='irb -I `pwd` -r irb/completion'
 alias b='bundle exec'
 alias bundle='bundle '
-alias install='install --path=vendor/bundle'
+alias install='install --path=.bundle'
 # }}}
 
 # Reloading profile aliases {{{2
