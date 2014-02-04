@@ -133,7 +133,7 @@ alias gd='git diff'
 __git_complete gd _git_diff
 alias gdf='git df'
 __git_complete gdf _git_diff
-alias gdfs='git dfs'
+alias gdfs='git diff --staged'
 __git_complete gdfs _git_diff
 alias gsave='git stash'
 __git_complete gsave _git_stash
