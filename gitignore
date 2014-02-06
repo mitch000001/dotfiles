@@ -17,3 +17,5 @@ local.properties
 *.eml
 # Ignore custom ex scripts
 .exrc
+# Ignore bundled gems
+vendor/bundle
