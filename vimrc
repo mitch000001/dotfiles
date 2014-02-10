@@ -115,83 +115,85 @@ endif
 
 let &directory=s:vim_swap_dir " set the swapdir to a custom folder
 " }}}
-
+" BUFFER HANDLING {{{2
 set autoread          " automatic update of files changed by other processes
 set autowrite         " Automatically save before commands like :next and :make
-
-set clipboard=unnamed " enable clipboard cut&paste
-
-set encoding=utf-8    " for unicode glyphs
-set showcmd           " Show (partial) command in status line.
-set showmatch         " Show matching brackets.
-set showmode          " Display the mode you're in.
-
-" show line numbers
-set number
-
 " hide buffers in background when switching
 " the active buffer to another file
 set hidden
-
-" Toggle paste mode
-set pastetoggle=<F2>
-
-" remember more commands and search history
-set history=10000
-
-" © [2]
-" persist state between vim session
-set viminfo=!,'20,<50,s10,h
-
-set title
-set ruler
+" Open files e.g. from quicksearch within last selected window buffer
+set switchbuf=useopen
+" }}}
+" INTERACTION HELPERS {{{2
+set clipboard=unnamed " enable clipboard cut&paste
+set pastetoggle=<F2>  " Toggle paste mode
+set mouse=a             " Enable mouse support
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
+" }}}
+" STATUS LINE CONFIGURATION {{{2
+set showcmd           " Show (partial) command in status line.
+set showmode          " Display the mode you're in.
+set ruler             " Print the current line and the current column
+set laststatus=2        " Always show last status
+" }}}
+" SERACH CONFIG {{{2
 set hlsearch
 set incsearch
 " make searches case-sensitive only if they contain upper-case characters
 set ignorecase smartcase
-" Prevent Vim from clobbering the scrollback buffer. See
-" http://www.shallowsky.com/linux/noaltscreen.html
-" set t_ti= t_te=
-
+" }}}
+" VISUAL EFFECTS {{{2
+set showmatch         " Show matching brackets.
+set number            " show line numbers
 set cursorline          " highlight current cursorline
-
+set virtualedit=block
 " The offset when scrolling, i.e. the lines to show from cursor to bottom
 set scrolloff=3
 set sidescrolloff=5
-
-set virtualedit=block
+" }}}
+" DEFAULT INDENTATION RULES {{{2
 set smartindent
-set laststatus=2        " Always show last status
-set mouse=a             " Enable mouse support
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
-
 set smarttab        " sw at the start of the line, sts everywhere else
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab           " expand all tabs to spaces
+" }}}
+" APPEARANCE OF SPECIAL CHARACTERS {{{2
 set list                " show whitespace characters
 " Custom displaying of special characters
 " define custom characters for line endings etc
 set listchars=tab:▸\ ,trail:·,nbsp:·,eol:¬
 " define characters to indicate long lines when 'wrap' is off
 set listchars+=extends:»,precedes:«
-
-"" Buffer options
-" Open files e.g. from quicksearch within last selected window buffer
-set switchbuf=useopen
-
+" }}}
+" HISTORY {{{2
+" remember more commands and search history
+set history=10000
+" © [2]
+" persist state between vim session
+set viminfo=!,'20,<50,s10,h
+"}}}
+" TERMINAL OPTIONS {{{2
+set title
+" Prevent Vim from clobbering the scrollback buffer. See
+" http://www.shallowsky.com/linux/noaltscreen.html
+" set t_ti= t_te=
+" }}}
+" COMPLETION {{{2
 " Bash-like filename completion in command line
 set wildmenu
 set wildmode=longest,list
-
+" }}}
+" FOLDING {{{2
 set foldmethod=marker " Enable folding with custom markers
+" }}}
+set encoding=utf-8    " for unicode glyphs
 
-" Add tags file from git hooks
-set tags+=.git/tags
+set tags+=.git/tags   " Add tags file from git hooks
 
-set exrc
+set exrc              " load local exrc files
 
 "}}}1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
