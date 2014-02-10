@@ -18,6 +18,7 @@
   lga = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset [%C(yellow)%an%Creset]' --abbrev-commit --date=relative
   pr = pull -r
   vimdiff = difftool -y -t vimdiff
+  vimmerge = mergetool -y -t vimdiff
 	ctags = !.git/hooks/ctags
 
 [core]
@@ -69,16 +70,17 @@
   cmd = opendiff \"$LOCAL\" \"$REMOTE\"
   path =
 
-[mergetool "sourcetree"]
+[merge]
+  summary = true
+  tool = vimdiff
+
+[mergetool "vimdiff"]
   cmd = vimdiff \"$LOCAL\" \"$MERGED\" \"$REMOTE\"
   trustExitCode = true
 
 [mergetool "sourcetree"]
   cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
   trustExitCode = true
-[merge]
-  summary = true
-#  tool = diffmerge
 
 [mergetool "diffmerge"]
   cmd = diffmerge --merge --result=$MERGED $LOCAL $BASE $REMOTE
