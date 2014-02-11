@@ -457,6 +457,9 @@ map <C-F4>  :bdelete<CR>
 " SECTION: COLORS {{{1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 colorscheme desert
+hi DiffText ctermbg=4
+hi DiffChange ctermbg=11
+hi DiffDelete ctermbg=9 ctermfg=8
 " set background=dark
 " solarized options
 " let g:solarized_termcolors = 256
