@@ -22,7 +22,7 @@
 	ctags = !.git/hooks/ctags
 
 [core]
-  excludesfile = $HOME/.gitignore
+  excludesfile = ~/.gitignore
   editor = vim
   autocrlf = input
 
