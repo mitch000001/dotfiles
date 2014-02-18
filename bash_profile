@@ -21,6 +21,7 @@ export GOPATH=$HOME/Development/learning/go
 export VM_PATH=$HOME/Documents/Virtual_Machines.localized
 
 export HISTIGNORE="&"
+export HISTSIZE=2000
 
 PS1="\[$EGREEN\]\u@\h:\[$EBLUE\]\W\[$NO_COLOR\] "
 PS1=$PS1"\$(__git_ps1 '(%s)') \[$RED\]$"
