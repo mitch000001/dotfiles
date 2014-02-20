@@ -119,6 +119,10 @@ alias glg5='git lg -5'
 __git_complete glg5 _git_log
 alias glg15='git lg -15'
 __git_complete glg15 _git_log
+alias glga5='git lga -5'
+__git_complete glga5 _git_log
+alias glga15='git lga -15'
+__git_complete glga15 _git_log
 alias gco='git checkout'
 __git_complete gco _git_checkout
 alias g--='git checkout --'
