@@ -48,6 +48,25 @@ export PATH=/usr/local/heroku/bin:$PATH
 
 # }}}
 ##############################################################################
+# Functions {{{1
+##############################################################################
+# See http://unix.stackexchange.com/questions/4219/how-do-i-get-bash-completion-for-command-aliases for more details
+function make-completion-wrapper () {
+  local function_name="$2"
+  local arg_count=$(($#-3))
+  local comp_function_name="$1"
+  shift 2
+  local function="
+    function $function_name {
+      ((COMP_CWORD+=$arg_count))
+      COMP_WORDS=( "$@" \${COMP_WORDS[@]:1} )
+      "$comp_function_name"
+      return 0
+    }"
+  eval "$function"
+}
+# }}}
+##############################################################################
 # Bash completion {{{1
 ##############################################################################
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
@@ -82,6 +101,8 @@ alias ...='cd ../..'
 # Ruby aliases {{{2
 alias irb='irb -I `pwd` -r irb/completion'
 alias b='bundle exec'
+make-completion-wrapper __bundle _bundle_exec bundle exec
+complete -F _bundle_exec b
 alias bundle='bundle '
 alias install='install --path=.bundle'
 # }}}
