@@ -478,6 +478,13 @@ hi DiffDelete ctermbg=9 ctermfg=8
 " SECTION: AUTOCOMMANDS {{{1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+augroup Misc "{{{2
+  autocmd User Fugitive
+            \ if filereadable(fugitive#buffer().repo().dir('fugitive.vim')) |
+            \   source `=fugitive#buffer().repo().dir('fugitive.vim')` |
+            \ endif
+augroup END "}}}
+
 augroup Whitespace " {{{2
   autocmd!
   " remove trailing whitespace
