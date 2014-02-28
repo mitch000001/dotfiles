@@ -486,6 +486,11 @@ augroup BufEnterCommands " {{{2
   autocmd BufEnter * :setlocal colorcolumn=""
 augroup END " }}}
 
+augroup FileTypeCheck "{{{2
+  autocmd!
+  autocmd BufNewFile,BufRead *.txt,README,INSTALL,NEWS,TODO if &ft == ""|set ft=text|endif
+augroup END "}}}
+
 augroup FiletypeOptions " {{{2
   autocmd!
   " © [2]
