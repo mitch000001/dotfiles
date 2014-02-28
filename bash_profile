@@ -14,7 +14,9 @@ done
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 
-export HOMEBREW=/usr/local/Cellar
+if [ -z $(command -v foo >/dev/null 2>&1) ]; then
+  export HOMEBREW=$(brew --cellar)
+fi
 export ANDROID_SDK_ROOT=/usr/local/opt/android-sdk
 export ANDROID_HOME=$ANDROID_SDK_ROOT
 export GOPATH=$HOME/Development/learning/go
