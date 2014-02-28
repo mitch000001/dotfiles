@@ -50,6 +50,8 @@ let s:vim_swap_dir=expand('$HOME/.vim_swap')
 
 " }}}
 " PLUGIN CONFIGURATION {{{2
+let g:markdown_fenced_languages = ['ruby', 'html', 'javascript', 'css', 'erb=eruby.html', 'bash=sh']
+let g:liquid_highlight_types = g:markdown_fenced_languages + ['jinja=liquid', 'html+erb=eruby.html', 'html+jinja=liquid.html']
 " RSPEC CONFIGURATION {{{3
 let g:rspec_command = "Dispatch bundle exec rspec {spec}"
 
@@ -472,7 +474,7 @@ hi DiffDelete ctermbg=9 ctermfg=8
 " SECTION: AUTOCOMMANDS {{{1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-augroup whitespace " {{{2
+augroup Whitespace " {{{2
   autocmd!
   " remove trailing whitespace
   " autocmd BufWritePre * :%s/\s\+$//e
