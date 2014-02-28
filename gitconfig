@@ -1,109 +1,111 @@
+# vim:ft=gitconfig
 [user]
-  name = Michael Wagner
-  email = mitch.wagna@gmail.com
+	name = Michael Wagner
+	email = mitch.wagna@gmail.com
+	signingkey = DB6C51C3
 
 [github]
-  user = mitch000001
+	user = mitch000001
 
 [alias]
-  st = status
-  br = branch
-  di = diff
-  co = checkout
-  ci = commit -v
-  df = diff
-  dfs = diff -s
-  w = whatchanged
-  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset [%C(yellow)%an%Creset]' --abbrev-commit --date=relative
-  lga = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset [%C(yellow)%an%Creset]' --abbrev-commit --date=relative
-  pr = pull -r
-  vimdiff = difftool -y -t vimdiff
-  vimmerge = mergetool -y -t vimdiff
+	st = status
+	br = branch
+	di = diff
+	co = checkout
+	ci = commit -v
+	df = diff
+	dfs = diff -s
+	w = whatchanged
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset [%C(yellow)%an%Creset]' --abbrev-commit --date=relative
+	lga = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset [%C(yellow)%an%Creset]' --abbrev-commit --date=relative
+	pr = pull -r
+	vimdiff = difftool -y -t vimdiff
+	vimmerge = mergetool -y -t vimdiff
 	ctags = !.git/hooks/ctags
 
 [core]
-  excludesfile = ~/.gitignore
-  editor = vim
-  autocrlf = input
+	excludesfile = ~/.gitignore
+	editor = vim
+	autocrlf = input
 
 [ssh]
-  port = 22
+	port = 22
 
 [help]
-  autocorrect = 10
+	autocorrect = 10
 
 [color]
-  diff = auto
-  status = auto
-  branch = auto
-  interactive = auto
-  ui = true
-  pager = true
+	diff = auto
+	status = auto
+	branch = auto
+	interactive = auto
+	ui = true
+	pager = true
 
 [color "branch"]
-  current = yellow reverse
-  local = yellow
-  remote = green
+	current = yellow reverse
+	local = yellow
+	remote = green
 
 [color "diff"]
-  meta = yellow bold
-  frag = magenta bold
-  old = red bold
-  new = green bold
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
 
 [color "status"]
-  added = yellow
-  changed = green
-  untracked = cyan
+	added = yellow
+	changed = green
+	untracked = cyan
 
 [diff "ruby"]
-        funcname = "^ *\\(\\(def\\) .*\\)"
+	funcname = "^ *\\(\\(def\\) .*\\)"
 
 [diff "image"]
-        textconv = identify
+	textconv = identify
 
 [difftool "vimdiff"]
-  cmd = vimdiff \"$LOCAL\" \"$REMOTE\"
-  path =
+	cmd = vimdiff \"$LOCAL\" \"$REMOTE\"
+	path =
 
 [difftool "sourcetree"]
-  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-  path =
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
 
 [merge]
-  summary = true
-  tool = vimdiff
+	summary = true
+	tool = vimdiff
 
 [mergetool "vimdiff"]
-  cmd = vimdiff \"$LOCAL\" \"$MERGED\" \"$REMOTE\"
-  trustExitCode = true
+	cmd = vimdiff \"$LOCAL\" \"$MERGED\" \"$REMOTE\"
+	trustExitCode = true
 
 [mergetool "sourcetree"]
-  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-  trustExitCode = true
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
 
 [mergetool "diffmerge"]
-  cmd = diffmerge --merge --result=$MERGED $LOCAL $BASE $REMOTE
-  trustExitCode = true
+	cmd = diffmerge --merge --result=$MERGED $LOCAL $BASE $REMOTE
+	trustExitCode = true
 
 [credential]
-  helper = osxkeychain
+	helper = osxkeychain
 
 [push]
-  default = upstream
+	default = upstream
 
 [help]
-  autocorrect = 1
+	autocorrect = 1
 
 [commit]
-  template = ~/.git_template/gitcommit.template
+	template = ~/.git_template/gitcommit.template
 
 [branch]
-  autosetuprebase = always
+	autosetuprebase = always
 
 [diff]
-  tool = vimdiff
+	tool = vimdiff
 # external = ~/bin/git_diff_wrapper
 
 [init]
-  templatedir = ~/.git_template
+	templatedir = ~/.git_template
