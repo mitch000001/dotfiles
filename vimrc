@@ -502,7 +502,7 @@ augroup FileTypeCheck "{{{2
   autocmd BufNewFile,BufRead *.txt,README,INSTALL,NEWS,TODO if &ft == ""|set ft=text|endif
 augroup END "}}}
 
-augroup FiletypeOptions " {{{2
+augroup FileTypeOptions " {{{2
   autocmd!
   " © [2]
   autocmd FileType sh,zsh,csh,tcsh inoremap <silent> <buffer> <C-X>! #!/bin/<C-R>=&ft<CR>
@@ -514,6 +514,7 @@ augroup FiletypeOptions " {{{2
   autocmd FileType coffee setlocal shiftwidth=2 softtabstop=2 expandtab autoindent
   autocmd FileType haml setlocal shiftwidth=2 softtabstop=2 expandtab autoindent
   autocmd Filetype gitcommit setlocal spell textwidth=72 foldmethod=syntax foldlevel=1
+  autocmd Filetype gitconfig setlocal textwidth=72 noexpandtab
   autocmd FileType java setlocal shiftwidth=4 softtabstop=4 tabstop=4 expandtab autoindent
   autocmd FileType java silent! compiler javac | setlocal makeprg=javac\ %
   autocmd FileType xml setlocal shiftwidth=2 softtabstop=2 expandtab autoindent
