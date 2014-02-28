@@ -227,13 +227,13 @@ endfunction " }}}
 
 function! ToggleRemoveTrailingWhitespace() " {{{2
   if b:Remove_trailing_whitespace
-    augroup whitespace
+    augroup Whitespace
       au!
     augroup END
     let b:Remove_trailing_whitespace=0
     echom "Remove trailing whitespace is off"
   else
-    augroup whitespace
+    augroup Whitespace
       autocmd BufWritePre <buffer> :%s/\s\+$//e
     augroup END
     let b:Remove_trailing_whitespace=1
@@ -243,7 +243,7 @@ endfunction " }}}
 
 function! EnableRemoveTrailingWhitespace() " {{{2
   let b:Remove_trailing_whitespace=1
-  autocmd whitespace BufWritePre <buffer> :%s/\s\+$//e
+  autocmd Whitespace BufWritePre <buffer> :%s/\s\+$//e
 endfunction " }}}
 
 function! CurrentFilePath() " {{{2
