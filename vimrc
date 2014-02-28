@@ -436,6 +436,10 @@ nnoremap <leader>w :w\|:!script/features --profile wip<cr>
 nnoremap <F9> :Dispatch<CR>
 " Same behaviour in normal mode as a pager
 nnoremap <Space> <C-D>
+" © [2]
+if exists(":nohls")
+  nnoremap <silent> <C-L> :nohls<CR><C-L>
+endif
 " }}}
 
 " INSERT MODE {{{2
