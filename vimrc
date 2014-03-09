@@ -528,6 +528,7 @@ augroup FileTypeOptions " {{{2
   autocmd FileType mysql execute "setlocal makeprg=" . GetMakePrgVariable('mysql')
   autocmd FileType sqlite execute "setlocal makeprg=" . GetMakePrgVariable('sqlite')
   autocmd FileType go autocmd BufWritePre <buffer> Fmt
+  autocmd FileType go compiler go
   " © [2]
   autocmd User Bundler if (&makeprg !~ 'bundle' && &ft == 'ruby') | setlocal makeprg^=bundle\ exec\  | endif
   autocmd FileType * if exists("+omnifunc") && &omnifunc == "" | setlocal omnifunc=syntaxcomplete#Complete | endif
