@@ -14,12 +14,13 @@ done
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 
-if [ -z $(command -v foo >/dev/null 2>&1) ]; then
+if [ -z $(command -v brew >/dev/null 2>&1) ]; then
   export HOMEBREW=$(brew --cellar)
 fi
 export ANDROID_SDK_ROOT=/usr/local/opt/android-sdk
 export ANDROID_HOME=$ANDROID_SDK_ROOT
 export GOPATH=$HOME/Development/learning/go
+export GOROOT=$(go env GOROOT)
 export VM_PATH=$HOME/Documents/Virtual_Machines.localized
 
 export HISTIGNORE="&"
