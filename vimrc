@@ -34,9 +34,8 @@ runtime ftplugin/man.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible
 filetype off
-syntax on
-filetype plugin indent on
-
+filetype plugin indent off
+set runtimepath+=$GOROOT/misc/vim
 " }}}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SECTION: VARIABLES {{{1
@@ -528,6 +527,7 @@ augroup FileTypeOptions " {{{2
   autocmd FileType csv %ArrangeColumn
   autocmd FileType mysql execute "setlocal makeprg=" . GetMakePrgVariable('mysql')
   autocmd FileType sqlite execute "setlocal makeprg=" . GetMakePrgVariable('sqlite')
+  autocmd FileType go autocmd BufWritePre <buffer> Fmt
   " © [2]
   autocmd User Bundler if (&makeprg !~ 'bundle' && &ft == 'ruby') | setlocal makeprg^=bundle\ exec\  | endif
   autocmd FileType * if exists("+omnifunc") && &omnifunc == "" | setlocal omnifunc=syntaxcomplete#Complete | endif
@@ -542,6 +542,11 @@ augroup LineNumber " {{{2
   autocmd FocusGained * :set number relativenumber
 augroup END " }}}
 
+" }}}
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" SECTION: FINAL INITIALIZATIONS {{{1
+syntax on
+filetype plugin indent on
 " }}}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SECTION: FOOTNOTES {{{1
