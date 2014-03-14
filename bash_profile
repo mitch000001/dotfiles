@@ -19,7 +19,7 @@ if [ -z $(command -v brew >/dev/null 2>&1) ]; then
 fi
 export ANDROID_SDK_ROOT=/usr/local/opt/android-sdk
 export ANDROID_HOME=$ANDROID_SDK_ROOT
-export GOPATH=$HOME/Development/learning/go
+export GOPATH=$HOME/.go
 export GOROOT=$(go env GOROOT)
 export VM_PATH=$HOME/Documents/Virtual_Machines.localized
 
