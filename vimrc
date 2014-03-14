@@ -97,6 +97,7 @@ let g:xml_syntax_folding = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SECTION: OPTIONS {{{1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+scriptencoding utf-8
 " LEADER KEYS {{{2
 let mapleader = ","       " A more german keyboard friendly mapleader
 
