@@ -122,7 +122,7 @@ __git_complete g __git_main
 alias gs='git status'
 alias gst='git status -sb'
 alias gf='git fetch'
-__git_complete gf __git_fetch
+__git_complete gf _git_fetch
 alias ga='git add'
 __git_complete ga _git_add
 alias gap='git add -p'
