@@ -35,7 +35,7 @@ PS1=$PS1"\[$NO_COLOR\] "
 ### Path definitions ### {{{1
 # Homebrew Path additions
 export PATH=/usr/local/bin:$PATH
-export PATH="/usr/local/sbin:$PATH"
+export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/local/share/npm/bin:$PATH
 export PATH=~/bin:$PATH
 export PATH=$PATH:$GOROOT/bin
@@ -45,7 +45,6 @@ export PATH=$PATH:$GOPATH/bin
 ##############################################################################
 ### Added by the Heroku Toolbelt {{{1
 ##############################################################################
-export PATH="/usr/local/heroku/bin:$PATH"
 export PATH=/usr/local/heroku/bin:$PATH
 
 #source ~/.adb.bash
