@@ -431,10 +431,10 @@ nnoremap <Leader>O O<ESC>0d$j
 nnoremap <leader>d :GdiffInTab<cr>
 nnoremap <leader>D :tabclose<cr>
 " Rspec.vim mappings
-map <Leader>t :call RunNearestSpec()<CR>
-map <Leader>T :call RunCurrentSpecFile()<CR>
+map <Leader>t :call RunNearestTest()<CR>
+map <Leader>T :call RunTestFile()<CR>
 map <Leader>l :call RunLastSpec()<CR>
-map <Leader>S :call RunAllSpecs()<CR>
+map <Leader>S :call RunTests('')<CR>
 
 " ©[1]
 nnoremap <leader>c :w\|:!script/features<cr>
