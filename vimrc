@@ -166,7 +166,7 @@ set expandtab           " expand all tabs to spaces
 set list                " show whitespace characters
 " Custom displaying of special characters
 " define custom characters for line endings etc
-set listchars=tab:▸\ ,trail:·,nbsp:·,eol:¬
+set listchars=tab:~\ ,trail:·,nbsp:·,eol:¬
 " define characters to indicate long lines when 'wrap' is off
 set listchars+=extends:»,precedes:«
 " }}}
