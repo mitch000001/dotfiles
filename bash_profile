@@ -19,27 +19,43 @@ if [ -z $(command -v brew >/dev/null 2>&1) ]; then
 fi
 export ANDROID_SDK_ROOT=/usr/local/opt/android-sdk
 export ANDROID_HOME=$ANDROID_SDK_ROOT
-export GOPATH=$HOME/.go
-export GOROOT=$(go env GOROOT)
+# Go specific variables {{{2
+if [ -z $(command -v go >/dev/null 2>&1) ]; then
+  export GOPATH=$HOME/.go
+  export GOROOT=$(go env GOROOT)
+fi
+# }}}
+
 export VM_PATH=$HOME/Documents/Virtual_Machines.localized
 
+# History config {{{2
 export HISTIGNORE="&"
 export HISTSIZE=2000
+# }}}
 
+# Customized shell prompt {{{2
 PS1="\[$RED\]\D{%H:%M} \[$EGREEN\]\u@\h:\[$EBLUE\]\W\[$NO_COLOR\] "
 PS1=$PS1"\$(__git_ps1 '(%s)') \[$RED\]$"
 PS1=$PS1"\[$NO_COLOR\] "
-
-# }}}zo
+# }}}
+# }}}
 ##############################################################################
 ### Path definitions ### {{{1
-# Homebrew Path additions
-export PATH=/usr/local/bin:$PATH
-export PATH=/usr/local/sbin:$PATH
-export PATH=/usr/local/share/npm/bin:$PATH
+# TODO: add brew to path or find out where it lives
+# Homebrew Path additions {{{2
+if [ -z $(command -v brew >/dev/null 2>&1) ]; then
+  export PATH=/usr/local/bin:$PATH
+  export PATH=/usr/local/sbin:$PATH
+  export PATH=/usr/local/share/npm/bin:$PATH
+fi
+# }}}
 export PATH=~/bin:$PATH
-export PATH=$PATH:$GOROOT/bin
-export PATH=$PATH:$GOPATH/bin
+# Go specific PATH additions {{{2
+if [ -z $(command -v go >/dev/null 2>&1) ]; then
+  export PATH=$PATH:$GOROOT/bin
+  export PATH=$PATH:$GOPATH/bin
+fi
+# }}}
 
 # }}}
 ##############################################################################
@@ -55,17 +71,17 @@ export PATH=/usr/local/heroku/bin:$PATH
 ##############################################################################
 # See http://unix.stackexchange.com/questions/4219/how-do-i-get-bash-completion-for-command-aliases for more details
 function make-completion-wrapper () {
-  local function_name="$2"
-  local arg_count=$(($#-3))
-  local comp_function_name="$1"
-  shift 2
-  local function="
-    function $function_name {
-      ((COMP_CWORD+=$arg_count))
-      COMP_WORDS=( "$@" \${COMP_WORDS[@]:1} )
-      "$comp_function_name"
-      return 0
-    }"
+local function_name="$2"
+local arg_count=$(($#-3))
+local comp_function_name="$1"
+shift 2
+local function="
+function $function_name {
+((COMP_CWORD+=$arg_count))
+COMP_WORDS=( "$@" \${COMP_WORDS[@]:1} )
+"$comp_function_name"
+return 0
+  }"
   eval "$function"
 }
 # }}}
@@ -198,3 +214,4 @@ alias gcp='git cp'
 
 # }}}
 ##############################################################################
+# vim: ft=sh
