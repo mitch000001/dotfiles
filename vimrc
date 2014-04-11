@@ -201,6 +201,15 @@ set exrc              " load local exrc files
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SECTION: FUNCTIONS {{{1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+function! ToggleListChars() " {{{2
+  if (&l:list == 1)
+    setlocal nolist
+  else
+    setlocal list
+  endif
+endfunction " }}}
+
 function! ToggleCursorColumn() " {{{2
   if (&l:cursorcolumn == 1)
     setlocal nocursorcolumn
@@ -463,6 +472,7 @@ nnoremap <Space> <C-D>
 if exists(":nohls")
   nnoremap <silent> <C-L> :nohls<CR><C-L>
 endif
+nnoremap <Leader>- :call ToggleListChars()<CR>
 " }}}
 
 " INSERT MODE {{{2
