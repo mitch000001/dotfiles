@@ -21,7 +21,7 @@ export ANDROID_SDK_ROOT=/usr/local/opt/android-sdk
 export ANDROID_HOME=$ANDROID_SDK_ROOT
 # Go specific variables {{{2
 if [ -z $(command -v go >/dev/null 2>&1) ]; then
-  export GOPATH=$HOME/workspace/go
+  export GOPATH=$HOME/.go
   export GOROOT=$(go env GOROOT)
 fi
 # }}}
