@@ -411,7 +411,7 @@ command! GenerateBundleRi :silent !generate_bundle_ri
 command! SetSQLMakeProgram :call SetSQLMakePrg()
 
 " Reload vimrc
-command! RL :so $HOME/.vimrc
+command! RL :silent so $HOME/.vimrc
 
 " Diff tab management: open the current git diff in a tab ©[1]
 command! GdiffInTab execute "tabedit " . CurrentFilePath() . "|vsplit|Gdiff"
