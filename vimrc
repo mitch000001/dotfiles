@@ -382,12 +382,11 @@ function! RunTests(filename) " {{{2
   end
 endfunction " }}}
 
-" }}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" OpenChangedFiles COMMAND {{{2
+" OpenChangedFiles COMMAND
 " Open a split for each dirty file in git
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! OpenChangedFiles()
+function! OpenChangedFiles() " {{{2
   only " Close all windows, unless they're modified
   let status = system('git status -s | grep "^ \?\(M\|A\|UU\)" | sed "s/^.\{3\}//"')
   let filenames = split(status, "\n")
@@ -397,6 +396,7 @@ function! OpenChangedFiles()
   endfor
 endfunction
 command! OpenChangedFiles :call OpenChangedFiles()
+" }}}
 " }}}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SECTION: COMMANDS {{{1
@@ -415,6 +415,8 @@ command! RL :so $HOME/.vimrc
 
 " Diff tab management: open the current git diff in a tab ©[1]
 command! GdiffInTab execute "tabedit " . CurrentFilePath() . "|vsplit|Gdiff"
+" Open RFC files ©[2]
+command! -bar -count=0 RFC :tabe http://www.ietf.org/rfc/rfc<count>.txt|setl ro noma
 " }}}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SECTION: MAPPINGS {{{1
