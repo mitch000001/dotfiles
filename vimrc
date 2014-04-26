@@ -342,8 +342,8 @@ function! RunTestFile(...) " {{{2
 endfunction " }}}
 
 function! RunNearestTest() " {{{2
-  let spec_line_number = line('.')
-  call RunTestFile(":" . spec_line_number)
+  let test_line_number = line('.')
+  call RunTestFile(":" . test_line_number)
 endfunction " }}}
 
 function! SetTestFile() " {{{2
@@ -352,6 +352,7 @@ function! SetTestFile() " {{{2
 endfunction " }}}
 
 function! RunTests(filename) " {{{2
+  " TODO: change execution of specific filetype to make program
   " Write the file and run tests for the given filename
   if expand("%") != ""
     :w
