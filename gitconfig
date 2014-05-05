@@ -27,6 +27,7 @@
 	excludesfile = ~/.gitignore
 	editor = vim
 	autocrlf = input
+	precomposeunicode = true
 
 [ssh]
 	port = 22
