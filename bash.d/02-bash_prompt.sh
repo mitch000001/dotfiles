@@ -90,6 +90,14 @@ function set_user_prompt () {
   fi
 }
 
+function set_bg_jobs () {
+  if test "$(jobs)" ; then
+    JOBS="[\j] "
+  else
+    JOBS=""
+  fi
+}
+
 # Set the full bash prompt.
 function set_bash_prompt () {
   # Set the PROMPT_SYMBOL variable. We do this first so we don't lose the
@@ -101,6 +109,8 @@ function set_bash_prompt () {
 
   set_user_prompt
 
+  set_bg_jobs
+
   # Set the BRANCH variable.
   if is_git_repository ; then
     set_git_branch
@@ -109,8 +119,8 @@ function set_bash_prompt () {
   fi
 
   # Set the bash prompt variable.
-  PS1="⦧ ${PYTHON_VIRTUALENV}\t ${USER_PROMPT}${RED}\h${COLOR_NONE} \w ${BRANCH}
-${PROMPT_SYMBOL} "
+  PS1="⦧ ${PYTHON_VIRTUALENV}\t ${USER_PROMPT}${RED}\h${COLOR_NONE} ${BLUE}\w${COLOR_NONE} ${BRANCH}
+${JOBS}${PROMPT_SYMBOL} "
 }
 
 # Tell bash to execute this function just before displaying its prompt.
