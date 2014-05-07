@@ -120,8 +120,8 @@ alias ...='cd ../..'
 # Ruby aliases {{{2
 alias irb='irb -I `pwd` -r irb/completion'
 alias b='bundle exec'
-make-completion-wrapper __bundle _bundle_exec bundle exec
-complete -F _bundle_exec b
+#make-completion-wrapper __bundle _bundle_exec bundle exec
+#complete -F _bundle_exec b
 alias bundle='bundle '
 alias install='install --path=.bundle'
 # }}}
