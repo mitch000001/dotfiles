@@ -417,7 +417,7 @@ command! RL :silent so $HOME/.vimrc
 " Diff tab management: open the current git diff in a tab ©[1]
 command! GdiffInTab execute "tabedit " . CurrentFilePath() . "|vsplit|Gdiff"
 " Open RFC files ©[2]
-command! -bar -count=0 RFC :tabe http://www.ietf.org/rfc/rfc<count>.txt|setl ro noma
+command! -bar -count=0 RFC :silent tabe http://www.ietf.org/rfc/rfc<count>.txt|setl ro noma
 " }}}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SECTION: MAPPINGS {{{1
