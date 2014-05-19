@@ -53,7 +53,8 @@ function set_git_branch {
   fi
 
   # Get the name of the branch.
-  branch_pattern="^## ([^${IFS}\.]*)"
+  # TODO: evaluate regex
+  branch_pattern="^## ([0-9a-zA-Z_\-\+\#\/]+)"
   if [[ ${git_status} =~ ${branch_pattern} ]]; then
     branch=${BASH_REMATCH[1]}
   fi
