@@ -84,6 +84,10 @@ else
 endif
 
 " }}}
+" JSON CONFIGURATION {{{3
+" Hide quotation marks from json keys and values
+let g:vim_json_syntax_conceal = 0
+" }}}
 " }}}
 " SQL DATABASE QUERY CONFIGURATION {{{2
 let g:SQL_database = ""
