@@ -490,7 +490,7 @@ inoremap jk <esc>
 " ALL MODES {{{2
 " © [2]
 map <F3>    :cnext<CR>
-map <F4>    :cc<CR>
+map <F4>    :copen<CR>
 map <F5>    :cprev<CR>
 map <F6>    :cclose<CR>
 map <F8>    :wall<Bar>make<CR>
