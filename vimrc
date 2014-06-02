@@ -88,6 +88,9 @@ endif
 " Hide quotation marks from json keys and values
 let g:vim_json_syntax_conceal = 0
 " }}}
+" ACK CONFIGURATION {{{3
+let g:ack_default_options = " -s -H --nocolor --nogroup --column"
+" }}}
 " }}}
 " SQL DATABASE QUERY CONFIGURATION {{{2
 let g:SQL_database = ""
