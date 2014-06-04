@@ -568,7 +568,7 @@ augroup FileTypeOptions " {{{2
   autocmd FileType vim setlocal keywordprg=:help nojoinspaces
   autocmd FileType help setlocal keywordprg=:help nojoinspaces
   autocmd FileType man setlocal nojoinspaces nolist
-  autocmd FileType csv %ArrangeColumn
+  autocmd FileType csv ArrangeColumn
   autocmd FileType mysql execute "setlocal makeprg=" . GetMakePrgVariable('mysql')
   autocmd FileType sqlite execute "setlocal makeprg=" . GetMakePrgVariable('sqlite')
   autocmd FileType go autocmd BufWritePre <buffer> Fmt
