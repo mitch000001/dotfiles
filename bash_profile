@@ -56,7 +56,12 @@ if [ -z $(command -v go >/dev/null 2>&1) ]; then
   export PATH=$PATH:$GOPATH/bin
 fi
 # }}}
-
+# Google Cloud SDK PATH additions {{{2
+# The next line updates PATH for the Google Cloud SDK.
+if test -d $HOME/workspace/google-cloud-sdk; then
+  source /Users/mitch/workspace/google-cloud-sdk/path.bash.inc
+fi
+# }}}
 # }}}
 ##############################################################################
 ### Added by the Heroku Toolbelt {{{1
@@ -91,7 +96,12 @@ return 0
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
-
+# Google Cloud SDK bash completion {{{2
+# The next line enables bash completion for gcloud.
+if test -d $HOME/workspace/google-cloud-sdk; then
+  source /Users/mitch/workspace/google-cloud-sdk/completion.bash.inc
+fi
+# }}}
 # }}}
 ##############################################################################
 # rbenv initialization {{{1
@@ -205,6 +215,11 @@ alias gcl='git cl'
 alias gcp='git cp'
 # }}}
 
+# alias for google cloud sdk {{{2
+if test -d $HOME/workspace/google-cloud-sdk; then
+  alias goapp=$HOME/workspace/google-cloud-sdk/platform/google_appengine/goapp
+fi
+# }}}
 # }}}
 ##############################################################################
 # RVM initialization {{{1
