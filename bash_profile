@@ -14,9 +14,14 @@ done
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 
-if [ -z $(command -v brew >/dev/null 2>&1) ]; then
+# Homebrew {{{2
+function has_homebrew() {
+  return `test -z $(command -v brew >/dev/null 2>&1)`
+}
+if has_homebrew; then
   export HOMEBREW=$(brew --cellar)
 fi
+# }}}
 export ANDROID_SDK_ROOT=/usr/local/opt/android-sdk
 export ANDROID_HOME=$ANDROID_SDK_ROOT
 # Go specific variables {{{2
@@ -43,7 +48,7 @@ PS1=$PS1"\[$NO_COLOR\] "
 ### Path definitions ### {{{1
 # TODO: add brew to path or find out where it lives
 # Homebrew Path additions {{{2
-if [ -z $(command -v brew >/dev/null 2>&1) ]; then
+if has_homebrew; then
   export PATH=/usr/local/bin:$PATH
   export PATH=/usr/local/sbin:$PATH
   export PATH=/usr/local/share/npm/bin:$PATH
@@ -93,7 +98,7 @@ return 0
 ##############################################################################
 # Bash completion {{{1
 ##############################################################################
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
+if has_homebrew && [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
 # Google Cloud SDK bash completion {{{2
@@ -125,6 +130,12 @@ alias l.v='ls -l -d .[^.]*'
 # Workflow aliases {{{2
 alias ..='cd ..'
 alias ...='cd ../..'
+#}}}
+
+# Homebrew alias {{2
+if has_homebrew; then
+  alias brewup='brew update && brew upgrade && brew cleanup'
+fi
 #}}}
 
 # Ruby aliases {{{2
