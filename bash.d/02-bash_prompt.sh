@@ -21,7 +21,7 @@ function is_git_repository {
 # Determine the branch/state information for this git repository.
 function set_git_branch {
   # Capture the output of the "git status" command.
-  git_status="$(git status --porcelain -b -u -z 2> /dev/null)"
+  git_status="$(git status --porcelain -u -z -b 2> /dev/null)"
 
   # Set color based on clean/staged/dirty.
   regex_not_added=" [MDA]"
@@ -52,12 +52,9 @@ function set_git_branch {
     behind="<"
   fi
 
+  # Capture the output of the "git status" command with branch.
   # Get the name of the branch.
-  # TODO: evaluate regex
-  branch_pattern="^## ([0-9a-zA-Z_\-\+\#\/]+)"
-  if [[ ${git_status} =~ ${branch_pattern} ]]; then
-    branch=${BASH_REMATCH[1]}
-  fi
+  branch="$(git rev-parse --abbrev-ref HEAD 2> /dev/null)"
 
   # Set the final branch string.
   BRANCH="[${state}${branch}${COLOR_NONE}${RED}${ahead}${behind}${new}${COLOR_NONE}] "
@@ -79,6 +76,15 @@ function set_virtualenv () {
       PYTHON_VIRTUALENV=""
   else
       PYTHON_VIRTUALENV="${BLUE}[`basename \"$VIRTUAL_ENV\"`]${COLOR_NONE} "
+  fi
+}
+
+function set_ruby_version () {
+  ruby_version="$(ruby -v)"
+  version_pattern="^ruby ([0-9\.p]+)"
+  RUBY_VERSION=""
+  if [[ ${ruby_version} =~ ${version_pattern} ]]; then
+    RUBY_VERSION="${LIGHT_BLUE}<${BASH_REMATCH[1]}>${COLOR_NONE} "
   fi
 }
 
@@ -112,6 +118,8 @@ function set_bash_prompt () {
   # Set the PYTHON_VIRTUALENV variable.
   set_virtualenv
 
+  set_ruby_version
+
   set_user_prompt
 
   set_bg_jobs
@@ -124,7 +132,7 @@ function set_bash_prompt () {
   fi
 
   # Set the bash prompt variable.
-  PS1="⦧ ${PYTHON_VIRTUALENV}\t ${USER_PROMPT}${RED}\h${COLOR_NONE} ${BLUE}\w${COLOR_NONE} ${BRANCH}
+  PS1="⦧ ${PYTHON_VIRTUALENV}\t ${USER_PROMPT}${RED}\h${COLOR_NONE} ${BLUE}\w${COLOR_NONE} ${RUBY_VERSION}${BRANCH}
 ${JOBS}${PROMPT_SYMBOL} "
 }
 
