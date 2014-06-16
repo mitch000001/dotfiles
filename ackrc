@@ -12,5 +12,7 @@
 --ignore-dir=.bundle/
 --ignore-dir=server
 --ignore-dir=tmp
+--ignore-dir=data
+--ignore-dir=log
 --ignore-dir=node_modules
 --ignore-dir=public/javascripts/compiled
