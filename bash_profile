@@ -11,6 +11,9 @@ done
 ##############################################################################
 # Environment variables {{{1
 ##############################################################################
+LOCAL_PROFILE=$HOME/.bash_profile.local
+LOCAL_RC=$HOME/.bashrc.local
+
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 
@@ -240,4 +243,12 @@ fi
 
 # }}}
 ##############################################################################
+# ## Machine specific changes {{{1
+if [ -f $LOCAL_PROFILE ]; then
+  source $LOCAL_PROFILE
+fi
+if [ -f $LOCAL_RC ]; then
+  source $LOCAL_RC
+fi
+# }}}
 # vim: ft=sh
