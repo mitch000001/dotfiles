@@ -158,8 +158,8 @@ alias rl='source_profile'
 # git aliases {{{2
 alias g='git'
 __git_complete g __git_main
-alias gs='git status'
-alias gst='git status -sb'
+alias gst='git status'
+alias gss='git status -sb'
 alias gf='git fetch'
 __git_complete gf _git_fetch
 alias ga='git add'

@@ -67,7 +67,7 @@ let NERDTreeChDirMode=2
 let g:ctrlp_working_path_mode = 'rw'
 let g:ctrlp_show_hidden = 1             " Show hidden files when using CTRL-P
 let g:ctrlp_custom_ignore = {
-      \ 'dir':  '\v[\/]\.(git|hg|svn|idea)|vendor/bundle|public/javascripts/compiled|target|tmp|node_modules|venv$',
+      \ 'dir':  '\v[\/]\.(git|hg|svn|idea|bundle)|vendor/bundle|public/javascripts/compiled|target|tmp|node_modules|log|venv$',
       \ 'file': '\v\.(exe|so|dll|pyc|class)$',
       \ 'link': 'some_bad_symbolic_links',
       \ }
