@@ -497,6 +497,7 @@ nnoremap <leader># Vi(:call AlignTable()<cr>
 " INSERT MODE {{{2
 " A faster way to exit insert mode
 inoremap jk <esc>
+inoremap kj <esc>
 " }}}
 
 " ALL MODES {{{2
