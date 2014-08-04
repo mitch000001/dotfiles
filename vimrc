@@ -328,6 +328,13 @@ function! EvaluateGoFile() " {{{2
     setlocal makeprg=go\ run\ \"%:p\"
   endif
 endfunction " }}}
+
+" Helper for aligning table-like array as I use in Sequel-based tests. {{{2
+function! AlignTable()
+  '<,'>Tabularize /,
+  '<,'>Tabularize /[
+  '<,'>Tabularize /]
+endfunction "}}}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " RUNNING TESTS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -434,6 +441,7 @@ command! -bar -count=0 RFC :silent tabe http://www.ietf.org/rfc/rfc<count>.txt|s
 " The \V tells the regex engine that only '\' has a special meaning
 vnoremap / y/\V<C-R>"<CR>
 vnoremap ? y?\V<C-R>"<CR>
+vnoremap <leader>a :call AlignTable()<cr>
 " }}}
 
 " NORMAL MODE {{{2
@@ -483,6 +491,7 @@ if exists(":nohls")
   nnoremap <silent> <C-L> :nohls<CR><C-L>
 endif
 nnoremap <Leader>- :call ToggleListChars()<CR>
+nnoremap <leader># Vi(k:call AlignTable()<cr>
 " }}}
 
 " INSERT MODE {{{2
