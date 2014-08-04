@@ -491,7 +491,7 @@ if exists(":nohls")
   nnoremap <silent> <C-L> :nohls<CR><C-L>
 endif
 nnoremap <Leader>- :call ToggleListChars()<CR>
-nnoremap <leader># Vi(k:call AlignTable()<cr>
+nnoremap <leader># Vi(:call AlignTable()<cr>
 " }}}
 
 " INSERT MODE {{{2
