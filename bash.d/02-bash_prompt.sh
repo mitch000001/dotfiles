@@ -109,6 +109,18 @@ function set_bg_jobs () {
   fi
 }
 
+function has_t() {
+  return `test -z $(command -v t >/dev/null 2>&1)`
+}
+
+function set_t_tasks () {
+  if has_t; then
+    TASKS=" (t: $(t | wc -l | sed -e's/ *//')) "
+  else
+    TASKS=""
+  fi
+}
+
 # Set the full bash prompt.
 function set_bash_prompt () {
   # Set the PROMPT_SYMBOL variable. We do this first so we don't lose the
@@ -124,6 +136,8 @@ function set_bash_prompt () {
 
   set_bg_jobs
 
+  set_t_tasks
+
   # Set the BRANCH variable.
   if is_git_repository ; then
     set_git_branch
@@ -133,7 +147,7 @@ function set_bash_prompt () {
 
   # Set the bash prompt variable.
   PS1="⦧ ${PYTHON_VIRTUALENV}\t ${USER_PROMPT}${RED}\h${COLOR_NONE} ${BLUE}\w${COLOR_NONE} ${RUBY_VERSION}${BRANCH}
-${JOBS}${PROMPT_SYMBOL} "
+${JOBS}${TASKS}${PROMPT_SYMBOL} "
 }
 
 # Tell bash to execute this function just before displaying its prompt.
