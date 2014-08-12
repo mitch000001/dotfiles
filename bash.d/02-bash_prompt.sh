@@ -115,7 +115,7 @@ function has_t() {
 
 function set_t_tasks () {
   if has_t; then
-    TASKS=" (t: $(t | wc -l | sed -e's/ *//')) "
+    TASKS="(t: $(t | wc -l | sed -e's/ *//')) "
   else
     TASKS=""
   fi
