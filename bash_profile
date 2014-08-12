@@ -9,6 +9,22 @@ done
 
 # }}}
 ##############################################################################
+# Environment command checks {{{1
+##############################################################################
+# Homebrew {{{2
+function has_homebrew() {
+  return `[[ $(command -v brew >/dev/null 2>&1) -eq 0 ]]`
+}
+# }}}
+# Go {{{2
+function has_go() {
+  return `[[ $(command -v go >/dev/null 2>&1) -eq 0 ]]`
+}
+# }}}
+
+# }}}
+##############################################################################
+##############################################################################
 # Environment variables {{{1
 ##############################################################################
 LOCAL_PROFILE=$HOME/.bash_profile.local
@@ -18,9 +34,6 @@ export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 
 # Homebrew {{{2
-function has_homebrew() {
-  return `test -z $(command -v brew >/dev/null 2>&1)`
-}
 if has_homebrew; then
   export HOMEBREW=$(brew --cellar)
 fi
@@ -28,7 +41,7 @@ fi
 export ANDROID_SDK_ROOT=/usr/local/opt/android-sdk
 export ANDROID_HOME=$ANDROID_SDK_ROOT
 # Go specific variables {{{2
-if [ -z $(command -v go >/dev/null 2>&1) ]; then
+if has_go; then
   export GOPATH=$HOME/.go
   export GOROOT=$(go env GOROOT)
 fi
@@ -54,12 +67,14 @@ PS1=$PS1"\[$NO_COLOR\] "
 if has_homebrew; then
   export PATH=/usr/local/bin:$PATH
   export PATH=/usr/local/sbin:$PATH
-  export PATH=/usr/local/share/npm/bin:$PATH
+  if [ -z $(brew info nodejs | grep 'Not installed') ]; then
+    export PATH=/usr/local/share/npm/bin:$PATH
+  fi
 fi
 # }}}
 export PATH=~/bin:$PATH
 # Go specific PATH additions {{{2
-if [ -z $(command -v go >/dev/null 2>&1) ]; then
+if has_go; then
   export PATH=$PATH:$GOROOT/bin
   export PATH=$PATH:$GOPATH/bin
 fi
