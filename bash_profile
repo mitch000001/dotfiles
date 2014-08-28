@@ -29,7 +29,7 @@ function has_go() {
 LOCAL_PROFILE=$HOME/.bash_profile.local
 LOCAL_RC=$HOME/.bashrc.local
 
-EDITOR=vim
+export EDITOR=vim
 
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
