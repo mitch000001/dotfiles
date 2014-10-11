@@ -43,8 +43,7 @@ export ANDROID_SDK_ROOT=/usr/local/opt/android-sdk
 export ANDROID_HOME=$ANDROID_SDK_ROOT
 # Go specific variables {{{2
 if has_go; then
-  export GOPATH=$HOME/go
-  mkdir -p $GOPATH/bin
+  export GOPATH=$HOME
   export GOROOT=$(go env GOROOT)
 fi
 # }}}
@@ -74,10 +73,9 @@ if has_homebrew; then
   fi
 fi
 # }}}
-export PATH=~/bin:$PATH
+export PATH=$HOME/bin:$PATH
 # Go specific PATH additions {{{2
 if has_go; then
-  export PATH=$PATH:$GOROOT/bin
   export PATH=$PATH:$GOPATH/bin
 fi
 # }}}
