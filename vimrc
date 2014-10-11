@@ -584,7 +584,7 @@ augroup FileTypeOptions " {{{2
   autocmd FileType mysql execute "setlocal makeprg=" . GetMakePrgVariable('mysql')
   autocmd FileType sqlite execute "setlocal makeprg=" . GetMakePrgVariable('sqlite')
   autocmd FileType go autocmd BufWritePre <buffer> Fmt
-  autocmd FileType go autocmd BufWritePre <buffer> !goimports
+  " autocmd FileType go autocmd BufWritePre <buffer> !goimports
   autocmd FileType go compiler go
   autocmd FileType go setlocal makeprg=go\ test\ ./...
   autocmd FileType go setlocal noexpandtab softtabstop=4 tabstop=4 shiftwidth=4 autoindent nolist
