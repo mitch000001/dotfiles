@@ -334,6 +334,21 @@ function! EvaluateGoFile() " {{{2
   endif
 endfunction " }}}
 
+function! ToggleGoTestFile() " {{{2
+  if (&filetype == 'go')
+    if (expand('%') =~# '_test\.go$')
+      let s:filename = expand("%:t:r")
+      let s:splits = split(s:filename, '_')[0:-2]
+      execute "edit " . expand("%:h") . "/" . join(s:splits) . ".go"
+    else
+      let s:filename = expand("%:p:r") . "_test.go"
+      execute "edit " . s:filename
+    endif
+  else
+    echom 'No Go file!'
+  endif
+endfunction " }}}
+
 " Helper for aligning table-like array as I use in Sequel-based tests. {{{2
 function! AlignTable()
   '<,'>Tabularize /,
@@ -429,6 +444,8 @@ command! CurrentFilePath :call CurrentFilePath()
 command! GenerateBundleRi :silent !generate_bundle_ri
 
 command! SetSQLMakeProgram :call SetSQLMakePrg()
+
+command! ToggleGoTestFile :call ToggleGoTestFile()
 
 " Reload vimrc
 command! RL :silent so $HOME/.vimrc
@@ -590,6 +607,7 @@ augroup FileTypeOptions " {{{2
   autocmd FileType go compiler go
   autocmd FileType go setlocal makeprg=go\ test\ ./...
   autocmd FileType go setlocal noexpandtab softtabstop=4 tabstop=4 shiftwidth=4 autoindent nolist
+  autocmd FileType go command! A ToggleGoTestFile
   autocmd FileType godoc setlocal noexpandtab softtabstop=4 tabstop=4 shiftwidth=4 autoindent nolist
   " © [2]
   autocmd User Bundler if (&makeprg !~ 'bundle' && &ft == 'ruby') | setlocal makeprg^=bundle\ exec\  | endif
