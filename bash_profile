@@ -21,6 +21,17 @@ function has_go() {
   return `[[ $(command -v go >/dev/null 2>&1) -eq 0 ]]`
 }
 # }}}
+# git {{{2
+function has_git() {
+  return `[[ $(command -v git >/dev/null 2>&1) -eq 0 ]]`
+}
+# }}}
+
+# rbenv {{{2
+function has_rbenv() {
+  return `[[ $(command -v rbenv >/dev/null 2>&1) -eq 0 ]]`
+}
+# }}}
 
 # }}}
 ##############################################################################
@@ -129,7 +140,9 @@ fi
 ##############################################################################
 # rbenv initialization {{{1
 ##############################################################################
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+if has_rbenv; then
+  eval "$(rbenv init -)"
+fi
 
 # }}}
 ##############################################################################
@@ -171,77 +184,79 @@ alias rl='source_profile'
 # }}}
 
 # git aliases {{{2
-alias g='git'
-__git_complete g __git_main
-alias gst='git status'
-alias gss='git status -sb'
-alias gf='git fetch'
-__git_complete gf _git_fetch
-alias ga='git add'
-__git_complete ga _git_add
-alias gap='git add -p'
-alias gaa='git add -A'
-__git_complete gaa _git_add
-alias grm='git rm'
-__git_complete grm _git_rm
-alias gbr='git branch'
-__git_complete gbr _git_branch
-alias gsh='git show'
-__git_complete gsh _git_show
-alias gta='git tag'
-__git_complete gta _git_tag
-alias glg='git lg'
-__git_complete glg _git_log
-alias glga='git lga'
-__git_complete glga _git_log
-alias glg5='git lg -5'
-__git_complete glg5 _git_log
-alias glg15='git lg -15'
-__git_complete glg15 _git_log
-alias glga5='git lga -5'
-__git_complete glga5 _git_log
-alias glga15='git lga -15'
-__git_complete glga15 _git_log
-alias gco='git checkout'
-__git_complete gco _git_checkout
-alias g--='git checkout --'
-__git_complete gco _git_checkout
-alias gcom='git checkout master'
-alias gcob='git checkout -b'
-__git_complete gcob _git_checkout
-alias gci='git commit -v'
-__git_complete gci _git_commit
-alias gcim='git commit -m'
-__git_complete gcim _git_commit
-alias gd='git diff'
-__git_complete gd _git_diff
-alias gdf='git df'
-__git_complete gdf _git_diff
-alias gdfs='git diff --staged'
-__git_complete gdfs _git_diff
-alias gsave='git stash'
-__git_complete gsave _git_stash
-alias gspop='git stash pop'
-__git_complete gspop _git_stash
-alias gsl='git stash list'
-__git_complete gsl _git_stash
-alias gpr='git pull --rebase'
-__git_complete gpr _git_pull
-alias gpu='git push'
-__git_complete gpu _git_push
-alias gpp='gpr && gpu'
-__git_complete gpp _git_push
-alias grs='git reset HEAD'
-__git_complete grs _git_reset
-alias gtodo='git grep -e "# TODO:" -e "# XXX:"'
-alias gnuke='git reset --hard && git clean -f'
+if has_git; then
+  alias g='git'
+  __git_complete g __git_main
+  alias gst='git status'
+  alias gss='git status -sb'
+  alias gf='git fetch'
+  __git_complete gf _git_fetch
+  alias ga='git add'
+  __git_complete ga _git_add
+  alias gap='git add -p'
+  alias gaa='git add -A'
+  __git_complete gaa _git_add
+  alias grm='git rm'
+  __git_complete grm _git_rm
+  alias gbr='git branch'
+  __git_complete gbr _git_branch
+  alias gsh='git show'
+  __git_complete gsh _git_show
+  alias gta='git tag'
+  __git_complete gta _git_tag
+  alias glg='git lg'
+  __git_complete glg _git_log
+  alias glga='git lga'
+  __git_complete glga _git_log
+  alias glg5='git lg -5'
+  __git_complete glg5 _git_log
+  alias glg15='git lg -15'
+  __git_complete glg15 _git_log
+  alias glga5='git lga -5'
+  __git_complete glga5 _git_log
+  alias glga15='git lga -15'
+  __git_complete glga15 _git_log
+  alias gco='git checkout'
+  __git_complete gco _git_checkout
+  alias g--='git checkout --'
+  __git_complete gco _git_checkout
+  alias gcom='git checkout master'
+  alias gcob='git checkout -b'
+  __git_complete gcob _git_checkout
+  alias gci='git commit -v'
+  __git_complete gci _git_commit
+  alias gcim='git commit -m'
+  __git_complete gcim _git_commit
+  alias gd='git diff'
+  __git_complete gd _git_diff
+  alias gdf='git df'
+  __git_complete gdf _git_diff
+  alias gdfs='git diff --staged'
+  __git_complete gdfs _git_diff
+  alias gsave='git stash'
+  __git_complete gsave _git_stash
+  alias gspop='git stash pop'
+  __git_complete gspop _git_stash
+  alias gsl='git stash list'
+  __git_complete gsl _git_stash
+  alias gpr='git pull --rebase'
+  __git_complete gpr _git_pull
+  alias gpu='git push'
+  __git_complete gpu _git_push
+  alias gpp='gpr && gpu'
+  __git_complete gpp _git_push
+  alias grs='git reset HEAD'
+  __git_complete grs _git_reset
+  alias gtodo='git grep -e "# TODO:" -e "# XXX:"'
+  alias gnuke='git reset --hard && git clean -f'
 
-# Just Copy&Paste, no idea what these do...
-# TODO: Solve or remove
-alias gss='git ss'
-alias gca='git ca'
-alias gcl='git cl'
-alias gcp='git cp'
+  # Just Copy&Paste, no idea what these do...
+  # TODO: Solve or remove
+  alias gss='git ss'
+  alias gca='git ca'
+  alias gcl='git cl'
+  alias gcp='git cp'
+fi
 # }}}
 
 # alias for google cloud sdk {{{2
