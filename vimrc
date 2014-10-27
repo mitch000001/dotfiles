@@ -339,7 +339,7 @@ function! ToggleGoTestFile() " {{{2
     if (expand('%') =~# '_test\.go$')
       let s:filename = expand("%:t:r")
       let s:splits = split(s:filename, '_')[0:-2]
-      execute "edit " . expand("%:h") . "/" . join(s:splits) . ".go"
+      execute "edit " . expand("%:h") . "/" . join(s:splits, '_') . ".go"
     else
       let s:filename = expand("%:p:r") . "_test.go"
       execute "edit " . s:filename
