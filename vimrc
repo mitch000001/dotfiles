@@ -605,7 +605,7 @@ augroup FileTypeOptions " {{{2
   autocmd FileType sqlite execute "setlocal makeprg=" . GetMakePrgVariable('sqlite')
   autocmd FileType go autocmd BufWritePre <buffer> Fmt
   autocmd FileType go compiler go
-  autocmd FileType go setlocal makeprg=go\ test\ ./...\ -covermode=count\ -coverprofile=coverage.out
+  autocmd FileType go setlocal makeprg=go\ test\ ./...
   autocmd FileType go setlocal noexpandtab softtabstop=4 tabstop=4 shiftwidth=4 autoindent nolist
   autocmd FileType go command! A ToggleGoTestFile
   autocmd FileType godoc setlocal noexpandtab softtabstop=4 tabstop=4 shiftwidth=4 autoindent nolist
