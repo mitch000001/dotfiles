@@ -18,6 +18,7 @@
 	w = whatchanged
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset [%C(yellow)%an%Creset]' --abbrev-commit --date=relative
 	lga = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset [%C(yellow)%an%Creset]' --abbrev-commit --date=relative
+	lgbr = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset [%C(yellow)%an%Creset]' --abbrev-commit --date=relative --branches master HEAD
 	pr = pull -r
 	vimdiff = difftool -y -t vimdiff
 	vimmerge = mergetool -y -t vimdiff
