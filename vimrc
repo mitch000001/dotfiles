@@ -35,7 +35,6 @@ runtime ftplugin/man.vim
 set nocompatible
 filetype off
 filetype plugin indent off
-set runtimepath+=$GOROOT/misc/vim
 filetype plugin indent on
 syntax on
 " }}}
@@ -54,6 +53,7 @@ let s:vim_swap_dir=expand('$HOME/.vim_swap')
 let g:markdown_fenced_languages = ['ruby', 'html', 'javascript', 'css', 'erb=eruby.html', 'bash=sh']
 let g:liquid_highlight_types = g:markdown_fenced_languages + ['jinja=liquid', 'html+erb=eruby.html', 'html+jinja=liquid.html']
 " GO CONFIGURATION {{{3
+let g:go_fmt_command = "goimports"
 let g:gofmt_command = "goimports"
 " }}}
 " RSPEC CONFIGURATION {{{3
@@ -603,7 +603,7 @@ augroup FileTypeOptions " {{{2
   autocmd FileType csv ArrangeColumn
   autocmd FileType mysql execute "setlocal makeprg=" . GetMakePrgVariable('mysql')
   autocmd FileType sqlite execute "setlocal makeprg=" . GetMakePrgVariable('sqlite')
-  autocmd FileType go autocmd BufWritePre <buffer> Fmt
+  autocmd FileType go autocmd BufWritePre <buffer> GoFmt
   autocmd FileType go compiler go
   autocmd FileType go setlocal makeprg=go\ test\ ./...
   autocmd FileType go setlocal noexpandtab softtabstop=4 tabstop=4 shiftwidth=4 autoindent nolist
