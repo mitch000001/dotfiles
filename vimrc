@@ -47,6 +47,7 @@ let g:max_line_width = 80
 " DIRECTORY VARIABLES {{{2
 let s:vim_backup_dir=expand('$HOME/.vim_backup')
 let s:vim_swap_dir=expand('$HOME/.vim_swap')
+let s:vim_spelldict_file=expand('$HOME/.vim_spelldict.add')
 
 " }}}
 " PLUGIN CONFIGURATION {{{2
@@ -203,6 +204,9 @@ set wildmode=longest,list
 " FOLDING {{{2
 set foldmethod=marker " Enable folding with custom markers
 " }}}
+" SPELLING {{{2
+" let &spellfile=s:vim_spelldict_file
+" }}}2
 set encoding=utf-8    " for unicode glyphs
 
 set tags+=.git/tags   " Add tags file from git hooks
