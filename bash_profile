@@ -206,6 +206,8 @@ if has_git; then
   __git_complete gta _git_tag
   alias glg='git lg'
   __git_complete glg _git_log
+  alias glgm='git lg origin/master..HEAD'
+  __git_complete glgm _git_log
   alias glga='git lga'
   __git_complete glga _git_log
   alias glg5='git lg -5'
