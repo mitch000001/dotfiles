@@ -611,6 +611,8 @@ augroup FileTypeOptions " {{{2
   autocmd FileType go compiler go
   autocmd FileType go setlocal makeprg=go\ test\ ./...
   autocmd FileType go setlocal noexpandtab softtabstop=4 tabstop=4 shiftwidth=4 autoindent nolist
+  autocmd FileType go nnoremap gd GoDef
+  autocmd FileType go nnoremap gD GoDef
   autocmd FileType go command! A ToggleGoTestFile
   autocmd FileType godoc setlocal noexpandtab softtabstop=4 tabstop=4 shiftwidth=4 autoindent nolist
   " © [2]
