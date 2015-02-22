@@ -97,6 +97,9 @@ let g:vim_json_syntax_conceal = 0
 " ACK CONFIGURATION {{{3
 let g:ack_default_options = " -s -H --nocolor --nogroup --column"
 " }}}
+" XML CONFIGURATION {{{2
+let xml_use_xhtml = 1
+" }}}
 " }}}
 " SQL DATABASE QUERY CONFIGURATION {{{2
 let g:SQL_database = ""
