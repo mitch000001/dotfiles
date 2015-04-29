@@ -165,7 +165,7 @@ alias ...='cd ../..'
 
 # Homebrew alias {{2
 if has_homebrew; then
-  alias brewup='brew update && brew upgrade && brew cleanup'
+  alias brewup='brew update && brew upgrade --all && brew cleanup'
 fi
 #}}}
 
