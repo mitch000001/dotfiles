@@ -48,7 +48,7 @@ let g:max_line_width = 80
 let s:vim_backup_dir=expand('$HOME/.vim_backup')
 let s:vim_swap_dir=expand('$HOME/.vim_swap')
 let s:vim_spelldict_file=expand('$HOME/.vim_spelldict.add')
-
+let s:nerdtreebookmarks=expand('$HOME/.vim_bookmarks')
 " }}}
 " PLUGIN CONFIGURATION {{{2
 let g:markdown_fenced_languages = ['ruby', 'html', 'javascript', 'css', 'erb=eruby.html', 'bash=sh']
@@ -64,7 +64,7 @@ let g:rspec_command = "Dispatch bundle exec rspec {spec}"
 " NERDTREE CONFIGURATION {{{3
 " Change current working dir when loaded and when root dir changes
 let NERDTreeChDirMode=2
-
+let NERDTreeBookmarksFile=s:nerdtreebookmarks
 " }}}
 " CTRL-P CONFIGURATION {{{3
 " How to set CtrlP's local working directory.
@@ -355,6 +355,15 @@ function! ToggleGoTestFile() " {{{2
     echom 'No Go file!'
   endif
 endfunction " }}}
+
+function! GoDefgd() "{{{2
+  let s:cword = expand("<cword>")
+  echom s:cword
+  !echo s:cword
+  let @/ = s:cword
+  GoDef
+endfunction
+"}}}
 
 " Helper for aligning table-like array as I use in Sequel-based tests. {{{2
 function! AlignTable()
