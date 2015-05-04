@@ -56,6 +56,11 @@ let g:liquid_highlight_types = g:markdown_fenced_languages + ['jinja=liquid', 'h
 " GO CONFIGURATION {{{3
 let g:go_fmt_command = "goimports"
 let g:gofmt_command = "goimports"
+let g:go_highlight_operators = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_build_constraints = 1
 " }}}
 " RSPEC CONFIGURATION {{{3
 let g:rspec_command = "Dispatch bundle exec rspec {spec}"
@@ -100,7 +105,6 @@ let g:ack_default_options = " -s -H --nocolor --nogroup --column"
 " XML CONFIGURATION {{{2
 let xml_use_xhtml = 1
 " }}}
-" }}}
 " SQL DATABASE QUERY CONFIGURATION {{{2
 let g:SQL_database = ""
 let g:SQL_program_arguments = ""
@@ -108,7 +112,6 @@ let g:SQL_result_file = "results.csv"
 " }}}
 " FILETYPE VARIABLES {{{2
 let g:xml_syntax_folding = 1
-" }}}
 " }}}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SECTION: OPTIONS {{{1
