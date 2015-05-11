@@ -268,13 +268,6 @@ fi
 # }}}
 # }}}
 ##############################################################################
-# RVM initialization {{{1
-##############################################################################
-# Load RVM into a shell session *as a function*
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
-# }}}
-##############################################################################
 # ## Machine specific changes {{{1
 if [ -f $LOCAL_PROFILE ]; then
   source $LOCAL_PROFILE
