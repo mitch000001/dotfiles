@@ -62,6 +62,9 @@ let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_build_constraints = 1
 " }}}
+" COFFEESCRIPT CONFIGURATION {{3
+" let g:coffee_lint_options = '-f lint.json'
+" }}}
 " RSPEC CONFIGURATION {{{3
 let g:rspec_command = "Dispatch bundle exec rspec {spec}"
 
