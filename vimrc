@@ -491,6 +491,7 @@ vnoremap <leader>a :call AlignTable()<cr>
 " NORMAL MODE {{{2
 " LEADER MAPPINGS {{{3
 nnoremap <Leader>n :NERDTreeToggle<CR>
+nnoremap <C-N> :NERDTreeToggle<CR>
 nnoremap <silent> <Leader>u :GundoToggle<CR>
 nnoremap <silent> <Leader>. :ToggleColorColumn<CR>
 nnoremap <silent> <Leader>| :ToggleCursorColumn<CR>
