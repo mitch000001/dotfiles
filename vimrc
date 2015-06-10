@@ -491,7 +491,6 @@ vnoremap <leader>a :call AlignTable()<cr>
 " NORMAL MODE {{{2
 " LEADER MAPPINGS {{{3
 nnoremap <Leader>n :NERDTreeToggle<CR>
-nnoremap <C-N> :NERDTreeToggle<CR>
 nnoremap <silent> <Leader>u :GundoToggle<CR>
 nnoremap <silent> <Leader>. :ToggleColorColumn<CR>
 nnoremap <silent> <Leader>| :ToggleCursorColumn<CR>
@@ -504,6 +503,7 @@ nnoremap <Leader>a :Ack!<CR>
 nnoremap <Leader>A :Ack<CR>
 nnoremap <Leader>r :Ack!<space>'"'<CR>
 nnoremap <Leader>R :Ack<space>'"'<CR>
+nnoremap <Leader>b :CtrlPBuffer<CR>
 
 " Produce blank lines easily
 nnoremap <Leader>o o<ESC>0d$k
@@ -527,9 +527,9 @@ map <Leader>S :call RunTests('')<CR>
 nnoremap <leader>c :w\|:!script/features<cr>
 nnoremap <leader>w :w\|:!script/features --profile wip<cr>
 " }}}
-
 nnoremap <F9> :Dispatch<CR>
 " Same behaviour in normal mode as a pager
+nnoremap <C-N> :NERDTreeToggle<CR>
 nnoremap <Space> <C-D>
 " © [2]
 if exists(":nohls")
