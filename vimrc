@@ -335,7 +335,7 @@ function! EvaluateRubyFile() " {{{2
     setlocal makeprg=rspec\ "%:p"
   else
     compiler ruby
-    setlocal makeprg=ruby\ -wc\ \"%:p\"
+    setlocal makeprg=ruby\ -wcW\ \"%:p\"
   endif
 endfunction " }}}
 
