@@ -31,6 +31,11 @@ function has_git() {
 function has_rbenv() {
   return `[[ $(command -v rbenv >/dev/null 2>&1) -eq 0 ]]`
 }
+
+# nvm {{{2
+function has_nvm() {
+  return `[[ $(command -v nvm >/dev/null 2>&1) -eq 0 ]]`
+}
 # }}}
 
 # }}}
@@ -56,6 +61,10 @@ export ANDROID_HOME=$ANDROID_SDK_ROOT
 if has_go; then
   export GOPATH=$HOME
   export GOROOT=$(go env GOROOT)
+fi
+if has_nvm && has_homebrew; then
+  export NVM_DIR=~/.nvm
+  source $(brew --prefix nvm)/nvm.sh
 fi
 # }}}
 
