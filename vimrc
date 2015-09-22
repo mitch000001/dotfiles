@@ -65,6 +65,9 @@ let g:go_highlight_build_constraints = 1
 " COFFEESCRIPT CONFIGURATION {{3
 " let g:coffee_lint_options = '-f lint.json'
 " }}}
+" JSX CONFIGURATION {{{3
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+" }}}
 " RSPEC CONFIGURATION {{{3
 let g:rspec_command = "Dispatch bundle exec rspec {spec}"
 
