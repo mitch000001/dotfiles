@@ -81,6 +81,7 @@ if has_homebrew; then
   export PATH=/usr/local/sbin:$PATH
   if [ -z $(brew info nodejs | grep 'Not installed') ]; then
     export PATH=/usr/local/share/npm/bin:$PATH
+    export PATH=./node_modules/.bin:$PATH
   fi
 fi
 # }}}
