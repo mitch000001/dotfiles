@@ -23,6 +23,12 @@
 	vimdiff = difftool -y -t vimdiff
 	vimmerge = mergetool -y -t vimdiff
 	ctags = !.git/hooks/ctags
+	change = codereview change
+	gofmt = codereview gofmt
+	mail = codereview mail
+	pending = codereview pending
+	submit = codereview submit
+	sync = codereview sync
 
 [core]
 	excludesfile = ~/.gitignore
@@ -111,3 +117,5 @@
 
 [init]
 	templatedir = ~/.git_template
+[http]
+	cookiefile = /Users/mitch/.gitcookies
