@@ -62,12 +62,12 @@ if has_go; then
   export GOPATH=$HOME
   export GOROOT=$(go env GOROOT)
 fi
+# }}}
+
 if has_nvm && has_homebrew; then
   export NVM_DIR=~/.nvm
   source $(brew --prefix nvm)/nvm.sh
 fi
-# }}}
-
 export VM_PATH=$HOME/Documents/Virtual_Machines.localized
 
 # History config {{{2
@@ -88,7 +88,7 @@ PS1=$PS1"\[$NO_COLOR\] "
 if has_homebrew; then
   export PATH=/usr/local/bin:$PATH
   export PATH=/usr/local/sbin:$PATH
-  if [ -z $(brew info nodejs | grep 'Not installed') ]; then
+  if brew ls nodejs; then
     export PATH=/usr/local/share/npm/bin:$PATH
     export PATH=./node_modules/.bin:$PATH
   fi
