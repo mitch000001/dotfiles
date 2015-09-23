@@ -88,7 +88,7 @@ PS1=$PS1"\[$NO_COLOR\] "
 if has_homebrew; then
   export PATH=/usr/local/bin:$PATH
   export PATH=/usr/local/sbin:$PATH
-  if brew ls nodejs; then
+  if brew ls nodejs >/dev/null 2>&1; then
     export PATH=/usr/local/share/npm/bin:$PATH
     export PATH=./node_modules/.bin:$PATH
   fi
