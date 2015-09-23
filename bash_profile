@@ -26,7 +26,11 @@ function has_git() {
   return `[[ $(command -v git >/dev/null 2>&1) -eq 0 ]]`
 }
 # }}}
-
+# flow {{{2
+function has_rbenv() {
+  return `[[ $(command -v flow >/dev/null 2>&1) -eq 0 ]]`
+}
+#}}}
 # rbenv {{{2
 function has_rbenv() {
   return `[[ $(command -v rbenv >/dev/null 2>&1) -eq 0 ]]`
