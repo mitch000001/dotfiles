@@ -90,9 +90,9 @@ if has_homebrew; then
   export PATH=/usr/local/sbin:$PATH
   if brew ls nodejs >/dev/null 2>&1; then
     export PATH=/usr/local/share/npm/bin:$PATH
-    export PATH=./node_modules/.bin:$PATH
   fi
 fi
+export PATH=./node_modules/.bin:$PATH
 # }}}
 export PATH=$HOME/bin:$PATH
 # Go specific PATH additions {{{2
