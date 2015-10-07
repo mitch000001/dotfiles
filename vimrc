@@ -46,7 +46,6 @@ let g:max_line_width = 80
 " }}}
 " DIRECTORY VARIABLES {{{2
 let s:vim_backup_dir=expand('$HOME/.vim_backup')
-let s:vim_swap_dir=expand('$HOME/.vim_swap')
 let s:vim_spelldict_file=expand('$HOME/.vim_spelldict.add')
 let s:nerdtreebookmarks=expand('$HOME/.vim_bookmarks')
 " }}}
@@ -119,6 +118,7 @@ let g:SQL_result_file = "results.csv"
 " FILETYPE VARIABLES {{{2
 let g:xml_syntax_folding = 1
 " }}}
+"}}}1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SECTION: OPTIONS {{{1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -136,11 +136,7 @@ endif
 
 let &backupdir=s:vim_backup_dir " set the backupdir to a custom folder
 
-if !isdirectory(s:vim_swap_dir)
-  execute ":silent !mkdir " . s:vim_swap_dir
-endif
-
-let &directory=s:vim_swap_dir " set the swapdir to a custom folder
+noswapfile
 " }}}
 " BUFFER HANDLING {{{2
 set autoread          " automatic update of files changed by other processes
