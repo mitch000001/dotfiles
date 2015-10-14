@@ -119,3 +119,7 @@
 	templatedir = ~/.git_template
 [http]
 	cookiefile = /Users/mitch/.gitcookies
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
