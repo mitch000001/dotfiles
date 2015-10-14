@@ -61,15 +61,17 @@ let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_build_constraints = 1
 " }}}
-" COFFEESCRIPT CONFIGURATION {{3
+" COFFEESCRIPT CONFIGURATION {{{3
 " let g:coffee_lint_options = '-f lint.json'
+" }}}
+" SYNTASTIC CONFIGURATION {{{3
+let g:syntastic_javascript_checkers = ['eslint']
 " }}}
 " JSX CONFIGURATION {{{3
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 " }}}
 " RSPEC CONFIGURATION {{{3
 let g:rspec_command = "Dispatch bundle exec rspec {spec}"
-
 " }}}
 " NERDTREE CONFIGURATION {{{3
 " Change current working dir when loaded and when root dir changes
@@ -106,18 +108,19 @@ let g:vim_json_syntax_conceal = 0
 " }}}
 " ACK CONFIGURATION {{{3
 let g:ack_default_options = " -s -H --nocolor --nogroup --column"
-" }}}
-" XML CONFIGURATION {{{2
+" }}}3
+" XML CONFIGURATION {{{3
 let xml_use_xhtml = 1
-" }}}
-" SQL DATABASE QUERY CONFIGURATION {{{2
+" }}}3
+" SQL DATABASE QUERY CONFIGURATION {{{3
 let g:SQL_database = ""
 let g:SQL_program_arguments = ""
 let g:SQL_result_file = "results.csv"
-" }}}
+" }}}3
+"}}}2
 " FILETYPE VARIABLES {{{2
 let g:xml_syntax_folding = 1
-" }}}
+"}}}2
 "}}}1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SECTION: OPTIONS {{{1
