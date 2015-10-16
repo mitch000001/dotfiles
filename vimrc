@@ -66,6 +66,7 @@ let g:go_highlight_build_constraints = 1
 " }}}
 " SYNTASTIC CONFIGURATION {{{3
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_filetype_map = { "handlebars.html": "handlebars", "javascript.jsx": "javascript" }
 " }}}
 " JSX CONFIGURATION {{{3
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
