@@ -475,6 +475,9 @@ command! ToggleGoTestFile :call ToggleGoTestFile()
 " Reload vimrc
 command! RL :silent so $HOME/.vimrc
 
+" Common typos
+command! W :w
+
 " Diff tab management: open the current git diff in a tab ©[1]
 command! GdiffInTab execute "tabedit " . CurrentFilePath() . "|vsplit|Gdiff"
 " Open RFC files ©[2]
