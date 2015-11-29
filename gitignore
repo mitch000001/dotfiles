@@ -20,3 +20,4 @@ local.properties
 # Ignore bundled gems
 /vendor/bundle/
 node_modules
+.nvmrc
