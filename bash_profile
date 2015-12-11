@@ -263,7 +263,7 @@ if has_git; then
   __git_complete gpp _git_push
   alias grs='git reset HEAD'
   __git_complete grs _git_reset
-  alias gtodo='git grep -e "# TODO:" -e "# XXX:"'
+  alias gtodo='git grep -n -e "# TODO" -e "#TODO" -e "// TODO" -e "//TODO" -e "# XXX:"'
   alias gnuke='git reset --hard && git clean -f'
 
   # Just Copy&Paste, no idea what these do...
