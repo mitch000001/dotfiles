@@ -140,7 +140,7 @@ endif
 
 let &backupdir=s:vim_backup_dir " set the backupdir to a custom folder
 
-noswapfile
+set noswapfile
 " }}}
 " BUFFER HANDLING {{{2
 set autoread          " automatic update of files changed by other processes
