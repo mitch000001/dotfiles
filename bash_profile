@@ -144,6 +144,9 @@ return 0
 if has_homebrew && [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
+if has_homebrew && [[ $(command -v aws >/dev/null 2>&1) -eq 0 ]]; then
+  complete -C aws_completer aws
+fi
 # Google Cloud SDK bash completion {{{2
 # The next line enables bash completion for gcloud.
 if test -d $HOME/workspace/google-cloud-sdk; then
