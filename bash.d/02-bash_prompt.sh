@@ -79,6 +79,13 @@ function set_virtualenv () {
   fi
 }
 
+function set_node_version () {
+  NODE_VERSION=""
+  if has_nvm; then
+    NODE_VERSION="${LIGHT_GREEN}<$(nvm current)>${COLOR_NONE} "
+  fi
+}
+
 function set_ruby_version () {
   ruby_version="$(ruby -v)"
   version_pattern="^ruby ([0-9\.p]+)"
@@ -137,6 +144,8 @@ function set_bash_prompt () {
 
   set_ruby_version
 
+  set_node_version
+
   set_user_prompt
 
   set_bg_jobs
@@ -151,7 +160,7 @@ function set_bash_prompt () {
   fi
 
   # Set the bash prompt variable.
-  PS1="⦧ ${PYTHON_VIRTUALENV}\t ${USER_PROMPT}${RED}\h${COLOR_NONE} ${BLUE}\w${COLOR_NONE} ${RUBY_VERSION}${BRANCH}
+  PS1="⦧ ${PYTHON_VIRTUALENV}\t ${USER_PROMPT}${RED}\h${COLOR_NONE} ${BLUE}\w${COLOR_NONE} ${NODE_VERSION}${BRANCH}
 ${JOBS}${TASKS}${PROMPT_SYMBOL} "
 }
 
