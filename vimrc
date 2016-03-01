@@ -118,6 +118,9 @@ let g:SQL_database = ""
 let g:SQL_program_arguments = ""
 let g:SQL_result_file = "results.csv"
 " }}}3
+" EDITORCONFIG CONFIGURATION {{3
+let g:EditorConfig_exclude_patterns = ['fugitive://.*']
+" }}}3
 "}}}2
 " FILETYPE VARIABLES {{{2
 let g:xml_syntax_folding = 1
