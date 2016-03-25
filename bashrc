@@ -10,6 +10,9 @@ function has_homebrew() {
 function has_go() {
   return `[[ $(command -v go >/dev/null 2>&1) -eq 0 ]]`
 }
+function has_gocd() {
+  return `[[ $(command -v gocd >/dev/null 2>&1) -eq 0 ]]`
+}
 # }}}
 # git {{{2
 function has_git() {
@@ -146,6 +149,9 @@ if has_homebrew && [ -f $(brew --prefix)/etc/bash_completion ]; then
 fi
 if has_homebrew && [[ $(command -v aws >/dev/null 2>&1) -eq 0 ]]; then
   complete -C aws_completer aws
+fi
+if has_gocd; then
+  source $(gocd -shellinit)
 fi
 # Google Cloud SDK bash completion {{{2
 # The next line enables bash completion for gcloud.
