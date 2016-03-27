@@ -68,6 +68,7 @@ export ANDROID_HOME=$ANDROID_SDK_ROOT
 if has_go; then
   export GOPATH=$HOME
   export GOROOT=$(go env GOROOT)
+  export GOBIN=$HOME/bin
 fi
 # }}}
 
