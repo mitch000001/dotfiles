@@ -16,11 +16,47 @@ endif
 execute ":silent !" . s:dot_vim_update
 
 " }}}
-" PATHOGEN INITIALIZATION {{{2
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-call pathogen#infect()
-call pathogen#helptags()
-
+" VIM PLUG INITIALIZATION {{{2
+call plug#begin('~/.vim/plugged')
+Plug 'mileszs/ack.vim'
+Plug 'vim-scripts/c.vim', { 'for': 'c' }
+Plug 'vim-scripts/csv.vim'
+Plug 'kien/ctrlp.vim'
+Plug 'Raimondi/delimitMate'
+Plug 'sjl/gundo.vim'
+Plug 'othree/html5.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'pangloss/vim-javascript'
+Plug 'scrooloose/syntastic'
+Plug 'godlygeek/tabular'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-bundler'
+Plug 'kchmck/vim-coffee-script'
+Plug 'altercation/vim-colors-solarized'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-git'
+Plug 'airblade/vim-gitgutter'
+Plug 'fatih/vim-go'
+Plug 'tpope/vim-haml'
+Plug 'elzr/vim-json'
+Plug 'mxw/vim-jsx'
+Plug 'tpope/vim-markdown'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'tpope/vim-pathogen'
+Plug 'Lokaltog/vim-powerline', { 'branch': 'develop' }
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-rake'
+Plug 'tpope/vim-repeat'
+Plug 'thoughtbot/vim-rspec'
+Plug 'vim-ruby/vim-ruby'
+Plug 'duff/vim-scratch'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'othree/xml.vim'
+call plug#end()
 " }}}
 " BUILDIN MACROS {{{2
 " % matches on if/else, html tags, etc.
