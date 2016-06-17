@@ -96,6 +96,10 @@ let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_build_constraints = 1
+let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+let g:go_list_height = 10
+" let g:go_list_type = "quickfix"
 " }}}
 " COFFEESCRIPT CONFIGURATION {{{3
 " let g:coffee_lint_options = '-f lint.json'
