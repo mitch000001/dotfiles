@@ -679,12 +679,10 @@ augroup FileTypeOptions " {{{2
   autocmd FileType sqlite execute "setlocal makeprg=" . GetMakePrgVariable('sqlite')
   " Seems like vim-go does already do this...
   " autocmd FileType go autocmd BufWritePre <buffer> GoFmt
-  autocmd FileType go compiler go
   autocmd FileType go setlocal makeprg=go\ test\ ./...
   autocmd FileType go setlocal noexpandtab softtabstop=4 tabstop=4 shiftwidth=4 autoindent nolist
-  autocmd FileType go nnoremap gd GoDef
   autocmd FileType go nnoremap gD GoDef
-  autocmd FileType go command! A ToggleGoTestFile
+  autocmd FileType go command! A GoAlternate!
   autocmd FileType godoc setlocal noexpandtab softtabstop=4 tabstop=4 shiftwidth=4 autoindent nolist
   " © [2]
   autocmd User Bundler if (&makeprg !~ 'bundle' && &ft == 'ruby') | setlocal makeprg^=bundle\ exec\  | endif
