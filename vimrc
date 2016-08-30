@@ -56,6 +56,7 @@ Plug 'duff/vim-scratch'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'othree/xml.vim'
+Plug 'editorconfig/editorconfig-vim'
 call plug#end()
 " }}}
 " BUILDIN MACROS {{{2
