@@ -111,7 +111,7 @@ fi
 # Google Cloud SDK PATH additions {{{2
 # The next line updates PATH for the Google Cloud SDK.
 if test -d $HOME/workspace/google-cloud-sdk; then
-  source /Users/mitch/workspace/google-cloud-sdk/path.bash.inc
+  source $HOME/workspace/google-cloud-sdk/path.bash.inc
 fi
 # }}}
 # }}}
@@ -157,7 +157,7 @@ fi
 # Google Cloud SDK bash completion {{{2
 # The next line enables bash completion for gcloud.
 if test -d $HOME/workspace/google-cloud-sdk; then
-  source /Users/mitch/workspace/google-cloud-sdk/completion.bash.inc
+  source $HOME/workspace/google-cloud-sdk/completion.bash.inc
 fi
 # }}}
 # }}}
