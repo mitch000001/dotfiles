@@ -57,6 +57,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'othree/xml.vim'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'chase/vim-ansible-yaml'
 call plug#end()
 " }}}
 " BUILDIN MACROS {{{2
