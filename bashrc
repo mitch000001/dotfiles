@@ -11,7 +11,7 @@ function has_go() {
   return `[[ $(command -v go >/dev/null 2>&1) -eq 0 ]]`
 }
 function has_gocd() {
-  return `[[ $(command -v gocd >/dev/null 2>&1) -eq 0 ]]`
+  return 1 #`[[ $(command -v gocd >/dev/null 2>&1) -eq 0 ]]`
 }
 # }}}
 # git {{{2
