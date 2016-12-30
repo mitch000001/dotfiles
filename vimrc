@@ -150,6 +150,7 @@ endif
 let g:vim_json_syntax_conceal = 0
 " }}}
 " ACK CONFIGURATION {{{3
+let g:ackprg = "pt"
 let g:ack_default_options = " -s -H --nocolor --nogroup --column"
 " }}}3
 " XML CONFIGURATION {{{3
