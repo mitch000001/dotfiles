@@ -3,12 +3,12 @@
 ##############################################################################
 # Homebrew {{{2
 function has_homebrew() {
-  return `[[ $(command -v brew >/dev/null 2>&1) -eq 0 ]]`
+  return `[[ $(command -v brew >/dev/null 2>&1; echo $?) -eq 0 ]]`
 }
 # }}}
 # Go {{{2
 function has_go() {
-  return `[[ $(command -v go >/dev/null 2>&1) -eq 0 ]]`
+  return `[[ $(command -v go >/dev/null 2>&1; echo $?) -eq 0 ]]`
 }
 function has_gocd() {
   return 1 #`[[ $(command -v gocd >/dev/null 2>&1) -eq 0 ]]`
@@ -16,22 +16,26 @@ function has_gocd() {
 # }}}
 # git {{{2
 function has_git() {
-  return `[[ $(command -v git >/dev/null 2>&1) -eq 0 ]]`
+  return `[[ $(command -v git >/dev/null 2>&1; echo $?) -eq 0 ]]`
 }
 # }}}
 # flow {{{2
 function has_rbenv() {
-  return `[[ $(command -v flow >/dev/null 2>&1) -eq 0 ]]`
+  return `[[ $(command -v flow >/dev/null 2>&1; echo $?) -eq 0 ]]`
 }
 #}}}
 # rbenv {{{2
 function has_rbenv() {
-  return `[[ $(command -v rbenv >/dev/null 2>&1) -eq 0 ]]`
+  return `[[ $(command -v rbenv >/dev/null 2>&1; echo $?) -eq 0 ]]`
+}
+# direnv {{{2
+function has_direnv() {
+  return `[[ $(command -v direnv >/dev/null 2>&1; echo $?) -eq 0 ]]`
 }
 
 # nvm {{{2
 function has_nvm() {
-  return `[[ $(command -v nvm >/dev/null 2>&1) -eq 0 ]]`
+  return `[[ $(command -v nvm >/dev/null 2>&1; echo $?) -eq 0 ]]`
 }
 # }}}
 
@@ -128,16 +132,16 @@ export PATH=/usr/local/heroku/bin:$PATH
 ##############################################################################
 # See http://unix.stackexchange.com/questions/4219/how-do-i-get-bash-completion-for-command-aliases for more details
 function make-completion-wrapper () {
-local function_name="$2"
-local arg_count=$(($#-3))
-local comp_function_name="$1"
-shift 2
-local function="
-function $function_name {
-((COMP_CWORD+=$arg_count))
-COMP_WORDS=( "$@" \${COMP_WORDS[@]:1} )
-"$comp_function_name"
-return 0
+  local function_name="$2"
+  local arg_count=$(($#-3))
+  local comp_function_name="$1"
+  shift 2
+  local function="
+  function $function_name {
+      ((COMP_CWORD+=$arg_count))
+      COMP_WORDS=( "$@" \${COMP_WORDS[@]:1} )
+      "$comp_function_name"
+      return 0
   }"
   eval "$function"
 }
@@ -161,6 +165,15 @@ if test -d $HOME/workspace/google-cloud-sdk; then
 fi
 # }}}
 # }}}
+##############################################################################
+# direnv initialization {{{1
+##############################################################################
+if has_direnv; then
+  eval "$(direnv hook bash)"
+fi
+
+# }}}
+##############################################################################
 ##############################################################################
 # rbenv initialization {{{1
 ##############################################################################
