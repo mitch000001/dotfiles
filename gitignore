@@ -19,6 +19,8 @@ local.properties
 .exrc
 # Ignore bundled gems
 /vendor/bundle/
+
 node_modules
 .nvmrc
 .ackrc
+.envrc
