@@ -66,7 +66,7 @@ if has_homebrew; then
   export HOMEBREW=$(brew --cellar)
 fi
 # }}}
-export ANDROID_SDK_ROOT=/usr/local/opt/android-sdk
+export ANDROID_SDK_ROOT="${ANDROID_SDK_ROOT-/usr/local/opt/android-sdk}"
 export ANDROID_HOME=$ANDROID_SDK_ROOT
 # Go specific variables {{{2
 if has_go; then
@@ -105,6 +105,10 @@ fi
 export PATH=./node_modules/.bin:$PATH
 # }}}
 export PATH=$HOME/bin:$PATH
+# Android tools {{{2
+export PATH=$ANDROID_SDK_ROOT/platform-tools:$PATH
+export PATH=$ANDROID_SDK_ROOT/tools:$PATH
+# }}}
 # Go specific PATH additions {{{2
 if has_go; then
   export PATH=$PATH:$GOPATH/bin
