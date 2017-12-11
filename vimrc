@@ -46,7 +46,6 @@ Plug 'mxw/vim-jsx'
 Plug 'tpope/vim-markdown'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'jistr/vim-nerdtree-tabs'
-Plug 'tpope/vim-pathogen'
 Plug 'Lokaltog/vim-powerline', { 'branch': 'develop' }
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rake'
