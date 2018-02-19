@@ -38,6 +38,11 @@ function has_nvm() {
   return `[[ $(command -v nvm >/dev/null 2>&1; echo $?) -eq 0 ]]`
 }
 # }}}
+# nvim {{{2
+function has_nvim() {
+  return `[[ $(command -v nvim >/dev/null 2>&1; echo $?) -eq 0 ]]`
+}
+# }}}
 
 # }}}
 ##############################################################################
@@ -57,6 +62,9 @@ LOCAL_PROFILE=$HOME/.bash_profile.local
 LOCAL_RC=$HOME/.bashrc.local
 
 export EDITOR=vim
+if has_nvim; then
+  export EDITOR=nvim
+fi
 
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
