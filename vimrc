@@ -59,6 +59,9 @@ Plug 'othree/xml.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'chase/vim-ansible-yaml'
 Plug 'Valloric/YouCompleteMe'
+Plug 'junegunn/goyo.vim'
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
 call plug#end()
 " }}}
 " BUILDIN MACROS {{{2
