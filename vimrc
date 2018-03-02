@@ -106,7 +106,7 @@ let g:syntastic_go_checkers = ['go', 'golint', 'govet', 'errcheck'] " ['go']
 let g:syntastic_sh_checkers = ['sh', 'shellcheck']
 " let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 let g:go_list_height = 10
-" let g:go_list_type = "quickfix"
+let g:go_list_type = "quickfix"
 " }}}
 " COFFEESCRIPT CONFIGURATION {{{3
 " let g:coffee_lint_options = '-f lint.json'
