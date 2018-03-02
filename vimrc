@@ -5,15 +5,15 @@
 " SECTION: PLUGIN INITIALIZATION {{{1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PLUGIN REPOSITORY INITIALIZATION {{{2
-let s:dot_vim_update=expand('~/.vim/update')
-if !filereadable(s:dot_vim_update)
-  echom "Installing plugins..."
-  echom ""
-  " Fetching .vim folder repository
-  silent !git clone --recursive git@github.com:mitch000001/dotvim ~/.vim
-endif
-" Update plugins using repository script
-execute ":silent !" . s:dot_vim_update
+" let s:dot_vim_update=expand('~/.vim/update')
+" if !filereadable(s:dot_vim_update)
+"   echom "Installing plugins..."
+"   echom ""
+"   " Fetching .vim folder repository
+"   silent !git clone --recursive git@github.com:mitch000001/dotvim ~/.vim
+" endif
+" " Update plugins using repository script
+" execute ":silent !" . s:dot_vim_update
 
 " }}}
 " VIM PLUG INITIALIZATION {{{2
