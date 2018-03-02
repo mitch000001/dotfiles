@@ -200,7 +200,7 @@ fi
 alias l='ls -la'
 alias lh='l -h'
 # List only dotfiles
-alias l.='l -d .[^.]*'
+alias l.='ls -la -d .[^.]*'
 alias ls.='ls -d .[^.]*'
 alias l.v='ls -l -d .[^.]*'
 # }}}
