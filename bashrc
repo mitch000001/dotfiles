@@ -168,6 +168,7 @@ fi
 if has_gocd; then
   source $(gocd -shellinit)
 fi
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 # Google Cloud SDK bash completion {{{2
 # The next line enables bash completion for gcloud.
 if test -d $HOME/workspace/google-cloud-sdk; then
