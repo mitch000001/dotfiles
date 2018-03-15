@@ -22,6 +22,7 @@ Plug 'mileszs/ack.vim'
 Plug 'vim-scripts/c.vim', { 'for': 'c' }
 Plug 'vim-scripts/csv.vim'
 Plug 'kien/ctrlp.vim'
+Plug '/usr/local/opt/fzf'
 Plug 'Raimondi/delimitMate'
 Plug 'sjl/gundo.vim'
 Plug 'othree/html5.vim'
@@ -574,11 +575,6 @@ nnoremap <Leader>O O<ESC>0d$j
 " ©[1]
 nnoremap <leader>d :GdiffInTab<cr>
 nnoremap <leader>D :tabclose<cr>
-" Rspec.vim mappings
-map <Leader>t :call RunNearestTest()<CR>
-map <Leader>T :call RunTestFile()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>S :call RunTests('')<CR>
 
 " ©[1]
 nnoremap <leader>c :w\|:!script/features<cr>
@@ -602,6 +598,15 @@ nnoremap <leader># Vi(:call AlignTable()<cr>
 " inoremap kj <esc>
 " }}}
 
+" TERMINAL MODE {{{2
+" An easier way to exit terminal mode
+tnoremap <leader><Esc> <C-\><C-n>
+tnoremap <C-w>h <C-\><C-N><C-w>h
+tnoremap <C-w>j <C-\><C-N><C-w>j
+tnoremap <C-w>k <C-\><C-N><C-w>k
+tnoremap <C-w>l <C-\><C-N><C-w>l
+" }}}
+
 " ALL MODES {{{2
 " © [2]
 map <F3>    :cnext<CR>
@@ -612,6 +617,11 @@ map <F7>    :NERDTreeFind<CR>
 map <F8>    :wall<Bar>make<CR>
 map <silent> <F10> :let tagsfile = tempname()\|silent exe "!ctags -f ".tagsfile." \"%\""\|let &l:tags .= "," . tagsfile\|unlet tagsfile<CR>
 map <C-F4>  :bdelete<CR>
+" Rspec.vim mappings
+map <Leader>t :call RunNearestTest()<CR>
+map <Leader>T :call RunTestFile()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>S :call RunTests('')<CR>
 " }}}
 
 " }}}
