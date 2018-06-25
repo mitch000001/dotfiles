@@ -82,7 +82,7 @@
 
 [merge]
 	summary = true
-	tool = vimdiff
+	tool = opendiff
 
 [mergetool "vimdiff"]
 	cmd = vimdiff \"$LOCAL\" \"$MERGED\" \"$REMOTE\"
