@@ -151,6 +151,8 @@ function set_bash_prompt () {
   set_bg_jobs
 
   set_t_tasks
+  # write history after each command
+  history -a
 
   # Set the BRANCH variable.
   if is_git_repository ; then
