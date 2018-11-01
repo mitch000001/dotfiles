@@ -59,10 +59,20 @@ Plug 'tpope/vim-unimpaired'
 Plug 'othree/xml.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'pearofducks/ansible-vim'
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
 " Plug 'Valloric/YouCompleteMe'
 " Plug 'junegunn/goyo.vim'
 " Plug 'vim-pandoc/vim-pandoc'
 " Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
 call plug#end()
 " }}}
 " BUILDIN MACROS {{{2
