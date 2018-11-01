@@ -60,6 +60,25 @@ function set_git_branch {
   BRANCH="[${state}${branch}${COLOR_NONE}${RED}${ahead}${behind}${new}${COLOR_NONE}] "
 }
 
+function timer_start {
+  timer=${timer:-$SECONDS}
+}
+
+function timer_stop {
+  timer_show=$(($SECONDS - $timer))
+  duration=$(printf '%02dh:%02dm:%02ds' $(($timer_show/3600)) $(($timer_show%3600/60)) $(($timer_show%60)))
+  LAST_COMMAND_DURATION="[${YELLOW}${duration}${COLOR_NONE}]"
+  unset timer
+}
+
+trap 'timer_start' DEBUG
+
+if [ "$PROMPT_COMMAND" == "" ]; then
+  PROMPT_COMMAND="timer_stop"
+else
+  PROMPT_COMMAND="$PROMPT_COMMAND; timer_stop"
+fi
+
 # Return the prompt symbol to use, colorized based on the return value of the
 # previous command.
 function set_prompt_symbol () {
@@ -162,9 +181,10 @@ function set_bash_prompt () {
   fi
 
   # Set the bash prompt variable.
-  PS1="⦧ ${PYTHON_VIRTUALENV}\t ${USER_PROMPT}${RED}\h${COLOR_NONE} ${BLUE}\w${COLOR_NONE} ${NODE_VERSION}${BRANCH}
+  PS1="⦧ ${PYTHON_VIRTUALENV}\\t ${USER_PROMPT}${RED}\\h${COLOR_NONE} ${BLUE}\\w${COLOR_NONE} ${NODE_VERSION}${BRANCH}${LAST_COMMAND_DURATION}
 ${JOBS}${TASKS}${PROMPT_SYMBOL} "
 }
 
 # Tell bash to execute this function just before displaying its prompt.
 PROMPT_COMMAND=set_bash_prompt
+PROMPT_COMMAND="$PROMPT_COMMAND; timer_stop"
