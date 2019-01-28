@@ -660,8 +660,8 @@ hi DiffDelete ctermbg=9 ctermfg=8
 
 augroup Misc "{{{2
   autocmd User Fugitive
-        \ if filereadable(fugitive#buffer().repo().dir('fugitive.vim')) |
-        \   source `=fugitive#buffer().repo().dir('fugitive.vim')` |
+        \ if filereadable(fugitive#repo().dir('fugitive.vim')) |
+        \   source `=fugitive#repo().dir('fugitive.vim')` |
         \ endif
 augroup END "}}}
 
