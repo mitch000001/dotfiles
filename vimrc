@@ -107,7 +107,6 @@ let g:markdown_fenced_languages = ['ruby', 'html', 'javascript', 'css', 'erb=eru
 let g:liquid_highlight_types = g:markdown_fenced_languages + ['jinja=liquid', 'html+erb=eruby.html', 'html+jinja=liquid.html']
 " GO CONFIGURATION {{{3
 let g:go_fmt_command = "goimports"
-let g:gofmt_command = "goimports"
 let g:go_highlight_operators = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
@@ -115,7 +114,7 @@ let g:go_highlight_structs = 1
 let g:go_highlight_build_constraints = 1
 let g:syntastic_go_checkers = ['go', 'golint', 'govet', 'errcheck'] " ['go']
 let g:syntastic_sh_checkers = ['sh', 'shellcheck']
-" let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 let g:go_list_height = 10
 let g:go_list_type = "quickfix"
 " }}}
