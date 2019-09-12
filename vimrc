@@ -610,6 +610,7 @@ nnoremap <leader># Vi(:call AlignTable()<cr>
 " TERMINAL MODE {{{2
 " An easier way to exit terminal mode
 tnoremap <leader><Esc> <C-\><C-n>
+tnoremap <C-w><Esc> <C-\><C-n>
 tnoremap <C-w>h <C-\><C-N><C-w>h
 tnoremap <C-w>j <C-\><C-N><C-w>j
 tnoremap <C-w>k <C-\><C-N><C-w>k
