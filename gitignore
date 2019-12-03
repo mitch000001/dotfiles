@@ -24,3 +24,7 @@ node_modules
 .nvmrc
 .ackrc
 .envrc
+.ruby-version
+
+# openrc files
+*-openrc.sh
