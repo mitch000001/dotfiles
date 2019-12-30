@@ -187,6 +187,8 @@ function set_bash_prompt () {
     BRANCH=''
   fi
 
+  set_title "$(basename `pwd`)"
+
   # Set the bash prompt variable.
   PS1="⦧ ${PYTHON_VIRTUALENV}\\t ${USER_PROMPT}${RED}\\h${COLOR_NONE} ${BLUE}\\w${COLOR_NONE} ${K8S_CONFIG_CONTEXT}${BRANCH}${LAST_COMMAND_DURATION}
 ${JOBS}${TASKS}${PROMPT_SYMBOL} "

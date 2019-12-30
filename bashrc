@@ -160,6 +160,10 @@ function make-completion-wrapper () {
   }"
   eval "$function"
 }
+
+function set_title () {
+  echo -n -e "\033]0;$1\007"
+}
 # }}}
 ##############################################################################
 # Bash completion {{{1
