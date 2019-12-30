@@ -105,6 +105,13 @@ function set_node_version () {
   fi
 }
 
+function set_k8s_context () {
+  K8S_CONFIG_CONTEXT=""
+  if has_kubectl; then
+    K8S_CONFIG_CONTEXT="${LIGHT_GREEN}<$(kubectl config current-context)>${COLOR_NONE} "
+  fi
+}
+
 function set_ruby_version () {
   ruby_version="$(ruby -v)"
   version_pattern="^ruby ([0-9\.p]+)"
@@ -163,7 +170,7 @@ function set_bash_prompt () {
 
   set_ruby_version
 
-  set_node_version
+  set_k8s_context
 
   set_user_prompt
 
@@ -181,7 +188,7 @@ function set_bash_prompt () {
   fi
 
   # Set the bash prompt variable.
-  PS1="⦧ ${PYTHON_VIRTUALENV}\\t ${USER_PROMPT}${RED}\\h${COLOR_NONE} ${BLUE}\\w${COLOR_NONE} ${NODE_VERSION}${BRANCH}${LAST_COMMAND_DURATION}
+  PS1="⦧ ${PYTHON_VIRTUALENV}\\t ${USER_PROMPT}${RED}\\h${COLOR_NONE} ${BLUE}\\w${COLOR_NONE} ${K8S_CONFIG_CONTEXT}${BRANCH}${LAST_COMMAND_DURATION}
 ${JOBS}${TASKS}${PROMPT_SYMBOL} "
 }
 

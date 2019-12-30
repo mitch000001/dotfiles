@@ -27,4 +27,4 @@ node_modules
 .ruby-version
 
 # openrc files
-*-openrc.sh
+*openrc.sh

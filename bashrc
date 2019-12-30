@@ -43,6 +43,11 @@ function has_nvim() {
   return `[[ $(command -v nvim >/dev/null 2>&1; echo $?) -eq 0 ]]`
 }
 # }}}
+# kubectl {{{2
+function has_kubectl() {
+  return `[[ $(command -v kubectl >/dev/null 2>&1; echo $?) -eq 0 ]]`
+}
+# }}}
 
 # }}}
 ##############################################################################
