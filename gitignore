@@ -28,3 +28,6 @@ node_modules
 
 # openrc files
 *openrc.sh
+
+# ssh keys
+ssh_keys/
