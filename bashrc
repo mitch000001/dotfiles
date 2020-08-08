@@ -84,7 +84,11 @@ export ANDROID_HOME=$ANDROID_SDK_ROOT
 # Go specific variables {{{2
 if has_go; then
   export GOPATH=$HOME
-  export GOROOT=$(go env GOROOT)
+  if has_homebrew; then
+    export GOROOT=/usr/local/opt/go/libexec
+  else
+    export GOROOT=$(go env GOROOT)
+  fi
   export GOBIN=$HOME/bin
 fi
 # }}}
