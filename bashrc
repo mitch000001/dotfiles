@@ -168,6 +168,12 @@ function make-completion-wrapper () {
 function set_title () {
   echo -n -e "\033]0;$1\007"
 }
+
+function merge_kubecfg () {
+  absolute_path=$(ruby -e "puts File.absolute_path('$1')")
+  KUBECONFIG=$absolute_path:"${HOME}"/.kube/config kubectl config view --raw --merge -o yaml > kubeconfig.yaml && \
+  mv kubeconfig.yaml "${HOME}"/.kube/config
+}
 # }}}
 ##############################################################################
 # Bash completion {{{1
