@@ -117,6 +117,7 @@
 
 [init]
 	templatedir = ~/.git_template
+	defaultBranch = main
 [http]
 	cookiefile = /Users/mitch/.gitcookies
 [filter "lfs"]
