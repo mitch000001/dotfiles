@@ -108,7 +108,25 @@ function set_node_version () {
 function set_k8s_context () {
   K8S_CONFIG_CONTEXT=""
   if has_kubectl; then
-    K8S_CONFIG_CONTEXT="${LIGHT_GREEN}<$(kubectl config current-context)>${COLOR_NONE} "
+    K8S_CONFIG_CONTEXT="${LIGHT_GREEN}<$(kubectl config current-context 2>/dev/null)>${COLOR_NONE} "
+  fi
+}
+
+function set_ceph_context () {
+  CEPH_CLUSTER_ENV=""
+  if test -z "$CEPH_CLUSTER" ; then
+      CEPH_CLUSTER_ENV=""
+  else
+      CEPH_CLUSTER_ENV="${LIGHT_BLUE}[$CEPH_CLUSTER]${COLOR_NONE} "
+  fi
+}
+
+function set_openstack_context () {
+  OPENSTACK_CLUSTER_ENV=""
+  if test -z "$OS_CLUSTER" ; then
+      OPENSTACK_CLUSTER_ENV=""
+  else
+      OPENSTACK_CLUSTER_ENV="${PINK}[$OS_CLUSTER]${COLOR_NONE} "
   fi
 }
 
@@ -168,6 +186,10 @@ function set_bash_prompt () {
   # Set the PYTHON_VIRTUALENV variable.
   set_virtualenv
 
+  set_ceph_context
+
+  set_openstack_context
+
   set_ruby_version
 
   set_k8s_context
@@ -190,7 +212,7 @@ function set_bash_prompt () {
   set_title "$(basename `pwd`)"
 
   # Set the bash prompt variable.
-  PS1="⦧ ${PYTHON_VIRTUALENV}\\t ${USER_PROMPT}${RED}\\h${COLOR_NONE} ${BLUE}\\w${COLOR_NONE} ${K8S_CONFIG_CONTEXT}${BRANCH}${LAST_COMMAND_DURATION}
+  PS1="⦧ ${PYTHON_VIRTUALENV}${CEPH_CLUSTER_ENV}${OPENSTACK_CLUSTER_ENV}\\t ${USER_PROMPT}${RED}\\h${COLOR_NONE} ${BLUE}\\w${COLOR_NONE} ${K8S_CONFIG_CONTEXT}${BRANCH}${LAST_COMMAND_DURATION}
 ${JOBS}${TASKS}${PROMPT_SYMBOL} "
 }
 
