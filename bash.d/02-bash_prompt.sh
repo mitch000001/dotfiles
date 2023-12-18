@@ -142,23 +142,6 @@ function set_bg_jobs () {
   fi
 }
 
-function has_t() {
-  return `test -z $(command -v t >/dev/null 2>&1)`
-}
-
-function set_t_tasks () {
-  if has_t; then
-    tasks=$(t | wc -l | sed -e's/ *//')
-  else
-    tasks=0
-  fi
-  if test "${tasks}" -gt 0; then
-    TASKS="(t: ${tasks}) "
-  else
-    TASKS=""
-  fi
-}
-
 # Set the full bash prompt.
 function set_bash_prompt () {
   # Set the PROMPT_SYMBOL variable. We do this first so we don't lose the
@@ -176,7 +159,6 @@ function set_bash_prompt () {
 
   set_bg_jobs
 
-  set_t_tasks
   # write history after each command
   history -a
 
