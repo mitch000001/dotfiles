@@ -68,6 +68,7 @@ LOCAL_RC=$HOME/.bashrc.local
 export EDITOR=vim
 if has_nvim; then
   export EDITOR=nvim
+  alias vim=nvim
 fi
 
 export CLICOLOR=1
