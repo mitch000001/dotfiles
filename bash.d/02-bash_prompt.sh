@@ -12,6 +12,7 @@ LIGHT_GREEN="\[\033[1;32m\]"
       WHITE="\[\033[1;37m\]"
  LIGHT_GRAY="\[\033[0;37m\]"
  COLOR_NONE="\[\e[0m\]"
+    EYELLOW="\e[1;33m"
 
 # Detect whether the current directory is a git repository.
 function is_git_repository {
@@ -124,9 +125,21 @@ function set_ceph_context () {
 function set_openstack_context () {
   OPENSTACK_CLUSTER_ENV=""
   if test -z "$OS_CLUSTER" ; then
+    if test -n "$OS_CLOUD"; then
+      OPENSTACK_CLUSTER_ENV="${PINK}[$OS_CLOUD]${COLOR_NONE} "
+    else
       OPENSTACK_CLUSTER_ENV=""
+    fi
   else
+    if test -n "$OS_CLOUD"; then
+      if test "$OS_CLUSTER" != "$OS_CLOUD"; then
+        OPENSTACK_CLUSTER_ENV="${PINK}[${EYELLOW}!${PINK}$OS_CLOUD]${COLOR_NONE} "
+      else
+        OPENSTACK_CLUSTER_ENV="${PINK}[$OS_CLOUD]${COLOR_NONE} "
+      fi
+    else
       OPENSTACK_CLUSTER_ENV="${PINK}[$OS_CLUSTER]${COLOR_NONE} "
+    fi
   fi
 }
 
