@@ -268,6 +268,7 @@ alias rl='source_profile'
 
 # git aliases {{{2
 if has_git; then
+  source "$HOMEBREW_PREFIX/etc/bash_completion.d/git-completion.bash"
   alias g='git'
   __git_complete g __git_main
   alias gst='git status'
