@@ -284,7 +284,7 @@ if has_git; then
   __git_complete gta _git_tag
   alias glg='git lg'
   __git_complete glg _git_log
-  alias glgm='git lg origin/master..HEAD'
+  alias glgm='git lg origin/$(git symbolic-ref refs/remotes/origin/HEAD | sed "s@^refs/remotes/origin/@@")..HEAD'
   __git_complete glgm _git_log
   alias glga='git lga'
   __git_complete glga _git_log
@@ -300,7 +300,7 @@ if has_git; then
   __git_complete gco _git_checkout
   alias g--='git checkout --'
   __git_complete gco _git_checkout
-  alias gcom='git checkout master'
+  alias gcom='git checkout $(git symbolic-ref refs/remotes/origin/HEAD | sed "s@^refs/remotes/origin/@@")'
   alias gcob='git checkout -b'
   __git_complete gcob _git_checkout
   alias gci='git commit -v'
