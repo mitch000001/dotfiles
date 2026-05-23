@@ -3,6 +3,9 @@
 ##############################################################################
 # Homebrew {{{2
 function has_homebrew() {
+  if [[ -f /opt/homebrew/bin/brew ]]; then
+    export PATH=/opt/homebrew/bin:$PATH
+  fi
   return `[[ "$(command -v brew >/dev/null 2>&1; echo $?)" -eq 0 ]]`
 }
 # }}}
