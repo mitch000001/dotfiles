@@ -97,6 +97,13 @@ export NVM_DIR=~/.nvm
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 export VM_PATH=$HOME/Documents/Virtual_Machines.localized
 
+# Git prompt {{{2
+export GIT_PS1_SHOWCOLORHINTS=1
+export GIT_PS1_SHOWDIRTYSTATE=1
+export GIT_PS1_SHOWUNTRACKEDFILES=1
+export GIT_PS1_SHOWUPSTREAM="auto"
+# }}}
+
 # History config {{{2
 export HISTIGNORE="&"
 export HISTSIZE=2000

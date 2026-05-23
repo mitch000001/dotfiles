@@ -163,13 +163,14 @@ function set_bash_prompt () {
   history -a
 
   # Set the BRANCH variable.
-  if is_git_repository ; then
-    set_git_branch
-  else
-    BRANCH=''
-  fi
+  # if is_git_repository ; then
+  #   set_git_branch
+  # else
+  #   BRANCH=''
+  # fi
+  BRANCH="$(__git_ps1 " (%s)")"
 
-  set_title "$(basename `pwd`)"
+  set_title "$(basename "$(pwd)")"
 
   # Set the bash prompt variable.
   PS1="⦧ ${PYTHON_VIRTUALENV}\\t ${USER_PROMPT}${RED}\\h${COLOR_NONE} ${BLUE}\\w${COLOR_NONE} ${K8S_CONFIG_CONTEXT}${BRANCH}${LAST_COMMAND_DURATION}
