@@ -101,12 +101,17 @@
 
 [push]
 	default = upstream
+	autoSetupRemote = true
+
+[fetch]
+  prune = true
 
 [help]
 	autocorrect = 1
 
 [commit]
 	template = ~/.git_template/gitcommit.template
+	; gpgsign = true
 
 [branch]
 	autosetuprebase = always
@@ -121,9 +126,14 @@
 [http]
 	cookiefile = /Users/mitch/.gitcookies
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
 	required = true
+	process = git-lfs filter-process
 
 [include]
 	path = ~/.gitconfig.local
+[gitreview]
+	username = mitch000001
+[rebase]
+	autoStash = true
