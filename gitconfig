@@ -137,3 +137,6 @@
 	username = mitch000001
 [rebase]
 	autoStash = true
+
+[includeIf "gitdir:~/"]
+	path = ~/.gitconfig.local
