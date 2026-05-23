@@ -3,7 +3,7 @@
 ##############################################################################
 # Homebrew {{{2
 function has_homebrew() {
-  return `[[ $(command -v brew >/dev/null 2>&1; echo $?) -eq 0 ]]`
+  return `[[ "$(command -v brew >/dev/null 2>&1; echo $?)" -eq 0 ]]`
 }
 # }}}
 # Go {{{2
@@ -85,7 +85,7 @@ export ANDROID_HOME=$ANDROID_SDK_ROOT
 if has_go; then
   export GOPATH=$HOME
   if has_homebrew; then
-    export GOROOT=/usr/local/opt/go/libexec
+    export GOROOT=$(brew --prefix)/opt/go/libexec
   else
     export GOROOT=$(go env GOROOT)
   fi
@@ -96,6 +96,13 @@ fi
 export NVM_DIR=~/.nvm
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 export VM_PATH=$HOME/Documents/Virtual_Machines.localized
+
+# Git prompt {{{2
+export GIT_PS1_SHOWCOLORHINTS=1
+export GIT_PS1_SHOWDIRTYSTATE=1
+export GIT_PS1_SHOWUNTRACKEDFILES=1
+export GIT_PS1_SHOWUPSTREAM="auto"
+# }}}
 
 # History config {{{2
 export HISTIGNORE="&"
@@ -178,10 +185,14 @@ function merge_kubecfg () {
 ##############################################################################
 # Bash completion {{{1
 ##############################################################################
-if has_homebrew && [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
+if has_homebrew && [ -f "$(brew --prefix)/etc/profile.d/bash_completion.sh" ]; then
+  source "$(brew --prefix)/etc/profile.d/bash_completion.sh"
+  # Prüfe, ob die Datei existiert, bevor sie geladen wird
 fi
-if has_homebrew && [[ $(command -v aws >/dev/null 2>&1) -eq 0 ]]; then
+if [ -f "$(brew --prefix)/etc/bash_completion.d/git-prompt.sh" ]; then
+    source "$(brew --prefix)/etc/bash_completion.d/git-prompt.sh"
+fi
+if has_homebrew && [[ $(command -v aws >/dev/null 2>&1; echo $?) -eq 0 ]]; then
   complete -C aws_completer aws
 fi
 if has_gocd; then
@@ -190,8 +201,8 @@ fi
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 # Google Cloud SDK bash completion {{{2
 # The next line enables bash completion for gcloud.
-if test -d $HOME/workspace/google-cloud-sdk; then
-  source $HOME/workspace/google-cloud-sdk/completion.bash.inc
+if test -d "$HOME/workspace/google-cloud-sdk"; then
+  source "$HOME/workspace/google-cloud-sdk/completion.bash.inc"
 fi
 # }}}
 # }}}
