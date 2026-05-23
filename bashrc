@@ -76,7 +76,8 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 
 # Homebrew {{{2
 if has_homebrew; then
-  export HOMEBREW=$(brew --cellar)
+  eval "$(brew shellenv bash)"
+  #export HOMEBREW=$(brew --cellar)
 fi
 # }}}
 export ANDROID_SDK_ROOT="${ANDROID_SDK_ROOT-/usr/local/opt/android-sdk}"
