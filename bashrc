@@ -236,6 +236,11 @@ alias ls.='ls -d .[^.]*'
 alias l.v='ls -l -d .[^.]*'
 # }}}
 
+# less aliases {{{2
+# Retail control characters
+alias rless='less -r'
+# }}}
+
 # Workflow aliases {{{2
 alias ..='cd ..'
 alias ...='cd ../..'
