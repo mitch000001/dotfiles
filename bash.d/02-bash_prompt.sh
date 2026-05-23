@@ -65,8 +65,8 @@ function timer_start {
 }
 
 function timer_stop {
-  timer_show=$(($SECONDS - $timer))
-  duration=$(printf '%02dh:%02dm:%02ds' $(($timer_show/3600)) $(($timer_show%3600/60)) $(($timer_show%60)))
+  timer_show=$((SECONDS - timer))
+  duration=$(printf '%02dh:%02dm:%02ds' $((timer_show/3600)) $((timer_show%3600/60)) $((timer_show%60)))
   LAST_COMMAND_DURATION="[${YELLOW}${duration}${COLOR_NONE}]"
   unset timer
 }
@@ -82,7 +82,7 @@ fi
 # Return the prompt symbol to use, colorized based on the return value of the
 # previous command.
 function set_prompt_symbol () {
-  if test $1 -eq 0 ; then
+  if test "$1" -eq 0 ; then
       PROMPT_SYMBOL="${LIGHT_BLUE}›${COLOR_NONE}"
   else
       PROMPT_SYMBOL="${LIGHT_RED}›${COLOR_NONE}"
@@ -94,7 +94,7 @@ function set_virtualenv () {
   if test -z "$VIRTUAL_ENV" ; then
       PYTHON_VIRTUALENV=""
   else
-      PYTHON_VIRTUALENV="${BLUE}[`basename \"$VIRTUAL_ENV\"`]${COLOR_NONE} "
+      PYTHON_VIRTUALENV="${BLUE}[$(basename \"$VIRTUAL_ENV\")]${COLOR_NONE} "
   fi
 }
 
@@ -108,7 +108,7 @@ function set_node_version () {
 function set_k8s_context () {
   K8S_CONFIG_CONTEXT=""
   if has_kubectl; then
-    K8S_CONFIG_CONTEXT="${LIGHT_GREEN}<$(kubectl config current-context)>${COLOR_NONE} "
+    K8S_CONFIG_CONTEXT="${LIGHT_GREEN}<$(kubectl config current-context 2>/dev/null)>${COLOR_NONE} "
   fi
 }
 
