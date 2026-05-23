@@ -107,7 +107,7 @@ export GIT_PS1_SHOWUPSTREAM="auto"
 
 # History config {{{2
 export HISTIGNORE="&"
-export HISTSIZE=2000
+export HISTSIZE=10000
 # }}}
 
 # Customized shell prompt {{{2
