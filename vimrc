@@ -60,7 +60,7 @@ Plug 'othree/xml.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'pearofducks/ansible-vim'
 if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
   Plug 'Shougo/deoplete.nvim'
   Plug 'roxma/nvim-yarp'
@@ -112,9 +112,9 @@ let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_build_constraints = 1
-let g:syntastic_go_checkers = ['go', 'golint', 'govet', 'errcheck'] " ['go']
+let g:syntastic_go_checkers = ['govet', 'golint', 'errcheck'] " ['go']
 let g:syntastic_sh_checkers = ['sh', 'shellcheck']
-let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+" let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 let g:go_list_height = 10
 let g:go_list_type = "quickfix"
 " }}}
@@ -183,6 +183,9 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 " FILETYPE VARIABLES {{{2
 let g:xml_syntax_folding = 1
 "}}}2
+" NVIM PYHTON VARIABLES {{{2
+" let g:python3_host_prog = '/usr/local/bin/python3'
+"}}}2
 "}}}1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SECTION: OPTIONS {{{1
@@ -214,7 +217,9 @@ set switchbuf=useopen
 " }}}
 " INTERACTION HELPERS {{{2
 set clipboard=unnamed " enable clipboard cut&paste
-set pastetoggle=<F2>  " Toggle paste mode
+if !has('nvim')
+    set pastetoggle=<F2> " Toggle paste mode
+endif
 set mouse=a             " Enable mouse support
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
