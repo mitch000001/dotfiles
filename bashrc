@@ -3,6 +3,9 @@
 ##############################################################################
 # Homebrew {{{2
 function has_homebrew() {
+  if [[ -f /opt/homebrew/bin/brew ]]; then
+    export PATH=/opt/homebrew/bin:$PATH
+  fi
   return `[[ "$(command -v brew >/dev/null 2>&1; echo $?)" -eq 0 ]]`
 }
 # }}}
@@ -16,14 +19,10 @@ function has_gocd() {
 # }}}
 # git {{{2
 function has_git() {
-  return `[[ $(command -v git >/dev/null 2>&1; echo $?) -eq 0 ]]`
+  rc=$([[ $(command -v git >/dev/null 2>&1; echo $?) -eq 0 ]])
+  return $rc
 }
 # }}}
-# flow {{{2
-function has_rbenv() {
-  return `[[ $(command -v flow >/dev/null 2>&1; echo $?) -eq 0 ]]`
-}
-#}}}
 # rbenv {{{2
 function has_rbenv() {
   return `[[ $(command -v rbenv >/dev/null 2>&1; echo $?) -eq 0 ]]`
@@ -53,7 +52,7 @@ function has_kubectl() {
 ##############################################################################
 # Initialize scripts in bash.d {{{1
 ##############################################################################
-for script in $HOME/.bash.d/*.sh; do
+for script in "$HOME"/.bash.d/*.sh; do
   if [[ -r $script ]]; then
     source $script
   fi
@@ -69,6 +68,7 @@ LOCAL_RC=$HOME/.bashrc.local
 export EDITOR=vim
 if has_nvim; then
   export EDITOR=nvim
+  alias vim=nvim
 fi
 
 export CLICOLOR=1
@@ -78,15 +78,15 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 if has_homebrew; then
   eval "$(brew shellenv bash)"
   #export HOMEBREW=$(brew --cellar)
+else
+  echo "NO HOMEBREW"
 fi
 # }}}
-export ANDROID_SDK_ROOT="${ANDROID_SDK_ROOT-/usr/local/opt/android-sdk}"
-export ANDROID_HOME=$ANDROID_SDK_ROOT
 # Go specific variables {{{2
 if has_go; then
   export GOPATH=$HOME
   if has_homebrew; then
-    export GOROOT=$(brew --prefix)/opt/go/libexec
+    export GOROOT="$HOMEBREW_PREFIX/opt/go/libexec"
   else
     export GOROOT=$(go env GOROOT)
   fi
@@ -107,7 +107,7 @@ export GIT_PS1_SHOWUPSTREAM="auto"
 
 # History config {{{2
 export HISTIGNORE="&"
-export HISTSIZE=2000
+export HISTSIZE=10000
 # }}}
 
 # Customized shell prompt {{{2
@@ -121,10 +121,10 @@ PS1=$PS1"\[$NO_COLOR\] "
 # TODO: add brew to path or find out where it lives
 # Homebrew Path additions {{{2
 if has_homebrew; then
-  export PATH=/usr/local/bin:$PATH
-  export PATH=/usr/local/sbin:$PATH
+  export PATH=$HOMEBREW_PREFIX/bin:$PATH
+  export PATH=$HOMEBREW_PREFIX/sbin:$PATH
   if brew ls nodejs >/dev/null 2>&1; then
-    export PATH=/usr/local/share/npm/bin:$PATH
+    export PATH=$HOMEBREW_PREFIX/share/npm/bin:$PATH
   fi
 fi
 export PATH=./node_modules/.bin:$PATH
@@ -149,10 +149,7 @@ fi
 ##############################################################################
 ### Added by the Heroku Toolbelt {{{1
 ##############################################################################
-export PATH=/usr/local/heroku/bin:$PATH
-
-#source ~/.adb.bash
-
+export PATH=$HOMEBREW_PREFIX/heroku/bin:$PATH
 # }}}
 ##############################################################################
 # Functions {{{1
@@ -186,9 +183,10 @@ function merge_kubecfg () {
 ##############################################################################
 # Bash completion {{{1
 ##############################################################################
-if has_homebrew && [ -f "$(brew --prefix)/etc/profile.d/bash_completion.sh" ]; then
-  source "$(brew --prefix)/etc/profile.d/bash_completion.sh"
-  # Prüfe, ob die Datei existiert, bevor sie geladen wird
+
+if has_homebrew && [ -f "$(brew --prefix)/etc/bash_completion.d" ]; then
+  # . $(brew --prefix)/etc/bash_completion.d
+  [[ -r "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh" ]] && . "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh"
 fi
 if [ -f "$(brew --prefix)/etc/bash_completion.d/git-prompt.sh" ]; then
     source "$(brew --prefix)/etc/bash_completion.d/git-prompt.sh"
@@ -223,6 +221,7 @@ if has_rbenv; then
   eval "$(rbenv init -)"
 fi
 
+export PATH=./bin:$PATH
 # }}}
 ##############################################################################
 ### Aliases {{{1
@@ -235,6 +234,11 @@ alias lh='l -h'
 alias l.='ls -la -d .[^.]*'
 alias ls.='ls -d .[^.]*'
 alias l.v='ls -l -d .[^.]*'
+# }}}
+
+# less aliases {{{2
+# Retail control characters
+alias rless='less -r'
 # }}}
 
 # Workflow aliases {{{2
@@ -348,11 +352,11 @@ fi
 # }}}
 ##############################################################################
 # ## Machine specific changes {{{1
-if [ -f $LOCAL_PROFILE ]; then
-  source $LOCAL_PROFILE
+if [ -f "$LOCAL_PROFILE" ]; then
+  source "$LOCAL_PROFILE"
 fi
-if [ -f $LOCAL_RC ]; then
-  source $LOCAL_RC
+if [ -f "$LOCAL_RC" ]; then
+  source "$LOCAL_RC"
 fi
 # }}}
-# vim: ft=sh
+# vim ft=sh
