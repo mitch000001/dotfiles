@@ -6,7 +6,7 @@ function has_homebrew() {
   if [[ -f /opt/homebrew/bin/brew ]]; then
     export PATH=/opt/homebrew/bin:$PATH
   fi
-  return `[[ "$(command -v brew >/dev/null 2>&1; echo $?)" -eq 0 ]]`
+  return $([[ "$(command -v brew >/dev/null 2>&1; echo $?)" -eq 0 ]])
 }
 # }}}
 # Go {{{2
@@ -184,8 +184,8 @@ function merge_kubecfg () {
 # Bash completion {{{1
 ##############################################################################
 
-if has_homebrew && [ -f "$(brew --prefix)/etc/bash_completion.d" ]; then
-  # . $(brew --prefix)/etc/bash_completion.d
+if has_homebrew && [ -d "$HOMEBREW_PREFIX/etc/bash_completion.d" ];
+then
   [[ -r "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh" ]] && . "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh"
 fi
 if [ -f "$(brew --prefix)/etc/bash_completion.d/git-prompt.sh" ]; then
