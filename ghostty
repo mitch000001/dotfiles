@@ -4,3 +4,4 @@ theme = Midnight in Mojave
 font-family = "Monaco"
 font-size = 14
 bell-features = system
+scrollback-limit = 2147483648
