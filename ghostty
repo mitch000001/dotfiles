@@ -1,6 +1,7 @@
 keybind = super+alt+arrow_left=previous_tab
 keybind = super+alt+arrow_right=next_tab
 theme = Midnight in Mojave
+palette = 0=#000000
 font-family = "Monaco"
 font-size = 14
 bell-features = system
