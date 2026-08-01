@@ -32,3 +32,8 @@ node_modules
 
 # ssh keys
 ssh_keys/
+
+**/.claude/settings.local.json
+
+# MCP server configs can carry live tokens (e.g. gitops cluster repos)
+.mcp.json
